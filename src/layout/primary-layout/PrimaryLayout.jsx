@@ -5,7 +5,7 @@ import TrendingSidebar from './../../components/trending-sidebar/TrendingSidebar
 
 const PrimaryLayout = () => {
     return (
-        <div className="min-h-screen bg-gradient-to-r from-red-50 via-orange-50 to-orange-100">
+        <div className="min-h-screen">
                 <div className="mx-auto md:max-w-2xl lg:max-w-7xl">
                  <Navbar/>
                     <main className="relative px-4 mx-auto mt-18 max-w-7xl sm:px-6 lg:px-8">

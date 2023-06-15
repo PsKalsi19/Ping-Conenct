@@ -3,7 +3,10 @@ import { MdOutlineExplore } from "react-icons/md";
 import { HiPencil, HiOutlineHome, HiOutlineBookmark } from "react-icons/hi";
 import { NavLink } from 'react-router-dom';
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 const Sidebar = () => {
+    const {handleUserLogout}=useContext(AuthContext)
     return (
         <div className="hidden h-screen md:block">
             <div className="flex flex-col h-[90vh]">
@@ -62,7 +65,7 @@ const Sidebar = () => {
                                 <p className="text-xs leading-3 text-gray-800 cursor-pointer">alexis81@gmail.com</p>
                             </div>
                         </div>
-                        <ArrowRightOnRectangleIcon className="w-6 h-6 text-gray-800" />
+                        <ArrowRightOnRectangleIcon onClick={handleUserLogout} className="w-6 h-6 text-gray-800 cursor-pointer" />
                     </div>
                 </div>
             </div>

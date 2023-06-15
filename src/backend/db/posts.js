@@ -11,7 +11,7 @@ export const posts = [
     {
       _id: uuid(),
       content:
-        "A founder gave an employee 10 days off during the notice period so that the employee could visit his sick grandmother.",
+        "A founder gave an employee 10 days off since Employee was not taking rest even though he was ill.",
       likes: {
         likeCount: 0,
         likedBy: [],
@@ -22,7 +22,7 @@ export const posts = [
       comments: [
         {
           _id: uuid(),
-          username: "shrey@gmail.com",
+          username: "henry@example.com",
           text: "That's amazing",
           votes: {
             upvotedBy: [],
