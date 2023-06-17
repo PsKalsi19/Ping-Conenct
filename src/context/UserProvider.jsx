@@ -1,28 +1,36 @@
-import { createContext, useContext, useEffect } from "react";
-import { getAllPosts } from "../services/post-service";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import usersReducer from "../reducers/users-reducer";
+import { usersInitialState } from "./initial-states/UsersInitialState";
 import { AuthContext } from "./AuthProvider";
+import { getAllUsersList } from "../services/user-services";
+import { errorHandler } from "../services/common-util";
+import { USERS_ACTION } from "../constants/users-actions";
 
 export const UserContext = createContext()
-
 const UserProvider = ({ children }) => {
-
-    // Auth Provider
+    const [usersState, usersDispatch] = useReducer(usersReducer, usersInitialState)
     const { authState: { token } } = useContext(AuthContext)
-    const getPosts = async () => {
-        const data = await getAllPosts()
-        console.log(data);
-
+    const { users } = usersState
+    const getAllUsers = async () => {
+        try {
+            const { data: { users } } = await getAllUsersList()
+            usersDispatch({ type: USERS_ACTION.SET_ALL_USERS, payload: users })
+        } catch (error) {
+            errorHandler(error)
+        }
     }
+
+    const getUserByUsername = (userName) => users.find(({ username }) => username === userName)
 
     useEffect(() => {
         if (token === null) return
-        getPosts()
+        getAllUsers()
     }, [token])
-
     return (
-        <UserContext.Provider value={{}}>
+        <UserContext.Provider value={{ usersState,getUserByUsername }}>
             {children}
-        </UserContext.Provider >
-    )
-}
-export default UserProvider
+        </UserContext.Provider>
+    );
+};
+
+export default UserProvider;
