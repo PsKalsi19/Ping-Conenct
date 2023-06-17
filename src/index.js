@@ -7,8 +7,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 // context imports
 import AuthProvider from "./context/AuthProvider";
+import PostProvider from "./context/PostProvider";
 import UserProvider from "./context/UserProvider";
-
 // Call make Server
 makeServer();
 createRoot(document.getElementById("root")).render(
@@ -16,8 +16,10 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <AuthProvider>
         <UserProvider>
-          <Toaster position="top-right" reverseOrder={false} />
-          <App />
+          <PostProvider>
+            <Toaster position="top-right" reverseOrder={false} />
+            <App />
+          </PostProvider>
         </UserProvider>
       </AuthProvider>
     </BrowserRouter>
