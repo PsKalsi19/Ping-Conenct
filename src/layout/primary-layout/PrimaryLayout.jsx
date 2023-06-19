@@ -18,7 +18,9 @@ const PrimaryLayout = () => {
                                 <Sidebar />
                             </aside>
                             </div>
-                            <div className="col-span-8 sm:col-span-4 sm:col-start-3"><div className="p-4 sm:mt-12 lg:mt-0">
+                            <div className="col-span-8 sm:col-span-4 sm:col-start-3">
+                                
+                                <div className="px-4 pb-4 sm:mt-12 lg:mt-0">
                                 <Outlet />
                             </div></div>
                             <div className="relative sm:col-span-2 sm:col-start-7">

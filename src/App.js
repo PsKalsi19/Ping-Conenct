@@ -4,6 +4,10 @@ import Login from "./pages/login/Login";
 import SignUp from "./pages/sign-up/SignUp";
 import Home from "./pages/home/Home";
 import CanActivate from "./components/can-activate/CanActivate";
+import MockAPI from "./pages/mockman/Mockman";
+import Explore from "./pages/explore/Explore";
+import Bookmark from "./pages/bookmark/Bookmark";
+import Profile from "./pages/profile/Profile";
 
 export default function App() {
   return (
@@ -19,8 +23,12 @@ export default function App() {
         >
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
+          <Route path="explore" element={<Explore />} />
+          <Route path="bookmark" element={<Bookmark />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
 
+        <Route path="mockman" element={<MockAPI />} />
         <Route path="login" element={<Login />} />
         <Route path="sign-up" element={<SignUp />} />
       </Routes>

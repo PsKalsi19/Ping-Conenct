@@ -4,8 +4,9 @@ import { useContext } from 'react';
 import { PostContext } from './../../context/PostProvider';
 import { getUserFromLocalStorage } from '../../services/localstorage-service';
 
-const PostCardMenu = ({ postedByUser }) => {
-    const { getUsersFollowersList, getUsersFollowingList } = useContext(PostContext);
+const PostCardMenu = ({ post }) => {
+    const {username,_id}=post
+    const { getUsersFollowersList, getUsersFollowingList,handleDeletePost } = useContext(PostContext);
     const followers = getUsersFollowersList(getUserFromLocalStorage())
     const following = getUsersFollowingList(getUserFromLocalStorage())
     const currentUser = getUserFromLocalStorage().username
@@ -22,14 +23,14 @@ const PostCardMenu = ({ postedByUser }) => {
             >
                 <Popover.Panel className="absolute py-4 space-y-2 text-gray-600 bg-orange-100 border border-gray-300 rounded-md shadow-sm">
                     <div className='space-y-2 text-sm font-semibold'>
-                       {postedByUser!==currentUser && !following.includes(postedByUser) && <Popover.Button className='w-full px-6 pb-1 text-left border-gray-100 hover:text-gray-800'>{ followers.includes(postedByUser)?"Follow Back":"Follow"}</Popover.Button>}
+                       {username!==currentUser && !following.includes(username) && <Popover.Button className='w-full px-6 pb-1 text-left border-gray-100 hover:text-gray-800'>{ followers.includes(username)?"Follow Back":"Follow"}</Popover.Button>}
 
-                        {following.includes(postedByUser) && <Popover.Button className='w-full px-6 pb-1 text-left border-gray-100 hover:text-gray-800'>Unfollow</Popover.Button>}
-                        {postedByUser === currentUser && <>
+                        {following.includes(username) && <Popover.Button className='w-full px-6 pb-1 text-left border-gray-100 hover:text-gray-800'>Unfollow</Popover.Button>}
+                        {username === currentUser && <>
 
                             <Popover.Button className='w-full px-6 pb-1 text-left hover:text-gray-800'>Edit</Popover.Button>
 
-                            <Popover.Button className='w-full px-6 pb-1 text-left border-gray-100 hover:text-gray-800'>Delete</Popover.Button>
+                            <Popover.Button onClick={()=>handleDeletePost(_id)} className='w-full px-6 pb-1 text-left border-gray-100 hover:text-gray-800'>Delete</Popover.Button>
 
                         </>}
 

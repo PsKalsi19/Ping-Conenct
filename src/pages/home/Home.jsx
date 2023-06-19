@@ -9,7 +9,7 @@ const Home = () => {
     const {postsState:{posts,currentUserFeed}}=useContext(PostContext);
     return (
         <div className='relative'>
-            <div className="sticky top-24"><Tabs/></div>
+            <div className="sticky z-40 top-24"><Tabs/></div>
         <div className="flex flex-col items-center space-y-8">
            { currentUserFeed && currentUserFeed.length>0 && currentUserFeed.map(post=> <PostCard post={post} key={post._id}/>)}
         </div>
