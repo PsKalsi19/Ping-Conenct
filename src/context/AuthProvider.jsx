@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
         if (getAuthFromLocalStorage() !== null && Object.keys(getUserFromLocalStorage()).length > 0) {
             setAuthState({
                 user: getUserFromLocalStorage(),
-                auth: getAuthFromLocalStorage()
+                token: getAuthFromLocalStorage()
             })
         }
     }, [])

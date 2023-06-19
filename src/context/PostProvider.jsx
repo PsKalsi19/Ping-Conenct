@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { getAllPosts, getPostsByUsername } from "../services/post-service";
+import { addBookmark, deletePost, dislikePost, getAllPosts, getBookmark, getPostsByUsername, likePost, removeBookmark } from "../services/post-service";
 import { AuthContext } from "./AuthProvider";
 import { postInitialState } from "./initial-states/PostInitialState";
 import postReducer from '../reducers/posts-reducer';
@@ -38,6 +38,62 @@ const PostProvider = ({ children }) => {
 
     const getUserAndFollowingsUsername = (user) => user?.following?.reduce((acc, ele) => [...acc, ele.username], [user.username]) ?? [];
 
+
+    // Cards Actions
+    const handlePostLike = async (postId) => {
+        try {
+            const { data: { posts } } = await likePost(postId, token)
+            postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+        } catch (error) {
+            errorHandler(error)
+        }
+    }
+
+    const handlePostDislike = async (postId) => {
+        try {
+            const { data: { posts } } = await dislikePost(postId, token)
+            postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+        } catch (error) {
+            errorHandler(error)
+        }
+    }
+
+    const handleDeletePost = async (postId) => {
+        try {
+            const { data: { posts } } = await deletePost(postId)
+            postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+        } catch (error) {
+            errorHandler(error)
+        }
+    }
+
+    const handleAddToBookmark = async (postId) => {
+        try {
+            const { data: {bookmarks} } = await addBookmark(postId)
+            postsDispatch({ type: POSTS_ACTIONS.SET_BOOKMARKS, payload: bookmarks })
+        } catch (error) {
+            errorHandler(error)
+        }
+    }
+
+    const handleRemoveFromBookmark = async (postId) => {
+        try {
+            const { data: {bookmarks} } = await removeBookmark(postId)
+            postsDispatch({ type: POSTS_ACTIONS.SET_BOOKMARKS, payload: bookmarks })
+        } catch (error) {
+            errorHandler(error)
+        }
+    }
+
+    const handleGetBookmarks=async()=>{
+        try {
+            const { data: {bookmarks} }= await getBookmark()
+           postsDispatch({ type: POSTS_ACTIONS.SET_BOOKMARKS, payload: bookmarks })
+        } catch (error) {
+            errorHandler(error)
+        }
+    }
+
     useEffect(() => {
         if (token === null) return
         getPosts();
@@ -54,7 +110,20 @@ const PostProvider = ({ children }) => {
     }, [posts, user])
 
     return (
-        <PostContext.Provider value={{ postsState, postsDispatch, getPostsByUser, getUsersFollowersList, getUsersFollowingList }}>
+        <PostContext.Provider
+            value={{
+                postsState,
+                postsDispatch,
+                getPostsByUser,
+                getUsersFollowersList,
+                getUsersFollowingList,
+                handlePostLike,
+                handlePostDislike,
+                handleDeletePost,
+                handleAddToBookmark,
+                handleRemoveFromBookmark,
+                // handleGetBookmarks
+            }}>
             {children}
         </PostContext.Provider >
     )
