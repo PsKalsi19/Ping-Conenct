@@ -43,7 +43,7 @@ const SearchBar = () => {
             </svg>
           </div>
           <Combobox.Input
-            className="block w-full p-3 pl-10 text-sm text-gray-700 placeholder-gray-600 border border-gray-200 rounded-lg bg-orange-50 focus:ring-orange-200 focus:border-orange-200"
+            className="block w-full p-3 pl-10 text-sm text-gray-700 placeholder-gray-600 border border-gray-300 rounded-lg bg-orange-50 focus:ring-orange-200 focus:border-orange-200"
             displayValue={(person) => person.name}
             onChange={(event) => setSearchTerm(event.target.value.trim())}
           />

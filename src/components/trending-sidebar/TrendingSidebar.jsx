@@ -20,9 +20,9 @@ const TrendingSidebar = () => {
 
                             {/* Follow Suggestions */}
                             <div className="pt-8">
-                                <div className="block max-w-sm p-6 border border-gray-200 rounded-lg shadow-md w-92 hover:bg-orange-100 ">
+                                <div className="block max-w-sm p-6 border border-gray-300 rounded-lg shadow-md w-92 hover:bg-orange-100 ">
                                     <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-700 ">Who to Follow</h5>
-                                    {whoToFollow && whoToFollow.length > 0 && whoToFollow.map(({ firstName, lastName, username, profilePic, _id }) => <div key={_id} className="grid grid-cols-5 py-2 border-b border-gray-200 gap-x-2">
+                                    {whoToFollow && whoToFollow.length > 0 && whoToFollow.map(({ firstName, lastName, username, profilePic, _id }, index) => <div key={_id} className={`grid grid-cols-5 py-2   gap-x-2 ${index === whoToFollow.length - 1 ? '' : 'border-gray-300 border-b'} `}>
                                         <div className="flex flex-row col-span-3 ">
                                             <img className="w-10 h-10 rounded-full" src={profilePic} alt="avatar" />
                                             <div className="flex flex-col ml-4">

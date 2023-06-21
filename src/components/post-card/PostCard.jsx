@@ -17,7 +17,7 @@ const PostCard = ({ post }) => {
 
 const isBookmarked=bookmarks.includes(_id)
     return (
-        <div className="block w-full max-w-lg px-6 pt-6 pb-4 bg-orange-200 border border-gray-200 rounded-lg shadow ">
+        <div className="block w-full max-w-lg px-6 pt-6 pb-4 bg-orange-200 border border-gray-300 rounded-lg shadow ">
             <div className="flex justify-between mb-4">
                 <div className="flex flex-row">
                     <img className="w-12 h-12 rounded-full" src={profilePic} alt="avatar" />

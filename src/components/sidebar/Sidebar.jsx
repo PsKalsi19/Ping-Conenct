@@ -60,7 +60,7 @@ const Sidebar = () => {
                     </div>
                 </div>
 
-                <div className="px-4 pt-8 pb-4 border-t border-gray-200 ">
+                <div className="px-4 pt-8 pb-4 border-t border-gray-300 ">
 
                     <div className="flex items-center justify-between w-full ">
                         <div className="flex items-center justify-center space-x-2">
