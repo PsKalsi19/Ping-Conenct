@@ -42,7 +42,7 @@ const Tabs=()=> {
   })
 
   return (
-    <div className="w-full px-2 pb-8 sm:px-0">
+    <div className="w-full px-2 pb-8 bg-orange-100 sm:px-0">
       <Tab.Group>
         <Tab.List className="flex p-1 space-x-1 rounded-xl bg-orange-400/20">
           {Object.keys(categories).map((category) => (
