@@ -7,13 +7,13 @@ export const users = [
   {
     _id: "a58683d3-43fa-4594-a89a-57c6ad9dd444",
     bookmarks: [],
-    firstName: "Sagar",
-    lastName: "Shah",
-    username: "sagar@gmail.com",
-    password: "sagar123",
-    userHandler: "sagar98",
+    firstName: "Axel",
+    lastName: "Blaze",
+    username: "axel@example.com",
+    password: "axel123",
+    userHandler: "axel98",
     bio: "Passionate about entrepreneurship",
-    link: "https://peerlist.io/sagar98",
+    link: "https://peerlist.io/axel98",
     profilePic:
       "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
     createdAt: "2023-06-18T17:03:14+05:30",
@@ -25,6 +25,7 @@ export const users = [
         username: "henry@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_3ef0b609-e702-4749-ad41-177a0a8059a9.jpg?updatedAt=1686940612135",
+        _id: "28d6d81b-16fb-403d-a450-6d757c2f477e",
       },
       {
         firstName: "Alice",
@@ -32,6 +33,7 @@ export const users = [
         username: "alice@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
+        _id: "bb5b09bf-2bca-4d02-b199-48d9083b7501",
       },
     ],
     followers: [
@@ -41,6 +43,7 @@ export const users = [
         username: "henry@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_3ef0b609-e702-4749-ad41-177a0a8059a9.jpg?updatedAt=1686940612135",
+        _id: "28d6d81b-16fb-403d-a450-6d757c2f477e",
       },
       {
         firstName: "Grace",
@@ -48,6 +51,7 @@ export const users = [
         username: "grace@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_523f7d9a-cacd-47f9-a49b-b9144254dabc.jpg?updatedAt=1686940611659",
+        _id: "64cd8323-896e-4f87-82f0-c4738106b70c",
       },
     ],
   },
@@ -67,11 +71,12 @@ export const users = [
     updatedAt: "2023-06-18T17:03:14+05:30",
     following: [
       {
-        firstName: "Sagar",
-        lastName: "Shah",
-        username: "sagar@gmail.com",
+        firstName: "Axel",
+        lastName: "Blaze",
+        username: "axel@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
+        _id: "a58683d3-43fa-4594-a89a-57c6ad9dd444",
       },
       {
         firstName: "Alice",
@@ -79,15 +84,17 @@ export const users = [
         username: "alice@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
+        _id: "bb5b09bf-2bca-4d02-b199-48d9083b7501",
       },
     ],
     followers: [
       {
-        firstName: "Sagar",
-        lastName: "Shah",
-        username: "sagar@gmail.com",
+        firstName: "Axel",
+        lastName: "Blaze",
+        username: "axel@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
+        _id: "a58683d3-43fa-4594-a89a-57c6ad9dd444",
       },
       {
         firstName: "Frank",
@@ -95,6 +102,7 @@ export const users = [
         username: "frank@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_ae7f0ecc-879d-412a-8c1a-ec8932c5ecd3.jpg?updatedAt=1686940612138",
+        _id: "7dfae56e-6f3b-474f-91d8-b0d7a6a6aff3",
       },
     ],
   },
@@ -119,6 +127,7 @@ export const users = [
         username: "henry@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_3ef0b609-e702-4749-ad41-177a0a8059a9.jpg?updatedAt=1686940612135",
+        _id: "28d6d81b-16fb-403d-a450-6d757c2f477e",
       },
     ],
     followers: [
@@ -128,6 +137,7 @@ export const users = [
         username: "david@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_521f5c1b-5361-49bc-9469-01f6fc0a5931.jpg?updatedAt=1686940612361",
+        _id: "b7d855c4-e33a-4093-80bd-1d9a7fcf932d",
       },
       {
         firstName: "Frank",
@@ -135,6 +145,7 @@ export const users = [
         username: "frank@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_ae7f0ecc-879d-412a-8c1a-ec8932c5ecd3.jpg?updatedAt=1686940612138",
+        _id: "7dfae56e-6f3b-474f-91d8-b0d7a6a6aff3",
       },
     ],
   },
@@ -159,6 +170,7 @@ export const users = [
         username: "henry@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_3ef0b609-e702-4749-ad41-177a0a8059a9.jpg?updatedAt=1686940612135",
+        _id: "28d6d81b-16fb-403d-a450-6d757c2f477e",
       },
     ],
     followers: [
@@ -168,6 +180,7 @@ export const users = [
         username: "david@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_521f5c1b-5361-49bc-9469-01f6fc0a5931.jpg?updatedAt=1686940612361",
+        _id: "b7d855c4-e33a-4093-80bd-1d9a7fcf932d",
       },
       {
         firstName: "Frank",
@@ -175,6 +188,7 @@ export const users = [
         username: "frank@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_ae7f0ecc-879d-412a-8c1a-ec8932c5ecd3.jpg?updatedAt=1686940612138",
+        _id: "7dfae56e-6f3b-474f-91d8-b0d7a6a6aff3",
       },
     ],
   },
@@ -199,6 +213,7 @@ export const users = [
         username: "henry@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_3ef0b609-e702-4749-ad41-177a0a8059a9.jpg?updatedAt=1686940612135",
+        _id: "28d6d81b-16fb-403d-a450-6d757c2f477e",
       },
     ],
     followers: [
@@ -208,6 +223,7 @@ export const users = [
         username: "frank@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_ae7f0ecc-879d-412a-8c1a-ec8932c5ecd3.jpg?updatedAt=1686940612138",
+        _id: "7dfae56e-6f3b-474f-91d8-b0d7a6a6aff3",
       },
     ],
   },
@@ -284,6 +300,7 @@ export const users = [
         username: "henry@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_3ef0b609-e702-4749-ad41-177a0a8059a9.jpg?updatedAt=1686940612135",
+        _id: "28d6d81b-16fb-403d-a450-6d757c2f477e",
       },
       {
         firstName: "Alice",
@@ -291,6 +308,7 @@ export const users = [
         username: "alice@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
+        _id: "bb5b09bf-2bca-4d02-b199-48d9083b7501",
       },
       {
         firstName: "Bob",
@@ -298,6 +316,7 @@ export const users = [
         username: "bob@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_d890834a-37a5-4020-a6c0-5fe71d679bcb.jpg?updatedAt=1686940614856",
+        _id: "70a991c8-8884-457a-9b4c-47534efbf5fb",
       },
       {
         firstName: "Charlie",
@@ -305,6 +324,7 @@ export const users = [
         username: "charlie@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_020d6743-7a2d-4329-8cf2-19e4fd779812.jpg?updatedAt=1686940612243",
+        _id: "934ea419-311d-4d9a-8e38-675f2e80d81f",
       },
     ],
   },

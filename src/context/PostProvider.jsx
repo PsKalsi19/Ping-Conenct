@@ -1,18 +1,25 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
-import { addBookmark, deletePost, dislikePost, getAllPosts, getBookmark, getPostsByUsername, likePost, removeBookmark } from "../services/post-service";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import { addBookmark, createPost, deletePost, dislikePost, editPost, getAllPosts, getPostsByUsername, likePost, removeBookmark } from "../services/post-service";
 import { AuthContext } from "./AuthProvider";
 import { postInitialState } from "./initial-states/PostInitialState";
 import postReducer from '../reducers/posts-reducer';
 import { errorHandler } from "../services/common-util";
 import POSTS_ACTIONS from "../constants/posts-actions";
+import { UserContext } from './UserProvider';
 
 export const PostContext = createContext()
 
 const PostProvider = ({ children }) => {
     const [postsState, postsDispatch] = useReducer(postReducer, postInitialState)
+    const [toggleDialog, setToggleDialog] = useState({
+        showDialog: false,
+        selectedPost: {}
+    })
     const { posts } = postsState
     // Auth Provider
     const { authState: { token, user } } = useContext(AuthContext)
+    // User Provider
+    const {getUserAndFollowingsUsername}=useContext(UserContext)
 
     const getPosts = async () => {
         try {
@@ -31,12 +38,6 @@ const PostProvider = ({ children }) => {
             errorHandler(error)
         }
     }
-
-    const getUsersFollowersList = (user) => user?.followers?.map(({ username }) => username) ?? []
-
-    const getUsersFollowingList = (user) => user?.following?.map(({ username }) => username) ?? []
-
-    const getUserAndFollowingsUsername = (user) => user?.following?.reduce((acc, ele) => [...acc, ele.username], [user.username]) ?? [];
 
 
     // Cards Actions
@@ -69,7 +70,7 @@ const PostProvider = ({ children }) => {
 
     const handleAddToBookmark = async (postId) => {
         try {
-            const { data: {bookmarks} } = await addBookmark(postId)
+            const { data: { bookmarks } } = await addBookmark(postId)
             postsDispatch({ type: POSTS_ACTIONS.SET_BOOKMARKS, payload: bookmarks })
         } catch (error) {
             errorHandler(error)
@@ -78,17 +79,26 @@ const PostProvider = ({ children }) => {
 
     const handleRemoveFromBookmark = async (postId) => {
         try {
-            const { data: {bookmarks} } = await removeBookmark(postId)
+            const { data: { bookmarks } } = await removeBookmark(postId)
             postsDispatch({ type: POSTS_ACTIONS.SET_BOOKMARKS, payload: bookmarks })
         } catch (error) {
             errorHandler(error)
         }
     }
 
-    const handleGetBookmarks=async()=>{
+    const handleAddPost = async (postData) => {
         try {
-            const { data: {bookmarks} }= await getBookmark()
-           postsDispatch({ type: POSTS_ACTIONS.SET_BOOKMARKS, payload: bookmarks })
+            const { data: { posts } } = await createPost(postData)
+            postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+        } catch (error) {
+            errorHandler(error)
+        }
+    }
+
+    const handleEditPost = async (postData) => {
+        try {
+            const { data: { posts } } = await editPost(postData)
+            postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
         } catch (error) {
             errorHandler(error)
         }
@@ -115,14 +125,16 @@ const PostProvider = ({ children }) => {
                 postsState,
                 postsDispatch,
                 getPostsByUser,
-                getUsersFollowersList,
-                getUsersFollowingList,
                 handlePostLike,
                 handlePostDislike,
                 handleDeletePost,
                 handleAddToBookmark,
                 handleRemoveFromBookmark,
-                // handleGetBookmarks
+                // handleGetBookmarks,
+                toggleDialog,
+                setToggleDialog,
+                handleAddPost,
+                handleEditPost
             }}>
             {children}
         </PostContext.Provider >

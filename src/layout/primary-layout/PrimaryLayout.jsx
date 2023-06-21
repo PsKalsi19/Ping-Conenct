@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from './../../components/navbar/Navbar';
 import TrendingSidebar from './../../components/trending-sidebar/TrendingSidebar';
+import CustomDialog from "../../components/dialog/CustomDialog";
 
 const PrimaryLayout = () => {
     return (
@@ -21,6 +22,7 @@ const PrimaryLayout = () => {
                             <div className="col-span-8 sm:col-span-4 sm:col-start-3">
                                 
                                 <div className="px-4 pb-4 sm:mt-12 lg:mt-0">
+                                    <CustomDialog/>
                                 <Outlet />
                             </div></div>
                             <div className="relative sm:col-span-2 sm:col-start-7">

@@ -7,6 +7,10 @@ export const getAllPosts = () => axios.get(ENDPOINTS.POSTS);
 export const getPostsByUsername = (username) =>
   axios.get(`${ENDPOINTS.POSTS_BY_USER}/${username}`);
 
+export const createPost=(payload)=>axios.post(ENDPOINTS.POSTS,{postData:payload},DEFAULT_HEADERS())
+
+export const editPost=(payload)=>axios.post(`${ENDPOINTS.POSTS_EDIT}/${payload._id}`,{postData:payload},DEFAULT_HEADERS())
+
 export const likePost = (postId) =>
   axios.post(`${ENDPOINTS.LIKE_POST}/${postId}`, {}, DEFAULT_HEADERS());
 

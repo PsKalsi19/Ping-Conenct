@@ -14,7 +14,7 @@ function Navbar() {
     }, [top]);
     return (
 
-        <nav className={`sticky left-0 top-0 right-0 z-20 bg-orange-100`}>
+        <nav className={`sticky left-0 top-0 right-0 z-10 bg-orange-100`}>
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-24">
                     <div className="flex items-center">
