@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { BookmarkIcon } from "@heroicons/react/24/outline";
-import { ArrowPathRoundedSquareIcon } from "@heroicons/react/24/outline";
 import { ChatBubbleBottomCenterIcon } from "@heroicons/react/24/outline";
 import { getUserFromLocalStorage } from "../../services/localstorage-service";
 import PostCardMenu from "../post-card-menu/PostCardMenu";
@@ -24,7 +23,7 @@ const isBookmarked=bookmarks.includes(_id)
                     <img className="w-12 h-12 rounded-full" src={profilePic} alt="avatar" />
                     <div className="flex flex-col ml-4">
                         <p className="font-semibold text-gray-700">{`${firstName} ${lastName}`}</p>
-                        <small className="text-xs font-normal tracking-tight text-gray-600 ">{username}</small>
+                        <small className="text-xs font-semibold text-gray-500 ">{username}</small>
                     </div>
                 </div>
                 <PostCardMenu post={post} />

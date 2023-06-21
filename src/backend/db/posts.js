@@ -9,28 +9,28 @@ export const posts = [
   {
     _id: "2da09c9f-11ef-447c-96d7-d2e993d6ebcf",
     content:
-      "A founder gave an employee 10 days off since Employee was not taking rest even though he was ill.",
+      "Today, I took a moment to appreciate the simple joys in life - a warm cup of coffee and a breathtaking sunrise. It reminded me of the beauty that surrounds us each day.",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    username: "sagar@gmail.com",
+    username: "axel@example.com",
     bookmark: [],
     comments: [
       {
         _id: "4adf49d2-70c5-4877-b3f8-8d69ab80fa4e",
         username: "henry@example.com",
-        text: "That's amazing",
+        text: "I completely resonate with your sentiment. It's in these small moments of appreciation that we find true happiness.",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-06-20T12:34:56Z",
+    updatedAt: "2023-06-20T12:34:56Z",
   },
   {
     _id: "d3b6ad7f-eb3b-4d89-89aa-c87ddc44f95f",
     content:
-      "A manager organized a team-building retreat to improve collaboration among employees.",
+      "Attended an amazing live music concert last night! The energy, melodies, and collective joy were electrifying. Music unites and uplifts us all",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -117,18 +117,13 @@ export const posts = [
       ],
       dislikedBy: [],
     },
-    username: "john@example.com",
+    username: "alice@example.com",
     bookmark: [],
     comments: [
       {
         _id: "6af8baca-f517-4af7-ba7d-db965898112c",
         username: "emma@example.com",
-        text: "I wish my manager did that!",
-      },
-      {
-        _id: "18dd6166-d807-4d3e-ba7e-d9d8ae03a2a5",
-        username: "grace@example.com",
-        text: "Team-building activities are so much fun.",
+        text: "You are enjoying life.",
       },
     ],
     createdAt: formatDate(),
@@ -137,7 +132,7 @@ export const posts = [
   {
     _id: "e8e618f3-36d9-44ea-a208-68a739feb156",
     content:
-      "An employer provided flexible working hours for a working parent to accommodate childcare responsibilities.",
+      "Jamming to my favorite band's new album on repeat. The melodies and lyrics are simply captivating.",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -169,8 +164,7 @@ export const posts = [
   },
   {
     _id: "4d5350e6-6b47-4170-b3d8-c7dd167d231d",
-    content:
-      "A CEO recognized an employee's exceptional performance with a promotion and a pay raise.",
+    content: "All the wonders you seek are within yourself.",
     likes: {
       likeCount: 4,
       likedBy: [
@@ -307,13 +301,13 @@ export const posts = [
       ],
       dislikedBy: [],
     },
-    username: "john@example.com",
+    username: "alice@example.com",
     bookmark: [],
     comments: [
       {
         _id: "2a775d90-e33e-41f0-8af2-00f2f7d3e0a4",
         username: "emily@example.com",
-        text: "Congratulations on the promotion!",
+        text: "Amen! Girl...",
       },
       {
         _id: "07af9e47-bd3d-4515-af55-a3fe5241bcf1",
@@ -323,7 +317,7 @@ export const posts = [
       {
         _id: "d16c74f8-bf9e-4d90-8378-9214138ad0de",
         username: "henry@example.com",
-        text: "Well-deserved promotion!",
+        text: "Oh such beautiful words.",
       },
     ],
     createdAt: formatDate(),
@@ -332,7 +326,7 @@ export const posts = [
   {
     _id: "47f7db35-0b9c-488d-bd3d-01caefd5259d",
     content:
-      "A manager granted an employee a sabbatical to pursue their passion project.",
+      "Just started watching this new anime series, and I'm already hooked! The animation and storyline are top-notch.",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -344,7 +338,7 @@ export const posts = [
       {
         _id: "96c87680-88a2-41ce-ad84-07ae9df19be6",
         username: "grace@example.com",
-        text: "That's a dream come true!",
+        text: "I binged the entire series in one sitting! The characters are so well-developed. Can't wait for the next season!",
       },
     ],
     createdAt: formatDate(),
@@ -352,8 +346,7 @@ export const posts = [
   },
   {
     _id: "c2d3aec5-ceb8-4ca8-a6dd-987d5d33e803",
-    content:
-      "An employer sponsored an employee's participation in a professional development conference.",
+    content: "Believe in yourself, work hard, and you'll achieve greatness!",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -373,9 +366,9 @@ export const posts = [
           updatedAt: formatDate(),
           following: [
             {
-              firstName: "Sagar",
-              lastName: "Shah",
-              username: "sagar@gmail.com",
+              firstName: "Axel",
+              lastName: "Blaze",
+              username: "axel@example.com",
               profilePic:
                 "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
             },
@@ -389,9 +382,9 @@ export const posts = [
           ],
           followers: [
             {
-              firstName: "Sagar",
-              lastName: "Shah",
-              username: "sagar@gmail.com",
+              firstName: "Axel",
+              lastName: "Blaze",
+              username: "axel@example.com",
               profilePic:
                 "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
             },
@@ -433,7 +426,7 @@ export const posts = [
   {
     _id: "7c57a310-d4f3-4500-babc-b3f98ae222cc",
     content:
-      "A founder personally mentored an employee to enhance their skills and career growth.",
+      "AI-powered voice assistants are becoming increasingly smarter and more helpful. Just asked mine to play my favorite playlist, and it nailed it!",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -463,7 +456,7 @@ export const posts = [
       {
         _id: "8d087025-3520-43e5-b22b-1b3ac29ff4fd",
         username: "henry@example.com",
-        text: "That's exceptional leadership!",
+        text: "I rely on my voice assistant for so many things! It's like having a personal assistant at my fingertips.",
       },
     ],
     createdAt: formatDate(),
@@ -472,7 +465,7 @@ export const posts = [
   {
     _id: "95ab3946-f0d8-40de-a40d-a945a7e252da",
     content:
-      "An employer implemented a work-from-home policy to improve work-life balance for employees.",
+      "Virtual reality is taking entertainment to a whole new level. Just tried out an immersive VR game, and it was mind-blowing! ",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -548,7 +541,7 @@ export const posts = [
       {
         _id: "3065cc57-6b01-470c-82f8-975b1e068a89",
         username: "grace@example.com",
-        text: "Remote work is the future.",
+        text: "I've been curious about VR gaming. Which headset did you use? Any game recommendations?",
       },
     ],
     createdAt: formatDate(),
@@ -557,7 +550,7 @@ export const posts = [
   {
     _id: "f3d65bb7-ecec-42f7-b11a-1061868af494",
     content:
-      "A manager organized a team lunch to celebrate the successful completion of a project.",
+      "Hiking through the mountains was an exhilarating adventure. The breathtaking views made every step worthwhile.",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -610,7 +603,7 @@ export const posts = [
       {
         _id: "1a183575-770d-46bb-97cb-3690d2c7da31",
         username: "frank@example.com",
-        text: "Food and success go well together!",
+        text: "Nature's beauty is unparalleled! Which mountain range did you explore? I'm an avid hiker too.",
       },
     ],
     createdAt: formatDate(),
@@ -619,7 +612,7 @@ export const posts = [
   {
     _id: "0c2fd14b-3449-4759-b3e5-d4c2068f6542",
     content:
-      "An employer sponsored a volunteer activity for employees to give back to the community.",
+      "Spent the weekend gardening and connecting with nature. The tranquility of tending to plants is truly therapeutic.",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -652,7 +645,7 @@ export const posts = [
   {
     _id: "bdefe41b-9038-4a95-b73c-8460a09424f7",
     content:
-      "A CEO personally recognized an employee's effort with a handwritten thank-you note.",
+      "Visited an art exhibition today and was blown away by the creativity and talent on display. Art truly speaks to the soul. ",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -722,12 +715,12 @@ export const posts = [
       {
         _id: "052c094b-a9cc-4dd2-83e5-8707bda7f7a6",
         username: "henry@example.com",
-        text: "Small gestures make a big impact.",
+        text: "I'm an art enthusiast too! Which artist's work impressed you the most at the exhibition?",
       },
       {
         _id: "83aaa639-e329-4893-ad68-8daa582f584f",
         username: "grace@example.com",
-        text: "It's the thought that counts.",
+        text: "I'm comming with you next time.",
       },
     ],
     createdAt: formatDate(),
@@ -736,7 +729,7 @@ export const posts = [
   {
     _id: "c509053a-a64e-4287-8161-e4e81801d40f",
     content:
-      "A manager provided a training budget for employees to attend professional development courses.",
+      "Just finished reading an incredible sci-fi novel that kept me on the edge of my seat till the very end. Highly recommended!",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -756,9 +749,9 @@ export const posts = [
           updatedAt: formatDate(),
           following: [
             {
-              firstName: "Sagar",
-              lastName: "Shah",
-              username: "sagar@gmail.com",
+              firstName: "Axel",
+              lastName: "Blaze",
+              username: "axel@example.com",
               profilePic:
                 "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
             },
@@ -772,9 +765,9 @@ export const posts = [
           ],
           followers: [
             {
-              firstName: "Sagar",
-              lastName: "Shah",
-              username: "sagar@gmail.com",
+              firstName: "Axel",
+              lastName: "Blaze",
+              username: "axel@example.com",
               profilePic:
                 "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
             },
@@ -796,7 +789,7 @@ export const posts = [
       {
         _id: "fd70a16b-636c-47ee-9add-fd27e354c8fb",
         username: "alice@example.com",
-        text: "Investing in employees is key to growth.",
+        text: "I love sci-fi! What's the title of the book? Looking for my next thrilling read. ",
       },
     ],
     createdAt: formatDate(),
@@ -805,7 +798,7 @@ export const posts = [
   {
     _id: "cfbe7824-6255-4108-b550-bfd022d3123a",
     content:
-      "An employer offered a wellness program with gym memberships and mental health resources.",
+      "Took up painting as a hobby, and it has unleashed my creativity in incredible ways. Art truly has no boundaries. ",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -907,7 +900,7 @@ export const posts = [
   {
     _id: "5c984e2a-af8d-4359-a93f-7e71dab78a1a",
     content:
-      "A founder organized a company-wide retreat to celebrate achieving annual goals.",
+      "Spent the evening stargazing and contemplating the vastness of the universe. The night sky never fails to inspire wonder. ",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -927,9 +920,9 @@ export const posts = [
           updatedAt: formatDate(),
           following: [
             {
-              firstName: "Sagar",
-              lastName: "Shah",
-              username: "sagar@gmail.com",
+              firstName: "Axel",
+              lastName: "Blaze",
+              username: "axel@example.com",
               profilePic:
                 "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
             },
@@ -943,9 +936,9 @@ export const posts = [
           ],
           followers: [
             {
-              firstName: "Sagar",
-              lastName: "Shah",
-              username: "sagar@gmail.com",
+              firstName: "Axel",
+              lastName: "Blaze",
+              username: "axel@example.com",
               profilePic:
                 "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
             },
@@ -984,7 +977,7 @@ export const posts = [
       {
         _id: "968ea307-59ef-4baf-b6bd-bbc6787e7baa",
         username: "bob@example.com",
-        text: "That's a great way to foster team spirit.",
+        text: "Stargazing is magical!",
       },
     ],
     createdAt: formatDate(),
@@ -993,7 +986,7 @@ export const posts = [
   {
     _id: "7dad3e75-a001-4273-972d-83eb6c12cc28",
     content:
-      "An employer introduced a profit-sharing program to reward employees for their contributions.",
+      "Finally finished renovating my workspace. It's now an inspiring and organized haven for productivity.",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -1069,7 +1062,7 @@ export const posts = [
       {
         _id: "84813043-d5cc-4bbf-a8a3-3429873237b3",
         username: "grace@example.com",
-        text: "Incentives motivate employees to perform better.",
+        text: "Your workspace looks amazing! Any tips for creating a productive environment? I'm in dire need of an upgrade.",
       },
     ],
     createdAt: formatDate(),
@@ -1078,7 +1071,7 @@ export const posts = [
   {
     _id: "30496488-8a0d-416a-a44a-d3ed562937f4",
     content:
-      "A manager implemented a mentorship program to support employees' career development.",
+      "Just started learning a new language, and it's both challenging and exciting. Can't wait to converse fluently one day! ",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -1111,7 +1104,7 @@ export const posts = [
   {
     _id: "0c2431bb-e391-41ee-b46e-f82a53c637ab",
     content:
-      "An employer sponsored an employee's participation in a leadership training program.",
+      "Web development pro tip: The best debugging tool is a cup of coffee and a deep sense of despair. ",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -1210,7 +1203,7 @@ export const posts = [
       {
         _id: "46093bb0-4281-40c7-814e-0e2a50937319",
         username: "henry@example.com",
-        text: "Investing in leadership skills benefits the entire organization.",
+        text: "#SED_LYF",
       },
     ],
     createdAt: formatDate(),
@@ -1218,7 +1211,7 @@ export const posts = [
   },
   {
     _id: "d4e1fada-f546-4d05-8cf8-53f48c473d27",
-    content: "To code or not to code that is the Question.",
+    content: "CSS: Cascading Style Sheets or Constantly Stressed Stylesheets? You decide.",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -1250,7 +1243,7 @@ export const posts = [
   },
   {
     _id: "5300e5d2-c94f-4951-8db6-630cf0794070",
-    content: "Love is the greatest force in the universe. ❤️",
+    content: "The best part about web development is watching your beautifully designed website break in Internet Explorer. ",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -1282,7 +1275,7 @@ export const posts = [
   },
   {
     _id: "8aae6c57-e5e4-4d15-8a89-7bbe3c0cf82d",
-    content: "The best preparation for tomorrow is doing your best today.",
+    content: "When CSS floats don't cooperate, just imagine them as your hopes and dreams drifting away. ",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -1329,7 +1322,7 @@ export const posts = [
   },
   {
     _id: "73e82a93-e9e1-47fa-80e4-59f71a29e4a5",
-    content: "In the middle of every difficulty lies opportunity.",
+    content: "Web development is like building a sandcastle at the beach. The moment you're satisfied with it, a wave of browser updates washes it away. ",
     likes: {
       likeCount: 1,
       likedBy: [
