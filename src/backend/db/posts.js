@@ -1,5 +1,3 @@
-import { formatDate } from "../utils/authUtils";
-
 /**
  * Posts can be added here.
  * You can add default posts of your wish with different attributes
@@ -26,6 +24,7 @@ export const posts = [
     ],
     createdAt: "2023-06-20T12:34:56Z",
     updatedAt: "2023-06-20T12:34:56Z",
+    id: "1",
   },
   {
     _id: "d3b6ad7f-eb3b-4d89-89aa-c87ddc44f95f",
@@ -46,8 +45,8 @@ export const posts = [
           link: "https://peerlist.io/alicejohnson",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-01-08T02:59:00.000Z",
+          updatedAt: "2023-12-26T23:42:00.000Z",
           following: [
             {
               firstName: "Henry",
@@ -86,8 +85,8 @@ export const posts = [
           link: "https://peerlist.io/bobdavis",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_d890834a-37a5-4020-a6c0-5fe71d679bcb.jpg?updatedAt=1686940614856",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-06-23T00:48:00.000Z",
+          updatedAt: "2023-07-06T06:01:00.000Z",
           following: [
             {
               firstName: "Henry",
@@ -126,8 +125,9 @@ export const posts = [
         text: "You are enjoying life.",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-10-02T15:00:00.000Z",
+    updatedAt: "2023-01-18T21:22:00.000Z",
+    id: "2",
   },
   {
     _id: "e8e618f3-36d9-44ea-a208-68a739feb156",
@@ -148,8 +148,8 @@ export const posts = [
           link: "https://peerlist.io/emmathomas",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_89075b06-2a3b-4655-b4a2-2c5a56e0ef6f.jpg?updatedAt=1686940612035",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-03-05T13:42:00.000Z",
+          updatedAt: "2023-06-12T23:50:00.000Z",
           followers: [],
           following: [],
         },
@@ -159,8 +159,9 @@ export const posts = [
     username: "david@example.com",
     bookmark: [],
     comments: [],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-03-03T04:40:00.000Z",
+    updatedAt: "2023-05-31T15:24:00.000Z",
+    id: "3",
   },
   {
     _id: "4d5350e6-6b47-4170-b3d8-c7dd167d231d",
@@ -180,8 +181,8 @@ export const posts = [
           link: "https://peerlist.io/alicejohnson",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-03-27T06:09:00.000Z",
+          updatedAt: "2023-05-20T14:35:00.000Z",
           following: [
             {
               firstName: "Henry",
@@ -220,8 +221,8 @@ export const posts = [
           link: "https://peerlist.io/bobdavis",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_d890834a-37a5-4020-a6c0-5fe71d679bcb.jpg?updatedAt=1686940614856",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-09-03T03:03:00.000Z",
+          updatedAt: "2023-10-28T18:41:00.000Z",
           following: [
             {
               firstName: "Henry",
@@ -260,8 +261,8 @@ export const posts = [
           link: "https://peerlist.io/charliewilson",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_020d6743-7a2d-4329-8cf2-19e4fd779812.jpg?updatedAt=1686940612243",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-11-28T17:17:00.000Z",
+          updatedAt: "2023-09-01T02:20:00.000Z",
           following: [
             {
               firstName: "Henry",
@@ -293,8 +294,8 @@ export const posts = [
           link: "https://peerlist.io/davidtaylor",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_521f5c1b-5361-49bc-9469-01f6fc0a5931.jpg?updatedAt=1686940612361",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-02-07T00:48:00.000Z",
+          updatedAt: "2023-02-23T02:51:00.000Z",
           followers: [],
           following: [],
         },
@@ -320,8 +321,9 @@ export const posts = [
         text: "Oh such beautiful words.",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-05-06T14:25:00.000Z",
+    updatedAt: "2023-04-11T04:13:00.000Z",
+    id: "4",
   },
   {
     _id: "47f7db35-0b9c-488d-bd3d-01caefd5259d",
@@ -341,8 +343,9 @@ export const posts = [
         text: "I binged the entire series in one sitting! The characters are so well-developed. Can't wait for the next season!",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-06-15T15:34:00.000Z",
+    updatedAt: "2023-12-30T22:00:00.000Z",
+    id: "5",
   },
   {
     _id: "c2d3aec5-ceb8-4ca8-a6dd-987d5d33e803",
@@ -362,8 +365,8 @@ export const posts = [
           link: "https://peerlist.io/henrysmith",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_3ef0b609-e702-4749-ad41-177a0a8059a9.jpg?updatedAt=1686940612135",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-10-03T22:01:00.000Z",
+          updatedAt: "2023-03-19T13:15:00.000Z",
           following: [
             {
               firstName: "Axel",
@@ -409,8 +412,8 @@ export const posts = [
           link: "https://peerlist.io/emmathomas",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_89075b06-2a3b-4655-b4a2-2c5a56e0ef6f.jpg?updatedAt=1686940612035",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-02-13T09:45:00.000Z",
+          updatedAt: "2023-08-21T12:22:00.000Z",
           followers: [],
           following: [],
         },
@@ -420,8 +423,9 @@ export const posts = [
     username: "bob@example.com",
     bookmark: [],
     comments: [],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-12-30T00:40:00.000Z",
+    updatedAt: "2023-02-06T15:14:00.000Z",
+    id: "6",
   },
   {
     _id: "7c57a310-d4f3-4500-babc-b3f98ae222cc",
@@ -442,8 +446,8 @@ export const posts = [
           link: "https://peerlist.io/gracemiller",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_523f7d9a-cacd-47f9-a49b-b9144254dabc.jpg?updatedAt=1686940611659",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-11-06T18:26:00.000Z",
+          updatedAt: "2023-12-12T20:33:00.000Z",
           followers: [],
           following: [],
         },
@@ -459,8 +463,9 @@ export const posts = [
         text: "I rely on my voice assistant for so many things! It's like having a personal assistant at my fingertips.",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-05-04T15:12:00.000Z",
+    updatedAt: "2023-02-11T05:53:00.000Z",
+    id: "7",
   },
   {
     _id: "95ab3946-f0d8-40de-a40d-a945a7e252da",
@@ -481,8 +486,8 @@ export const posts = [
           link: "https://peerlist.io/emmathomas",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_89075b06-2a3b-4655-b4a2-2c5a56e0ef6f.jpg?updatedAt=1686940612035",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-08-20T02:14:00.000Z",
+          updatedAt: "2023-04-09T06:44:00.000Z",
           followers: [],
           following: [],
         },
@@ -498,8 +503,8 @@ export const posts = [
           link: "https://peerlist.io/frankbrown",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_ae7f0ecc-879d-412a-8c1a-ec8932c5ecd3.jpg?updatedAt=1686940612138",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-07-27T08:38:00.000Z",
+          updatedAt: "2023-04-19T02:46:00.000Z",
           followers: [],
           following: [
             {
@@ -544,8 +549,9 @@ export const posts = [
         text: "I've been curious about VR gaming. Which headset did you use? Any game recommendations?",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-09-23T09:10:00.000Z",
+    updatedAt: "2023-04-16T23:42:00.000Z",
+    id: "8",
   },
   {
     _id: "f3d65bb7-ecec-42f7-b11a-1061868af494",
@@ -566,8 +572,8 @@ export const posts = [
           link: "https://peerlist.io/alicejohnson",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-12-23T04:52:00.000Z",
+          updatedAt: "2023-12-03T03:11:00.000Z",
           following: [
             {
               firstName: "Henry",
@@ -606,8 +612,9 @@ export const posts = [
         text: "Nature's beauty is unparalleled! Which mountain range did you explore? I'm an avid hiker too.",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-09-16T23:44:00.000Z",
+    updatedAt: "2023-07-21T00:27:00.000Z",
+    id: "9",
   },
   {
     _id: "0c2fd14b-3449-4759-b3e5-d4c2068f6542",
@@ -628,8 +635,8 @@ export const posts = [
           link: "https://peerlist.io/gracemiller",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_523f7d9a-cacd-47f9-a49b-b9144254dabc.jpg?updatedAt=1686940611659",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-01-03T19:28:00.000Z",
+          updatedAt: "2023-05-23T03:49:00.000Z",
           followers: [],
           following: [],
         },
@@ -639,8 +646,9 @@ export const posts = [
     username: "charlie@example.com",
     bookmark: [],
     comments: [],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-07-22T12:31:00.000Z",
+    updatedAt: "2023-02-06T12:10:00.000Z",
+    id: "10",
   },
   {
     _id: "bdefe41b-9038-4a95-b73c-8460a09424f7",
@@ -661,8 +669,8 @@ export const posts = [
           link: "https://peerlist.io/alicejohnson",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-05-11T07:46:00.000Z",
+          updatedAt: "2023-06-04T23:15:00.000Z",
           following: [
             {
               firstName: "Henry",
@@ -701,8 +709,8 @@ export const posts = [
           link: "https://peerlist.io/emmathomas",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_89075b06-2a3b-4655-b4a2-2c5a56e0ef6f.jpg?updatedAt=1686940612035",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-05-24T13:43:00.000Z",
+          updatedAt: "2023-11-24T11:09:00.000Z",
           followers: [],
           following: [],
         },
@@ -723,8 +731,9 @@ export const posts = [
         text: "I'm comming with you next time.",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-06-21T10:11:00.000Z",
+    updatedAt: "2023-05-15T17:05:00.000Z",
+    id: "11",
   },
   {
     _id: "c509053a-a64e-4287-8161-e4e81801d40f",
@@ -745,8 +754,8 @@ export const posts = [
           link: "https://peerlist.io/henrysmith",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_3ef0b609-e702-4749-ad41-177a0a8059a9.jpg?updatedAt=1686940612135",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-07-25T23:07:00.000Z",
+          updatedAt: "2023-05-04T14:30:00.000Z",
           following: [
             {
               firstName: "Axel",
@@ -792,8 +801,9 @@ export const posts = [
         text: "I love sci-fi! What's the title of the book? Looking for my next thrilling read. ",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-12-26T11:21:00.000Z",
+    updatedAt: "2023-02-10T18:36:00.000Z",
+    id: "12",
   },
   {
     _id: "cfbe7824-6255-4108-b550-bfd022d3123a",
@@ -814,8 +824,8 @@ export const posts = [
           link: "https://peerlist.io/bobdavis",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_d890834a-37a5-4020-a6c0-5fe71d679bcb.jpg?updatedAt=1686940614856",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-05-17T06:02:00.000Z",
+          updatedAt: "2023-10-11T02:44:00.000Z",
           following: [
             {
               firstName: "Henry",
@@ -854,8 +864,8 @@ export const posts = [
           link: "https://peerlist.io/frankbrown",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_ae7f0ecc-879d-412a-8c1a-ec8932c5ecd3.jpg?updatedAt=1686940612138",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-12-18T06:53:00.000Z",
+          updatedAt: "2023-03-09T13:12:00.000Z",
           followers: [],
           following: [
             {
@@ -894,8 +904,9 @@ export const posts = [
     username: "grace@example.com",
     bookmark: [],
     comments: [],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-06-20T20:10:00.000Z",
+    updatedAt: "2023-11-19T04:39:00.000Z",
+    id: "13",
   },
   {
     _id: "5c984e2a-af8d-4359-a93f-7e71dab78a1a",
@@ -916,8 +927,8 @@ export const posts = [
           link: "https://peerlist.io/henrysmith",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_3ef0b609-e702-4749-ad41-177a0a8059a9.jpg?updatedAt=1686940612135",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-09-30T20:56:00.000Z",
+          updatedAt: "2023-01-19T18:53:00.000Z",
           following: [
             {
               firstName: "Axel",
@@ -963,8 +974,8 @@ export const posts = [
           link: "https://peerlist.io/emmathomas",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_89075b06-2a3b-4655-b4a2-2c5a56e0ef6f.jpg?updatedAt=1686940612035",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-02-02T16:32:00.000Z",
+          updatedAt: "2023-12-02T00:42:00.000Z",
           followers: [],
           following: [],
         },
@@ -980,8 +991,9 @@ export const posts = [
         text: "Stargazing is magical!",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-01-16T14:46:00.000Z",
+    updatedAt: "2023-07-06T09:00:00.000Z",
+    id: "14",
   },
   {
     _id: "7dad3e75-a001-4273-972d-83eb6c12cc28",
@@ -1002,8 +1014,8 @@ export const posts = [
           link: "https://peerlist.io/emmathomas",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_89075b06-2a3b-4655-b4a2-2c5a56e0ef6f.jpg?updatedAt=1686940612035",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-12-10T01:58:00.000Z",
+          updatedAt: "2023-08-04T22:47:00.000Z",
           followers: [],
           following: [],
         },
@@ -1019,8 +1031,8 @@ export const posts = [
           link: "https://peerlist.io/frankbrown",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_ae7f0ecc-879d-412a-8c1a-ec8932c5ecd3.jpg?updatedAt=1686940612138",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-10-11T16:09:00.000Z",
+          updatedAt: "2023-05-27T10:36:00.000Z",
           followers: [],
           following: [
             {
@@ -1065,8 +1077,9 @@ export const posts = [
         text: "Your workspace looks amazing! Any tips for creating a productive environment? I'm in dire need of an upgrade.",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-02-03T15:27:00.000Z",
+    updatedAt: "2023-06-05T04:40:00.000Z",
+    id: "15",
   },
   {
     _id: "30496488-8a0d-416a-a44a-d3ed562937f4",
@@ -1087,8 +1100,8 @@ export const posts = [
           link: "https://peerlist.io/gracemiller",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_523f7d9a-cacd-47f9-a49b-b9144254dabc.jpg?updatedAt=1686940611659",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-12-12T18:54:00.000Z",
+          updatedAt: "2023-03-03T17:49:00.000Z",
           followers: [],
           following: [],
         },
@@ -1098,8 +1111,9 @@ export const posts = [
     username: "charlie@example.com",
     bookmark: [],
     comments: [],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-08-20T05:49:00.000Z",
+    updatedAt: "2023-11-05T15:39:00.000Z",
+    id: "16",
   },
   {
     _id: "0c2431bb-e391-41ee-b46e-f82a53c637ab",
@@ -1120,8 +1134,8 @@ export const posts = [
           link: "https://peerlist.io/alicejohnson",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-05-06T21:19:00.000Z",
+          updatedAt: "2023-09-01T12:42:00.000Z",
           following: [
             {
               firstName: "Henry",
@@ -1160,8 +1174,8 @@ export const posts = [
           link: "https://peerlist.io/frankbrown",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_ae7f0ecc-879d-412a-8c1a-ec8932c5ecd3.jpg?updatedAt=1686940612138",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-06-20T00:56:00.000Z",
+          updatedAt: "2023-12-11T00:22:00.000Z",
           followers: [],
           following: [
             {
@@ -1206,12 +1220,14 @@ export const posts = [
         text: "#SED_LYF",
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-08-19T07:59:00.000Z",
+    updatedAt: "2023-03-01T10:02:00.000Z",
+    id: "17",
   },
   {
     _id: "d4e1fada-f546-4d05-8cf8-53f48c473d27",
-    content: "CSS: Cascading Style Sheets or Constantly Stressed Stylesheets? You decide.",
+    content:
+      "CSS: Cascading Style Sheets or Constantly Stressed Stylesheets? You decide.",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -1227,8 +1243,8 @@ export const posts = [
           link: "https://peerlist.io/emmathomas",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_89075b06-2a3b-4655-b4a2-2c5a56e0ef6f.jpg?updatedAt=1686940612035",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-11-22T23:02:00.000Z",
+          updatedAt: "2023-09-08T12:05:00.000Z",
           followers: [],
           following: [],
         },
@@ -1238,12 +1254,14 @@ export const posts = [
     username: "henry@example.com",
     bookmark: [],
     comments: [],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-07-12T03:38:00.000Z",
+    updatedAt: "2023-05-21T13:42:00.000Z",
+    id: "18",
   },
   {
     _id: "5300e5d2-c94f-4951-8db6-630cf0794070",
-    content: "The best part about web development is watching your beautifully designed website break in Internet Explorer. ",
+    content:
+      "The best part about web development is watching your beautifully designed website break in Internet Explorer. ",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -1259,8 +1277,8 @@ export const posts = [
           link: "https://peerlist.io/emmathomas",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_89075b06-2a3b-4655-b4a2-2c5a56e0ef6f.jpg?updatedAt=1686940612035",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-09-23T04:51:00.000Z",
+          updatedAt: "2023-11-25T00:12:00.000Z",
           followers: [],
           following: [],
         },
@@ -1270,12 +1288,14 @@ export const posts = [
     username: "henry@example.com",
     bookmark: [],
     comments: [],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-05-03T05:04:00.000Z",
+    updatedAt: "2023-06-05T18:56:00.000Z",
+    id: "19",
   },
   {
     _id: "8aae6c57-e5e4-4d15-8a89-7bbe3c0cf82d",
-    content: "When CSS floats don't cooperate, just imagine them as your hopes and dreams drifting away. ",
+    content:
+      "When CSS floats don't cooperate, just imagine them as your hopes and dreams drifting away. ",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -1291,8 +1311,8 @@ export const posts = [
           link: "https://peerlist.io/emmathomas",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_89075b06-2a3b-4655-b4a2-2c5a56e0ef6f.jpg?updatedAt=1686940612035",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-06-03T15:41:00.000Z",
+          updatedAt: "2023-10-24T04:38:00.000Z",
           followers: [],
           following: [],
         },
@@ -1302,8 +1322,9 @@ export const posts = [
     username: "henry@example.com",
     bookmark: [],
     comments: [],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-02-23T06:18:00.000Z",
+    updatedAt: "2023-07-01T01:05:00.000Z",
+    id: "20",
   },
   {
     _id: "8b063781-6c7e-4724-abf6-84fc6e82f582",
@@ -1317,12 +1338,14 @@ export const posts = [
     username: "henry@example.com",
     bookmark: [],
     comments: [],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-11-03T22:15:00.000Z",
+    updatedAt: "2023-10-22T15:04:00.000Z",
+    id: "21",
   },
   {
     _id: "73e82a93-e9e1-47fa-80e4-59f71a29e4a5",
-    content: "Web development is like building a sandcastle at the beach. The moment you're satisfied with it, a wave of browser updates washes it away. ",
+    content:
+      "Web development is like building a sandcastle at the beach. The moment you're satisfied with it, a wave of browser updates washes it away. ",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -1338,8 +1361,8 @@ export const posts = [
           link: "https://peerlist.io/alicejohnson",
           profilePic:
             "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
-          createdAt: formatDate(),
-          updatedAt: formatDate(),
+          createdAt: "2023-12-05T02:08:00.000Z",
+          updatedAt: "2023-05-05T17:14:00.000Z",
           following: [
             {
               firstName: "Henry",
@@ -1372,7 +1395,8 @@ export const posts = [
     username: "henry@example.com",
     bookmark: [],
     comments: [],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2023-06-24T17:38:00.000Z",
+    updatedAt: "2023-12-14T19:06:00.000Z",
+    id: "22",
   },
 ];

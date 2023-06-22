@@ -15,11 +15,11 @@ const PostProvider = ({ children }) => {
         showDialog: false,
         selectedPost: {}
     })
-    const { posts } = postsState
+    const { posts, current_sortby, currentUserFeed } = postsState
     // Auth Provider
     const { authState: { token, user } } = useContext(AuthContext)
     // User Provider
-    const {getUserAndFollowingsUsername}=useContext(UserContext)
+    const { getUserAndFollowingsUsername } = useContext(UserContext)
 
     const getPosts = async () => {
         try {
@@ -104,10 +104,14 @@ const PostProvider = ({ children }) => {
         }
     }
 
+    
+
     useEffect(() => {
         if (token === null) return
         getPosts();
     }, [token])
+
+
 
     useEffect(() => {
         if (posts && posts.length > 0) {
@@ -117,7 +121,27 @@ const PostProvider = ({ children }) => {
             }
             filterAllUserPostFeed()
         }
-    }, [posts, user])
+    }, [getUserAndFollowingsUsername, posts, user])
+
+    useEffect(() => {
+        const sortFeed = () => {
+            let sortedFeed = []
+            if(currentUserFeed.length===0) return 
+            switch (current_sortby) {
+                case "trending":
+                    sortedFeed = currentUserFeed.sort((a, b) => b.likes.likeCount - a.likes.likeCount)
+                    break;
+                case "latest":
+                    sortedFeed = currentUserFeed.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+                    break;
+                default:
+                    sortedFeed = currentUserFeed
+                    break;
+            }
+            postsDispatch({ type: POSTS_ACTIONS.SET_USER_FEED, payload: sortedFeed })
+        }
+        sortFeed()
+    }, [currentUserFeed, current_sortby])
 
     return (
         <PostContext.Provider
@@ -134,7 +158,7 @@ const PostProvider = ({ children }) => {
                 toggleDialog,
                 setToggleDialog,
                 handleAddPost,
-                handleEditPost
+                handleEditPost,
             }}>
             {children}
         </PostContext.Provider >
