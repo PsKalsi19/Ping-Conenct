@@ -1,5 +1,6 @@
 export const postInitialState={
     posts:[],
     currentUserFeed:[],
-    bookmarks:[]
+    bookmarks:[],
+    current_sortby:"latest"
 }

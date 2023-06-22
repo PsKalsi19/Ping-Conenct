@@ -11,6 +11,9 @@ const postReducer = (state, { type, payload }) => {
     case POSTS_ACTIONS.SET_BOOKMARKS:
       return { ...state, bookmarks: payload };
 
+      case POSTS_ACTIONS.SET_SORT:
+        return {...state, current_sortby:payload}
+
     default:
       return state;
   }
