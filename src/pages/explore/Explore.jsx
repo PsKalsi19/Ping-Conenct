@@ -7,7 +7,7 @@ const Explore = () => {
     const { postsState: { posts } } = useContext(PostContext)
 
     useEffect(() => {
-        document.title = "Explore | PING CONNECT"
+        document.title = "EXPLORE | PING CONNECT"
     }, [])
 
     return (

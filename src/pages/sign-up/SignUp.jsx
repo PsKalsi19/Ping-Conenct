@@ -19,7 +19,7 @@ const SignUp = () => {
 
 const {handleUserSignUp}=useContext(AuthContext)
   useEffect(()=>{
-    document.title="Sign Up | PING CONNECT"
+    document.title="SIGN UP | PING CONNECT"
   },[])
 
   const handleSubmit = (e) => {

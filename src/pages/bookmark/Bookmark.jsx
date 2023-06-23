@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { PostContext } from "../../context/PostProvider";
 import PostCard from "../../components/post-card/PostCard";
 
@@ -6,7 +6,9 @@ const Bookmark = () => {
     const { postsState: { bookmarks, posts } } = useContext(PostContext)
     const bookmarkedPosts = posts.filter(({ _id }) => bookmarks.includes(_id))
 
-
+    useEffect(() => {
+        document.title = "BOOKMARKS | PING CONNECT"
+    }, [])
 
     if (bookmarks && bookmarks.length === 0) {
         return (

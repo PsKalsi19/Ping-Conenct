@@ -19,7 +19,7 @@ const Login = () => {
   });
 
   useEffect(() => {
-    document.title = "Login | PING CONNECT"
+    document.title = "LOGIN | PING CONNECT"
     getAuthFromLocalStorage() !== null ? navigate("/home") : setAuthState(authInitialState);
   }, [navigate, setAuthState]);
 
