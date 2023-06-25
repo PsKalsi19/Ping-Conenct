@@ -30,10 +30,11 @@ const Home = () => {
 
             <div className="flex flex-col items-center space-y-8">
                 {currentUserFeed && currentUserFeed.length === 0 &&
-
                     <div className="flex flex-col items-center">
-                        <img src="https://ik.imagekit.io/pb97gg2as/Ping-Connnect/undraw_empty.svg?updatedAt=1687183185476" className=" w-60 h-60 md:w-80 md:h-80" alt="no_data" />
-                        <h3 className="w-auto text-2xl font-extrabold tracking-tight text-center text-gray-600 md:text-3xl lg:text-4xl">Embarking on a social media adventure, starting with an empty feed? Time to unleash your creativity and let the world witness the magic! 🌟✨.   </h3></div>}
+                        <img src="https://ik.imagekit.io/pb97gg2as/Ping-Connnect/undraw_empty.svg?updatedAt=1687183185476" className=" w-60 h-60" alt="no_data" />
+                        <h3 className="w-auto text-2xl font-extrabold tracking-tight text-center text-gray-600 ">Starting with an empty
+                  feed? Time to unleash your thoughts and let the world
+                  know what's on your mind!  </h3></div>}
             </div>
         </div>
     );
