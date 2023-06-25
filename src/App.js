@@ -8,6 +8,7 @@ import MockAPI from "./pages/mockman/Mockman";
 import Explore from "./pages/explore/Explore";
 import Bookmark from "./pages/bookmark/Bookmark";
 import Profile from "./pages/profile/Profile";
+import UserDetails from "./pages/user-details/UserDetails";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         >
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
+          <Route path="user-details" element={<UserDetails />} />
           <Route path="explore" element={<Explore />} />
           <Route path="bookmark" element={<Bookmark />} />
           <Route path="profile" element={<Profile />} />

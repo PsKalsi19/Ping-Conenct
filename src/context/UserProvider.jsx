@@ -7,9 +7,12 @@ import { errorHandler } from "../services/common-util";
 import { USERS_ACTION } from "../constants/users-actions";
 import { setUserToLocalStorage } from './../services/localstorage-service';
 import { editUser } from './../services/auth-services';
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const UserContext = createContext()
 const UserProvider = ({ children }) => {
+    const location=useLocation()
+    const navigate=useNavigate()
     const [usersState, usersDispatch] = useReducer(usersReducer, usersInitialState)
     const { authState: { token,user },setAuthState } = useContext(AuthContext)
     const [toggleEditProfile, setToggleEditProfile] = useState(false);
@@ -31,6 +34,9 @@ const UserProvider = ({ children }) => {
           } = await editUser({ userData: payload });
           setAuthState((prevVal) => ({ ...prevVal, user: user }));
           usersDispatch({type:USERS_ACTION.UPDATE_USER,payload:[user]})
+          if(location.pathname==="/user-details"){
+            navigate("/home")
+          }
         //   setUserToLocalStorage(user);
         } catch (error) {
           errorHandler(error);
