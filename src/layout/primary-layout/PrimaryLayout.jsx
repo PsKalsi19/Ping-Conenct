@@ -3,6 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from './../../components/navbar/Navbar';
 import TrendingSidebar from './../../components/trending-sidebar/TrendingSidebar';
 import CustomDialog from "../../components/dialog/CustomDialog";
+import EditProfile from "../../components/edit-profile-form/EditProfile";
 
 const PrimaryLayout = () => {
     return (
@@ -23,6 +24,7 @@ const PrimaryLayout = () => {
                                 
                                 <div className="px-4 pb-4 sm:mt-12 lg:mt-0">
                                     <CustomDialog/>
+                                    <EditProfile/>
                                 <Outlet />
                             </div></div>
                             <div className="relative sm:col-span-2 sm:col-start-7">

@@ -2,13 +2,14 @@ import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
+import { useNavigate } from "react-router-dom";
 
 
 
 const SearchBar = () => {
   const { usersState: { users } } = useContext(UserContext)
   const [searchTerm, setSearchTerm] = useState('')
-
+const navigate=useNavigate()
   // Only to resolve errors
   const searchUserHandler = () => {
     return users.filter(({ firstName, lastName }) => {
@@ -17,7 +18,7 @@ const SearchBar = () => {
     })
   }
   const handleItemSelect = (e) => {
-    console.log(e);
+    navigate("/profile",{state:e})
   }
 
 

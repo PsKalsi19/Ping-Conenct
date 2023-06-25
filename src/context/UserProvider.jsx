@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer,useState } from "react";
 import usersReducer from "../reducers/users-reducer";
 import { usersInitialState } from "./initial-states/UsersInitialState";
 import { AuthContext } from "./AuthProvider";
@@ -6,11 +6,14 @@ import {  getAllUsersList, setFollowUser, setUnfollowUser } from "../services/us
 import { errorHandler } from "../services/common-util";
 import { USERS_ACTION } from "../constants/users-actions";
 import { setUserToLocalStorage } from './../services/localstorage-service';
+import { editUser } from './../services/auth-services';
 
 export const UserContext = createContext()
 const UserProvider = ({ children }) => {
     const [usersState, usersDispatch] = useReducer(usersReducer, usersInitialState)
     const { authState: { token,user },setAuthState } = useContext(AuthContext)
+    const [toggleEditProfile, setToggleEditProfile] = useState(false);
+
     const { users } = usersState
     const getAllUsers = async () => {
         try {
@@ -20,6 +23,19 @@ const UserProvider = ({ children }) => {
             errorHandler(error)
         }
     }
+
+    const handleEditUser = async (payload) => {
+        try {
+          const {
+            data: { user },
+          } = await editUser({ userData: payload });
+          setAuthState((prevVal) => ({ ...prevVal, user: user }));
+          usersDispatch({type:USERS_ACTION.UPDATE_USER,payload:[user]})
+        //   setUserToLocalStorage(user);
+        } catch (error) {
+          errorHandler(error);
+        }
+      };
 
     const getUserByUsername = (userName) => users.find(({ username }) => username === userName)
 
@@ -76,7 +92,10 @@ const UserProvider = ({ children }) => {
             getUsersFollowersList,
             getUsersFollowingList,
             getUserAndFollowingsUsername,
-            getUsersNotOnFollowingList
+            getUsersNotOnFollowingList,
+            handleEditUser,
+            toggleEditProfile, 
+            setToggleEditProfile
         }}>
             {children}
         </UserContext.Provider>
