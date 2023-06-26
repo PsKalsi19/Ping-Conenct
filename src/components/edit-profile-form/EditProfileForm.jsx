@@ -179,16 +179,15 @@ const EditProfileForm = () => {
           >
             Website
           </label>
-
-          <input
-            type="text"
-            onChange={changeHandlerFn}
-            value={formState?.link}
-            name="link"
-            id="link"
-            placeholder="www.example.com"
-            className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200"
-          />
+            <input
+              type="url"
+              onChange={changeHandlerFn}
+              value={formState?.link}
+              name="link"
+              id="link"
+              placeholder="http://www.example.com"
+              className="border sm:text-sm font-medium rounded-lg block w-full  p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200"
+            />
         </div>
         <button
           type="submit"
