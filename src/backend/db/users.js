@@ -11,6 +11,7 @@ export const users = [
     lastName: "Blaze",
     username: "axel@example.com",
     password: "axel123",
+    banner:"",
     userHandler: "axel98",
     bio: "Passionate about entrepreneurship",
     link: "https://peerlist.io/axel98",
@@ -62,6 +63,7 @@ export const users = [
     lastName: "Smith",
     username: "henry@example.com",
     password: "henry123",
+    banner:"",
     userHandler: "henrysmith",
     bio: "Marketing professional with a creative edge",
     link: "https://peerlist.io/henrysmith",
@@ -97,12 +99,36 @@ export const users = [
         _id: "a58683d3-43fa-4594-a89a-57c6ad9dd444",
       },
       {
+        firstName: "Bob",
+        lastName: "Davis",
+        username: "bob@example.com",
+        profilePic:
+          "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_d890834a-37a5-4020-a6c0-5fe71d679bcb.jpg?updatedAt=1686940614856",
+        _id: "70a991c8-8884-457a-9b4c-47534efbf5fb",
+      },
+      {
         firstName: "Frank",
         lastName: "Brown",
         username: "frank@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_ae7f0ecc-879d-412a-8c1a-ec8932c5ecd3.jpg?updatedAt=1686940612138",
         _id: "7dfae56e-6f3b-474f-91d8-b0d7a6a6aff3",
+      },
+      {
+        firstName: "Alice",
+        lastName: "Johnson",
+        username: "alice@example.com",
+        profilePic:
+          "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
+        _id: "bb5b09bf-2bca-4d02-b199-48d9083b7501",
+      },
+      {
+        firstName: "Charlie",
+        lastName: "Wilson",
+        username: "charlie@example.com",
+        profilePic:
+          "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_020d6743-7a2d-4329-8cf2-19e4fd779812.jpg?updatedAt=1686940612243",
+        _id: "934ea419-311d-4d9a-8e38-675f2e80d81f",
       },
     ],
   },
@@ -113,6 +139,7 @@ export const users = [
     lastName: "Johnson",
     username: "alice@example.com",
     password: "alice123",
+    banner:"",
     userHandler: "alicejohnson",
     bio: "Passionate about creating meaningful user experiences",
     link: "https://peerlist.io/alicejohnson",
@@ -140,12 +167,28 @@ export const users = [
         _id: "b7d855c4-e33a-4093-80bd-1d9a7fcf932d",
       },
       {
+        firstName: "Henry",
+        lastName: "Smith",
+        username: "henry@example.com",
+        profilePic:
+          "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_3ef0b609-e702-4749-ad41-177a0a8059a9.jpg?updatedAt=1686940612135",
+        _id: "28d6d81b-16fb-403d-a450-6d757c2f477e",
+      },
+      {
         firstName: "Frank",
         lastName: "Brown",
         username: "frank@example.com",
         profilePic:
           "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_ae7f0ecc-879d-412a-8c1a-ec8932c5ecd3.jpg?updatedAt=1686940612138",
         _id: "7dfae56e-6f3b-474f-91d8-b0d7a6a6aff3",
+      },
+      {
+        firstName: "Axel",
+        lastName: "Blaze",
+        username: "axel@example.com",
+        profilePic:
+          "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
+        _id: "a58683d3-43fa-4594-a89a-57c6ad9dd444",
       },
     ],
   },
@@ -156,6 +199,7 @@ export const users = [
     lastName: "Davis",
     username: "bob@example.com",
     password: "bob123",
+    banner:"",
     userHandler: "bobdavis",
     bio: "Tech geek and problem solver",
     link: "https://peerlist.io/bobdavis",
@@ -199,6 +243,7 @@ export const users = [
     lastName: "Wilson",
     username: "charlie@example.com",
     password: "charlie123",
+    banner:"",
     userHandler: "charliewilson",
     bio: "Business strategist and entrepreneur",
     link: "https://peerlist.io/charliewilson",
@@ -234,6 +279,7 @@ export const users = [
     lastName: "Miller",
     username: "grace@example.com",
     password: "grace123",
+    banner:"",
     userHandler: "gracemiller",
     bio: "HR professional with a passion for employee well-being",
     link: "https://peerlist.io/gracemiller",
@@ -242,7 +288,16 @@ export const users = [
     createdAt: "2023-06-18T17:03:14+05:30",
     updatedAt: "2023-06-18T17:03:14+05:30",
     followers: [],
-    following: [],
+    following: [
+      {
+        _id: "a58683d3-43fa-4594-a89a-57c6ad9dd444",
+        firstName: "Axel",
+        lastName: "Blaze",
+        username: "axel@example.com",
+        profilePic:
+          "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_6febfdb1-ab38-4461-b747-1d8451ff6cc9.jpg?updatedAt=1686940612248",
+      },
+    ],
   },
   {
     _id: "e965c900-9281-4b07-8de9-4156abd5fb49",
@@ -251,6 +306,7 @@ export const users = [
     lastName: "Thomas",
     username: "emma@example.com",
     password: "emma123",
+    banner:"",
     userHandler: "emmathomas",
     bio: "Creative designer with a passion for aesthetics",
     link: "https://peerlist.io/emmathomas",
@@ -268,6 +324,7 @@ export const users = [
     lastName: "Taylor",
     username: "david@example.com",
     password: "david123",
+    banner:"",
     userHandler: "davidtaylor",
     bio: "Finance professional with a knack for numbers",
     link: "https://peerlist.io/davidtaylor",
@@ -276,7 +333,24 @@ export const users = [
     createdAt: "2023-06-18T17:03:14+05:30",
     updatedAt: "2023-06-18T17:03:14+05:30",
     followers: [],
-    following: [],
+    following: [
+      {
+        firstName: "Alice",
+        lastName: "Johnson",
+        username: "alice@example.com",
+        profilePic:
+          "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
+        _id: "bb5b09bf-2bca-4d02-b199-48d9083b7501",
+      },
+      {
+        firstName: "Bob",
+        lastName: "Davis",
+        username: "bob@example.com",
+        profilePic:
+          "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_d890834a-37a5-4020-a6c0-5fe71d679bcb.jpg?updatedAt=1686940614856",
+        _id: "70a991c8-8884-457a-9b4c-47534efbf5fb",
+      },
+    ],
   },
   {
     _id: "7dfae56e-6f3b-474f-91d8-b0d7a6a6aff3",
@@ -285,6 +359,7 @@ export const users = [
     lastName: "Brown",
     username: "frank@example.com",
     password: "frank123",
+    banner:"",
     userHandler: "frankbrown",
     bio: "Entrepreneur and startup enthusiast",
     link: "https://peerlist.io/frankbrown",

@@ -60,14 +60,14 @@ const Sidebar = () => {
                     </div>
                 </div>
 
-                <div className="px-4 pt-8 pb-4 border-t border-gray-200 ">
+                <div className="px-4 pt-8 pb-4 border-t border-gray-300 ">
 
                     <div className="flex items-center justify-between w-full ">
                         <div className="flex items-center justify-center space-x-2">
                                 <img className="rounded-full w-14 h-14" src={profilePic} alt="avatar" />
                             <div className="flex flex-col items-start justify-start">
-                                <p className="text-sm leading-5 text-gray-900 cursor-pointer">{`${firstName} ${lastName}`}</p>
-                                <p className="text-xs leading-3 text-gray-800 cursor-pointer">{username}</p>
+                                <p className="text-base font-semibold leading-5 text-gray-900 cursor-pointer">{`${firstName} ${lastName}`}</p>
+                                <p className="text-xs font-medium leading-3 text-gray-800 cursor-pointer">{username}</p>
                             </div>
                         </div>
                         <ArrowRightOnRectangleIcon onClick={handleUserLogout} className="w-6 h-6 text-gray-800 cursor-pointer" />

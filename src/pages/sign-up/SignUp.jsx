@@ -19,7 +19,7 @@ const SignUp = () => {
 
 const {handleUserSignUp}=useContext(AuthContext)
   useEffect(()=>{
-    document.title="Sign Up | PING CONNECT"
+    document.title="SIGN UP | PING CONNECT"
   },[])
 
   const handleSubmit = (e) => {
@@ -39,7 +39,7 @@ const {handleUserSignUp}=useContext(AuthContext)
   return (
     <section>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto mt-32 sm:mt-0 md:h-screen lg:py-0">
-        <div className="w-full bg-orange-200 border border-gray-200 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+        <div className="w-full bg-orange-200 border border-gray-300 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <div className="flex flex-col items-center justify-center">
             <img className='w-32 h-10'
