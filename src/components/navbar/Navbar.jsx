@@ -24,7 +24,7 @@ function Navbar() {
                         >
 
                             <img className='w-32 h-10'
-                                src="https://ik.imagekit.io/pb97gg2as/Ping-Connnect/logo-no-background.png?updatedAt=1686741434507"
+                                src="https://res.cloudinary.com/dkay6uocg/image/upload/v1687862946/Ping%20Connect/logo-no-background_pzz5n5.png"
                                 alt="ping-connect"
                             />
                         </NavLink>

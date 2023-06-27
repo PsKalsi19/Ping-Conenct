@@ -22,7 +22,7 @@ const PostCard = ({ post }) => {
     handlePostDislike,
     handleAddToBookmark,
     handleRemoveFromBookmark,
-    postsState: { bookmarks },
+    postsState: { bookmarks, disableCurrentButton },
   } = useContext(PostContext);
   const currentUser = getUserFromLocalStorage().username;
   const likedByCurrentUser = likedBy
@@ -35,11 +35,11 @@ const PostCard = ({ post }) => {
       <div className="flex justify-between mb-4">
         <div className="flex flex-row">
           <Link to="/profile" state={post}>
-              <img
-                className="w-12 h-12 rounded-full"
-                src={profilePic}
-                alt="avatar"
-              />
+            <img
+              className="w-12 h-12 rounded-full"
+              src={profilePic}
+              alt="avatar"
+            />
           </Link>
           <div className="flex flex-col ml-4">
             <p className="font-semibold text-gray-700">{`${firstName} ${lastName}`}</p>
@@ -53,17 +53,29 @@ const PostCard = ({ post }) => {
       <p className="pb-2 font-semibold text-gray-600 ">{content}</p>
       <div className="flex mt-2">
         <div className="flex items-center group">
-          <HeartIcon
+          <button
+            disabled={disableCurrentButton === _id}
+            title={likedByCurrentUser ? "Dislike" : "Like"}
+            className={
+              disableCurrentButton === _id ? " cursor-not-allowed" : ""
+            }
             onClick={
               likedByCurrentUser
                 ? () => handlePostDislike(_id)
                 : () => handlePostLike(_id)
             }
-            title={likedByCurrentUser ? "Dislike" : "Like"}
-            className={`p-2 text-gray-600 rounded-full cursor-pointer w-9 h-9 hover:bg-pink-300/60 hover:fill-pink-500 group-hover:text-pink-600 ${
-              likedByCurrentUser ? "fill-pink-500 text-pink-600" : ""
-            }`}
-          />
+            type="button"
+          >
+            <HeartIcon
+              className={`p-2 text-gray-600 rounded-full  w-9 h-9 hover:bg-pink-300/60 hover:fill-pink-500 group-hover:text-pink-600 ${
+                likedByCurrentUser ? "fill-pink-500 text-pink-600" : ""
+              }  ${
+                disableCurrentButton === _id
+                  ? " cursor-not-allowed"
+                  : "cursor-pointer"
+              } `}
+            />
+          </button>
           <p
             className={`ml-1 text-gray-600 group-hover:text-pink-600 text-normal ${
               likedByCurrentUser ? "fill-pink-500 text-pink-600" : ""
@@ -79,17 +91,29 @@ const PostCard = ({ post }) => {
           </p>
         </div>
 
-        <BookmarkIcon
+        <button
           onClick={
             isBookmarked
               ? () => handleRemoveFromBookmark(_id)
               : () => handleAddToBookmark(_id)
           }
+          disabled={disableCurrentButton === _id}
+          className={disableCurrentButton === _id ? " cursor-not-allowed" : ""}
           title={isBookmarked ? "Remove Bookmark" : "Add Bookmark"}
-          className={`p-2 ml-8 text-gray-600 rounded-full cursor-pointer w-9 h-9 hover:bg-orange-300/60 hover:fill-orange-500 hover:text-orange-600  ${
-            isBookmarked ? "fill-orange-500 text-orange-600" : ""
-          } `}
-        />
+          type="button"
+        >
+          <BookmarkIcon
+            className={`p-2 ml-8 text-gray-600 rounded-full w-9 h-9 hover:bg-orange-300/60 hover:fill-orange-500 hover:text-orange-600  ${
+              isBookmarked ? "fill-orange-500 text-orange-600" : ""
+            }  
+            ${
+              disableCurrentButton === _id
+                ? " cursor-not-allowed"
+                : "cursor-pointer"
+            }
+            `}
+          />
+        </button>
       </div>
     </div>
   );

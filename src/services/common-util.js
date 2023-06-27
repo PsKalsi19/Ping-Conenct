@@ -11,8 +11,8 @@ export const DEFAULT_HEADERS = () => {
   return { headers: { authorization: auth } };
 };
 
-export const delayResult = (callback) => {
+export const delayResult = (callback,timer) => {
   setTimeout(() => {
     callback();
-  }, 3000);
+  }, timer);
 };

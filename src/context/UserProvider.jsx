@@ -46,26 +46,32 @@ const UserProvider = ({ children }) => {
     const getUserByUsername = (userName) => users.find(({ username }) => username === userName)
 
     const handleFollowRequest = async (id) => {
+        usersDispatch({type:USERS_ACTION.DISABLE_FOLLOW_BUTTON,payload:true})
         try {
             const {data:{user,followUser}} = await setFollowUser(id)
             setUserToLocalStorage(user)
             setAuthState((prevState)=>({...prevState,user:user}))
             usersDispatch({type:USERS_ACTION.UPDATE_USER,payload:[user,followUser]})
-
+            usersDispatch({type:USERS_ACTION.DISABLE_FOLLOW_BUTTON,payload:false})
+            
         } catch (error) {
             errorHandler(error)
+            usersDispatch({type:USERS_ACTION.DISABLE_FOLLOW_BUTTON,payload:false})
         }
     }
-
+    
     const handleUnfollowRequest = async (id) => {
+        usersDispatch({type:USERS_ACTION.DISABLE_FOLLOW_BUTTON,payload:true})
         try {
             const {data:{user,followUser}} = await setUnfollowUser(id)
             setUserToLocalStorage(user)
             setAuthState((prevState)=>({...prevState,user:user}))
             usersDispatch({type:USERS_ACTION.UPDATE_USER,payload:[user,followUser]})
-
+            usersDispatch({type:USERS_ACTION.DISABLE_FOLLOW_BUTTON,payload:false})
+            
         } catch (error) {
             errorHandler(error)
+            usersDispatch({type:USERS_ACTION.DISABLE_FOLLOW_BUTTON,payload:false})
         }
     }
 

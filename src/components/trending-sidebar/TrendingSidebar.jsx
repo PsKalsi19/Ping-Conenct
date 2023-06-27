@@ -4,7 +4,7 @@ import { UserContext } from "../../context/UserProvider";
 import { Link } from "react-router-dom";
 
 const TrendingSidebar = () => {
-    const { getUsersNotOnFollowingList, handleFollowRequest } = useContext(UserContext)
+    const { getUsersNotOnFollowingList, handleFollowRequest,usersState:{disableButton}} = useContext(UserContext)
     const whoToFollow = getUsersNotOnFollowingList()
     return (
         <div className="hidden md:block">
@@ -31,7 +31,9 @@ const TrendingSidebar = () => {
                                                 <small className="text-xs font-semibold text-gray-500 ">{followUser.username}</small>
                                             </div>
                                         </div>
-                                        <button onClick={() => handleFollowRequest(followUser._id)} className="inline-flex items-center justify-center w-24 col-span-2 px-2 text-sm font-medium text-center text-gray-700 rounded-md shadow hover:text-gray-100 bg-orange-50 hover:bg-orange-400/80">Follow</button>
+                                        <button disabled={disableButton} onClick={() => handleFollowRequest(followUser._id)} className={`inline-flex items-center justify-center w-24 col-span-2 px-2 text-sm font-medium text-center text-gray-700 rounded-md shadow hover:text-gray-100 bg-orange-50 hover:bg-orange-400/80 ${
+                                            disableButton?' cursor-not-allowed':'cursor-pointer'
+                                        }`}>Follow</button>
                                     </div>)}
                                     {
                                         whoToFollow && whoToFollow.length === 0 && <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-600 ">Nothing to show! 😪</h5>
