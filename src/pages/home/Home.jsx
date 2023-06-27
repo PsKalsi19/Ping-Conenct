@@ -8,6 +8,7 @@ import POSTS_ACTIONS from "../../constants/posts-actions";
 import NoDataAvailable from "../../components/no-data-available/NoDataAvailable";
 import { delayResult } from "../../services/common-util";
 import PostCardSkeleton from "../../components/post-card-skeleton/PostCardSkeleton";
+
 const Home = () => {
   const {
     postsState: { currentUserFeed, showLoader },
@@ -24,7 +25,7 @@ const Home = () => {
     postsDispatch({ type: POSTS_ACTIONS.SET_LOADING, payload: true });
     delayResult(() => {
       postsDispatch({ type: POSTS_ACTIONS.SET_LOADING, payload: false });
-    });
+    }, 3000);
     document.title = "HOME | PING CONNECT";
   }, [postsDispatch]);
   return (
@@ -40,13 +41,14 @@ const Home = () => {
         </div>
         <Tabs handleTabChange={handleTabChange} tabTypes={tabTypes} />
       </div>
-      <div className="flex flex-col items-center space-y-8">
-        {!showLoader &&
-          currentUserFeed &&
-          currentUserFeed.length > 0 &&
-          currentUserFeed.map((post) => (
-            <PostCard post={post} key={post._id} />
-          ))}
+      <div className="flex flex-col items-center space-y-4">
+     
+          {!showLoader &&
+            currentUserFeed &&
+            currentUserFeed.length > 0 &&
+            currentUserFeed.map((post) => (
+              <PostCard post={post} key={post._id} />
+            ))}
         {showLoader && [1, 2, 3].map((ele) => <PostCardSkeleton key={ele} />)}
       </div>
 

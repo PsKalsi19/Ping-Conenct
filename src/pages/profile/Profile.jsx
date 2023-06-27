@@ -9,6 +9,7 @@ import Tabs from "../../components/tabs/Tabs";
 import { UserContext } from "../../context/UserProvider";
 import { useLocation } from "react-router-dom";
 import RecommandedUsers from "../../components/recommanded-users/RecommandedUsers";
+import NoDataAvailable from "../../components/no-data-available/NoDataAvailable";
 const Profile = () => {
   const {
     authState: { user },
@@ -21,6 +22,9 @@ const Profile = () => {
     getUsersFollowingList,
     setToggleEditProfile,
     getUserByUsername,
+    usersState:{
+      disableButton
+    }
   } = useContext(UserContext);
   useEffect(() => {
     document.title = "PROFILE | PING CONNECT";
@@ -76,19 +80,28 @@ const Profile = () => {
     <div className="relative ">
       <img
         className="w-full max-w-full rounded-md h-60"
-        src={ selectedUser?.banner===''?'https://source.unsplash.com/random/1080x720/?minimalistic':selectedUser?.banner}
+        src={
+          selectedUser?.banner === ""
+            ? "https://source.unsplash.com/random/1080x720/?minimalistic"
+            : selectedUser?.banner
+        }
         alt="image description"
       />
 
       <div className="absolute flex items-center justify-between w-full p-6 top-40">
         <img
           className="bg-orange-100 border-4 border-orange-100 rounded-full h-28 w-28"
-          src={selectedUser?.profilePic===''?'https://source.unsplash.com/random/900x700/?profile':selectedUser.profilePic}
+          src={
+            selectedUser?.profilePic === ""
+              ? "https://source.unsplash.com/random/900x700/?profile"
+              : selectedUser.profilePic
+          }
           alt="avatar"
         />
-        <button
+        <button 
+        disabled={disableButton}
           onClick={() => handleProfileMainCTA().cta(selectedUser._id)}
-          className="px-4 py-2 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow hover:text-gray-100 hover:bg-orange-400/95"
+          className={`px-4 py-2 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow hover:text-gray-100 hover:bg-orange-400/95 ${disableButton?' cursor-not-allowed':'cursor-pointer'}`}
         >
           {handleProfileMainCTA().title}
         </button>
@@ -145,17 +158,10 @@ const Profile = () => {
 
           <div className="flex flex-col items-center space-y-8">
             {currentUsersPosts && currentUsersPosts.length === 0 && (
-              <div className="flex flex-col items-center">
-                <img
-                  src="https://ik.imagekit.io/pb97gg2as/Ping-Connnect/undraw_empty.svg?updatedAt=1687183185476"
-                  className=" w-60 h-60"
-                  alt="no_data"
-                />
-                <h3 className="w-auto text-2xl font-extrabold tracking-tight text-center text-gray-600 ">
-                  Starting with an empty feed? Time to unleash your thoughts and
-                  let the world know what's on your mind!
-                </h3>
-              </div>
+              <NoDataAvailable
+                message={` Starting with an empty feed? Time to unleash your thoughts and
+            let the world know what's on your mind!`}
+              />
             )}
           </div>
         </div>
