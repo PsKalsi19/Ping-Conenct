@@ -10,10 +10,7 @@ const PostWrite = ({ post }) => {
     
         if (post && Object.keys(post).length > 0) {
             handleEditPost({ ...post, content: postText })
-            setToggleDialog({
-                showDialog: false,
-                selectedPost: {}
-            })
+           
         }
         else {
             const data = {
@@ -26,6 +23,10 @@ const PostWrite = ({ post }) => {
 
         setPostText("")
         document.querySelector('#post-text-area').style.height = 'auto'
+        setToggleDialog({
+            showDialog: false,
+            selectedPost: {}
+        })
     }
 
     useEffect(() => {
