@@ -15,6 +15,7 @@ const PostCard = ({ post }) => {
     likes: { likeCount, likedBy },
     comments,
     _id,
+    media,alt
   } = post;
   const { getUserByUsername } = useContext(UserContext);
   const {
@@ -51,6 +52,9 @@ const PostCard = ({ post }) => {
         <PostCardMenu post={post} />
       </div>
       <p className="pb-2 font-semibold text-gray-600 ">{content}</p>
+      {
+        media!=='' && <img height={720} width={480} className="rounded-md" alt={alt} src={media}  />
+      }
       <div className="flex mt-2">
         <div className="flex items-center group">
           <button

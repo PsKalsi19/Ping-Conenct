@@ -7,9 +7,15 @@ export const getAllPosts = () => axios.get(ENDPOINTS.POSTS);
 export const getPostsByUsername = (username) =>
   axios.get(`${ENDPOINTS.POSTS_BY_USER}/${username}`);
 
-export const createPost=(payload)=>axios.post(ENDPOINTS.POSTS,{postData:payload},DEFAULT_HEADERS())
+export const createPost = (payload) =>
+  axios.post(ENDPOINTS.POSTS, { postData: payload }, DEFAULT_HEADERS());
 
-export const editPost=(payload)=>axios.post(`${ENDPOINTS.POSTS_EDIT}/${payload._id}`,{postData:payload},DEFAULT_HEADERS())
+export const editPost = (payload) =>
+  axios.post(
+    `${ENDPOINTS.POSTS_EDIT}/${payload._id}`,
+    { postData: payload },
+    DEFAULT_HEADERS()
+  );
 
 export const likePost = (postId) =>
   axios.post(`${ENDPOINTS.LIKE_POST}/${postId}`, {}, DEFAULT_HEADERS());
@@ -25,6 +31,21 @@ export const addBookmark = (postId) =>
   axios.post(`${ENDPOINTS.BOOKMARK}/${postId}`, {}, DEFAULT_HEADERS());
 
 export const removeBookmark = (postId) =>
-  axios.post(`${ENDPOINTS.REMOVE_BOOKMARK}/${postId}`,{}, DEFAULT_HEADERS());
+  axios.post(`${ENDPOINTS.REMOVE_BOOKMARK}/${postId}`, {}, DEFAULT_HEADERS());
 
-export const getBookmark = () => axios.get(ENDPOINTS.BOOKMARK, DEFAULT_HEADERS());
+export const getBookmark = () =>
+  axios.get(ENDPOINTS.BOOKMARK, DEFAULT_HEADERS());
+
+// CLOUDINARY APIS
+
+export const postImage = (payload) =>
+  fetch(
+    `${ENDPOINTS.CLOUDINARY_BASE_URL}/${process.env.REACT_APP_CLOUDINARY_KEY}${ENDPOINTS.CLOUDINARY_IMAGE}`,
+    { method: "POST", body:payload }
+  );
+
+export const postVideo = (payload) =>
+  fetch(
+    `${ENDPOINTS.CLOUDINARY_BASE_URL}/${process.env.REACT_APP_CLOUDINARY_KEY}${ENDPOINTS.CLOUDINARY_VIDEO}`,
+    { method: "POST", body:payload }
+  );
