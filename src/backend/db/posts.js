@@ -25,6 +25,9 @@ export const posts = [
     createdAt: "2023-05-20T02:34:56Z",
     updatedAt: "2023-06-20T12:34:56Z",
     id: "1",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "d3b6ad7f-eb3b-4d89-89aa-c87ddc44f95f",
@@ -128,6 +131,9 @@ export const posts = [
     createdAt: "2023-04-02T15:00:00.000Z",
     updatedAt: "2023-05-18T21:22:00.000Z",
     id: "2",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/video/upload/v1688291529/nz5as1zc7zsjagrxknvk.mp4",
+    mediaAlt: "baloons",
   },
   {
     _id: "e8e618f3-36d9-44ea-a208-68a739feb156",
@@ -162,6 +168,9 @@ export const posts = [
     createdAt: "2023-03-03T04:40:00.000Z",
     updatedAt: "2023-05-31T15:24:00.000Z",
     id: "3",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "4d5350e6-6b47-4170-b3d8-c7dd167d231d",
@@ -324,6 +333,9 @@ export const posts = [
     createdAt: "2023-03-06T14:25:00.000Z",
     updatedAt: "2023-04-11T04:13:00.000Z",
     id: "4",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "47f7db35-0b9c-488d-bd3d-01caefd5259d",
@@ -346,6 +358,9 @@ export const posts = [
     createdAt: "2023-05-15T15:34:00.000Z",
     updatedAt: "2023-06-30T22:00:00.000Z",
     id: "5",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "c2d3aec5-ceb8-4ca8-a6dd-987d5d33e803",
@@ -426,6 +441,9 @@ export const posts = [
     createdAt: "2023-02-30T00:40:00.000Z",
     updatedAt: "2023-04-06T15:14:00.000Z",
     id: "6",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "7c57a310-d4f3-4500-babc-b3f98ae222cc",
@@ -466,6 +484,9 @@ export const posts = [
     createdAt: "2023-03-04T15:12:00.000Z",
     updatedAt: "2023-04-11T05:53:00.000Z",
     id: "7",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "95ab3946-f0d8-40de-a40d-a945a7e252da",
@@ -552,6 +573,9 @@ export const posts = [
     createdAt: "2023-03-23T09:10:00.000Z",
     updatedAt: "2023-04-16T23:42:00.000Z",
     id: "8",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "f3d65bb7-ecec-42f7-b11a-1061868af494",
@@ -615,6 +639,9 @@ export const posts = [
     createdAt: "2023-04-16T23:44:00.000Z",
     updatedAt: "2023-05-21T00:27:00.000Z",
     id: "9",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "0c2fd14b-3449-4759-b3e5-d4c2068f6542",
@@ -649,6 +676,9 @@ export const posts = [
     createdAt: "2023-05-22T12:31:00.000Z",
     updatedAt: "2023-06-06T12:10:00.000Z",
     id: "10",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "bdefe41b-9038-4a95-b73c-8460a09424f7",
@@ -734,6 +764,9 @@ export const posts = [
     createdAt: "2023-05-21T10:11:00.000Z",
     updatedAt: "2023-06-15T17:05:00.000Z",
     id: "11",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "c509053a-a64e-4287-8161-e4e81801d40f",
@@ -804,6 +837,9 @@ export const posts = [
     createdAt: "2023-04-26T11:21:00.000Z",
     updatedAt: "2023-05-10T18:36:00.000Z",
     id: "12",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/video/upload/v1688291529/nz5as1zc7zsjagrxknvk.mp4",
+    mediaAlt: "baloons",
   },
   {
     _id: "cfbe7824-6255-4108-b550-bfd022d3123a",
@@ -907,6 +943,9 @@ export const posts = [
     createdAt: "2023-05-20T20:10:00.000Z",
     updatedAt: "2023-06-19T04:39:00.000Z",
     id: "13",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "5c984e2a-af8d-4359-a93f-7e71dab78a1a",
@@ -994,6 +1033,8 @@ export const posts = [
     createdAt: "2023-01-16T14:46:00.000Z",
     updatedAt: "2023-06-06T09:00:00.000Z",
     id: "14",
+    media: "",
+    mediaAlt: "baloons",
   },
   {
     _id: "7dad3e75-a001-4273-972d-83eb6c12cc28",
@@ -1080,6 +1121,9 @@ export const posts = [
     createdAt: "2023-02-03T15:27:00.000Z",
     updatedAt: "2023-06-05T04:40:00.000Z",
     id: "15",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "30496488-8a0d-416a-a44a-d3ed562937f4",
@@ -1114,6 +1158,9 @@ export const posts = [
     createdAt: "2023-05-20T05:49:00.000Z",
     updatedAt: "2023-06-05T15:39:00.000Z",
     id: "16",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "0c2431bb-e391-41ee-b46e-f82a53c637ab",
@@ -1223,6 +1270,9 @@ export const posts = [
     createdAt: "2023-02-19T07:59:00.000Z",
     updatedAt: "2023-03-01T10:02:00.000Z",
     id: "17",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "d4e1fada-f546-4d05-8cf8-53f48c473d27",
@@ -1257,6 +1307,9 @@ export const posts = [
     createdAt: "2023-05-12T03:38:00.000Z",
     updatedAt: "2023-05-21T13:42:00.000Z",
     id: "18",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "5300e5d2-c94f-4951-8db6-630cf0794070",
@@ -1291,6 +1344,9 @@ export const posts = [
     createdAt: "2023-04-03T05:04:00.000Z",
     updatedAt: "2023-05-05T18:56:00.000Z",
     id: "19",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "8aae6c57-e5e4-4d15-8a89-7bbe3c0cf82d",
@@ -1325,6 +1381,9 @@ export const posts = [
     createdAt: "2023-02-23T06:18:00.000Z",
     updatedAt: "2023-03-01T01:05:00.000Z",
     id: "20",
+    media:
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    mediaAlt: "baloons",
   },
   {
     _id: "8b063781-6c7e-4724-abf6-84fc6e82f582",
@@ -1341,6 +1400,8 @@ export const posts = [
     createdAt: "2023-04-03T22:15:00.000Z",
     updatedAt: "2023-05-22T15:04:00.000Z",
     id: "21",
+    media: "",
+    mediaAlt: "",
   },
   {
     _id: "73e82a93-e9e1-47fa-80e4-59f71a29e4a5",
@@ -1398,5 +1459,7 @@ export const posts = [
     createdAt: "2023-05-24T17:38:00.000Z",
     updatedAt: "2023-06-14T19:06:00.000Z",
     id: "22",
+    media: "",
+    mediaAlt: "",
   },
 ];

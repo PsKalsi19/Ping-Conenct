@@ -30,6 +30,7 @@ const PostProvider = ({ children }) => {
     showDialog: false,
     selectedPost: {},
   });
+  const [fileDetails, setFilesDetails] = useState();
   const { posts, current_sortby, currentUserFeed } = postsState;
   // Auth Provider
   const {
@@ -60,11 +61,20 @@ const PostProvider = ({ children }) => {
         data: { posts },
       } = await likePost(postId, token);
       postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
-     delayResult(()=>{ postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" })},500)
-      
+      delayResult(() => {
+        postsDispatch({
+          type: POSTS_ACTIONS.DISABLE_POST_BUTTONS,
+          payload: "",
+        });
+      }, 500);
     } catch (error) {
       errorHandler(error);
-     delayResult(()=>{ postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" })},500)
+      delayResult(() => {
+        postsDispatch({
+          type: POSTS_ACTIONS.DISABLE_POST_BUTTONS,
+          payload: "",
+        });
+      }, 500);
     }
   };
 
@@ -112,7 +122,7 @@ const PostProvider = ({ children }) => {
       postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" });
     }
   };
-  
+
   const handleRemoveFromBookmark = async (postId) => {
     postsDispatch({
       type: POSTS_ACTIONS.DISABLE_POST_BUTTONS,
@@ -150,6 +160,11 @@ const PostProvider = ({ children }) => {
     } catch (error) {
       errorHandler(error);
     }
+  };
+
+  const checkMediaType = (mediaLink) => {
+    if (mediaLink.includes("/image/")) return { type: "image" };
+    if (mediaLink.includes("/video/")) return { type: "video" };
   };
 
   useEffect(() => {
@@ -210,6 +225,9 @@ const PostProvider = ({ children }) => {
         setToggleDialog,
         handleAddPost,
         handleEditPost,
+        fileDetails,
+        setFilesDetails,
+        checkMediaType
       }}
     >
       {children}

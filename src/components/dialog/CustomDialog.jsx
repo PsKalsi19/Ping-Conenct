@@ -6,12 +6,21 @@ import PostWrite from "../post-write/PostWrite";
 import { getUserFromLocalStorage } from "../../services/localstorage-service";
 
 const CustomDialog = () => {
-  const { toggleDialog: { showDialog,selectedPost }, setToggleDialog } = useContext(PostContext)
-  const profilePic = getUserFromLocalStorage().profilePic
+  const {
+    toggleDialog: { showDialog, selectedPost },
+    setToggleDialog,
+  } = useContext(PostContext);
+  const profilePic = getUserFromLocalStorage().profilePic;
   return (
     <>
       <Transition appear show={showDialog} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={() => setToggleDialog((prevVal) => ({ ...prevVal, showDialog: false }))}>
+        <Dialog
+          as="div"
+          className="relative z-10"
+          onClose={() =>
+            setToggleDialog({ selectedPost: {}, showDialog: false })
+          }
+        >
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -36,10 +45,17 @@ const CustomDialog = () => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-xl p-6 overflow-hidden text-left align-middle transition-all transform bg-orange-100 shadow-xl rounded-2xl">
-
-                  <div className="flex rounded-xl">
-                    <img className="mr-2 rounded-full w-14 h-14" src={profilePic} alt="avatar" />
-                    <PostWrite post={selectedPost} /></div>
+                  <section className="flex rounded-xl">
+                    <img
+                      className="mr-2 rounded-full w-14 h-14"
+                      src={profilePic}
+                      alt="avatar"
+                    />
+                    <PostWrite
+                      key={selectedPost?.id ?? "Write"}
+                      post={selectedPost}
+                    />
+                  </section>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
