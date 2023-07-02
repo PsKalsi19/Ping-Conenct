@@ -7,9 +7,10 @@ import PostMedia from "./PostMedia";
 import { useRef } from "react";
 import { postImage, postVideo } from "../../services/post-service";
 import { errorHandler } from "../../services/common-util";
-
+import EmojiMenu from "./EmojiMenu";
 const PostWrite = ({ post }) => {
   const mediaRefForPreview = useRef(null);
+  const postTextAreaRef=useRef(null)
   const [postText, setPostText] = useState("");
   const {
     handleAddPost,
@@ -133,6 +134,7 @@ const PostWrite = ({ post }) => {
     setPostText(e.target.value);
     e.target.style.height = `${e.target.scrollHeight}px`;
   };
+
   return (
     <div className="w-full">
       <h3 className="text-lg font-bold tracking-tight text-gray-600 md:text-2xl">
@@ -141,6 +143,7 @@ const PostWrite = ({ post }) => {
       <textarea
         id="post-text-area"
         value={postText}
+        ref={postTextAreaRef}
         onChange={handleTextArea}
         className="h-20 p-2 overflow-hidden text-gray-600 bg-transparent border-0 outline-none resize-none "
         placeholder="What's on your mind?"
@@ -157,19 +160,23 @@ const PostWrite = ({ post }) => {
         />
       )}
       <div className="flex items-center justify-between">
-        <label className="rounded-full cursor-pointer group hover:bg-orange-200/50">
-          <PhotoIcon className="w-6 h-6 text-gray-500 group-hover:text-orange-400" />
-          <input
-            onClick={(event) => {
-              event.target.value = null;
-            }}
-            accept="video/*|image/*"
-            onChange={handleFileChange}
-            hidden
-            type="file"
-          />
-        </label>
-
+        <div className="flex flex-row space-x-4">
+          <label className="rounded-full cursor-pointer group ">
+            <PhotoIcon className="w-6 h-6 text-gray-500 group-hover:text-orange-400" />
+            <input
+              onClick={(event) => {
+                event.target.value = null;
+              }}
+              accept="video/*|image/*"
+              onChange={handleFileChange}
+              hidden
+              type="file"
+            />
+          </label>
+          <div className="hidden sm:block">
+            <EmojiMenu textAreaRef={postTextAreaRef} setPostText={setPostText} />
+          </div>
+        </div>
         <button
           type="button"
           disabled={postText === "" && mediaRefForPreview.current === null}
