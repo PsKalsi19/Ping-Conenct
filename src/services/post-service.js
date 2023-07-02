@@ -41,11 +41,13 @@ export const getBookmark = () =>
 export const postImage = (payload) =>
   fetch(
     `${ENDPOINTS.CLOUDINARY_BASE_URL}/${process.env.REACT_APP_CLOUDINARY_KEY}${ENDPOINTS.CLOUDINARY_IMAGE}`,
-    { method: "POST", body:payload }
+    { method: "POST", body: payload }
   );
 
-export const postVideo = (payload) =>
-  fetch(
+export const postVideo = (payload) => {
+  payload.append("resource_type", "video");
+  return fetch(
     `${ENDPOINTS.CLOUDINARY_BASE_URL}/${process.env.REACT_APP_CLOUDINARY_KEY}${ENDPOINTS.CLOUDINARY_VIDEO}`,
-    { method: "POST", body:payload }
+    { method: "POST", body: payload }
   );
+};

@@ -132,7 +132,7 @@ export const posts = [
     updatedAt: "2023-05-18T21:22:00.000Z",
     id: "2",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+      "https://res.cloudinary.com/dkay6uocg/video/upload/v1688291529/nz5as1zc7zsjagrxknvk.mp4",
     mediaAlt: "baloons",
   },
   {
@@ -838,7 +838,7 @@ export const posts = [
     updatedAt: "2023-05-10T18:36:00.000Z",
     id: "12",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+      "https://res.cloudinary.com/dkay6uocg/video/upload/v1688291529/nz5as1zc7zsjagrxknvk.mp4",
     mediaAlt: "baloons",
   },
   {
@@ -1033,8 +1033,7 @@ export const posts = [
     createdAt: "2023-01-16T14:46:00.000Z",
     updatedAt: "2023-06-06T09:00:00.000Z",
     id: "14",
-    media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+    media: "",
     mediaAlt: "baloons",
   },
   {
@@ -1401,8 +1400,7 @@ export const posts = [
     createdAt: "2023-04-03T22:15:00.000Z",
     updatedAt: "2023-05-22T15:04:00.000Z",
     id: "21",
-    media:
-      "",
+    media: "",
     mediaAlt: "",
   },
   {
@@ -1461,8 +1459,7 @@ export const posts = [
     createdAt: "2023-05-24T17:38:00.000Z",
     updatedAt: "2023-06-14T19:06:00.000Z",
     id: "22",
-    media:
-      "",
+    media: "",
     mediaAlt: "",
   },
 ];

@@ -7,6 +7,7 @@ import { getUserFromLocalStorage } from "../../services/localstorage-service";
 import PostCardMenu from "../post-card-menu/PostCardMenu";
 import { PostContext } from "../../context/PostProvider";
 import { Link } from "react-router-dom";
+import PostMedia from "../post-write/PostMedia";
 
 const PostCard = ({ post }) => {
   const {
@@ -15,7 +16,8 @@ const PostCard = ({ post }) => {
     likes: { likeCount, likedBy },
     comments,
     _id,
-    media,alt
+    media,
+    mediaAlt,
   } = post;
   const { getUserByUsername } = useContext(UserContext);
   const {
@@ -23,6 +25,7 @@ const PostCard = ({ post }) => {
     handlePostDislike,
     handleAddToBookmark,
     handleRemoveFromBookmark,
+    checkMediaType,
     postsState: { bookmarks, disableCurrentButton },
   } = useContext(PostContext);
   const currentUser = getUserFromLocalStorage().username;
@@ -52,9 +55,14 @@ const PostCard = ({ post }) => {
         <PostCardMenu post={post} />
       </div>
       <p className="pb-2 font-semibold text-gray-600 ">{content}</p>
-      {
-        media!=='' && <img height={720} width={480} className="rounded-md" alt={alt} src={media}  />
-      }
+      {media !== "" && (
+        <PostMedia
+          mediaFile={media}
+          mediaType={checkMediaType(media).type}
+          height={"h-full"}
+          width={"w-full"}
+        />
+      )}
       <div className="flex mt-2">
         <div className="flex items-center group">
           <button
