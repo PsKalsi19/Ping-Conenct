@@ -12,14 +12,13 @@ import {
   dislikePost,
   editPost,
   getAllPosts,
-  getPostsByUsername,
   likePost,
   removeBookmark,
 } from "../services/post-service";
 import { AuthContext } from "./AuthProvider";
 import { postInitialState } from "./initial-states/PostInitialState";
 import postReducer from "../reducers/posts-reducer";
-import { errorHandler } from "../services/common-util";
+import { delayResult, errorHandler } from "../services/common-util";
 import POSTS_ACTIONS from "../constants/posts-actions";
 import { UserContext } from "./UserProvider";
 
@@ -31,6 +30,7 @@ const PostProvider = ({ children }) => {
     showDialog: false,
     selectedPost: {},
   });
+  const [fileDetails, setFilesDetails] = useState();
   const { posts, current_sortby, currentUserFeed } = postsState;
   // Auth Provider
   const {
@@ -50,34 +50,48 @@ const PostProvider = ({ children }) => {
     }
   };
 
-  const getPostsByUser = async () => {
-    try {
-      const data = await getPostsByUsername(user.username);
-    } catch (error) {
-      errorHandler(error);
-    }
-  };
-
   // Cards Actions
   const handlePostLike = async (postId) => {
+    postsDispatch({
+      type: POSTS_ACTIONS.DISABLE_POST_BUTTONS,
+      payload: postId,
+    });
     try {
       const {
         data: { posts },
       } = await likePost(postId, token);
       postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+      delayResult(() => {
+        postsDispatch({
+          type: POSTS_ACTIONS.DISABLE_POST_BUTTONS,
+          payload: "",
+        });
+      }, 500);
     } catch (error) {
       errorHandler(error);
+      delayResult(() => {
+        postsDispatch({
+          type: POSTS_ACTIONS.DISABLE_POST_BUTTONS,
+          payload: "",
+        });
+      }, 500);
     }
   };
 
   const handlePostDislike = async (postId) => {
+    postsDispatch({
+      type: POSTS_ACTIONS.DISABLE_POST_BUTTONS,
+      payload: postId,
+    });
     try {
       const {
         data: { posts },
       } = await dislikePost(postId, token);
       postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+      postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" });
     } catch (error) {
       errorHandler(error);
+      postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" });
     }
   };
 
@@ -93,24 +107,36 @@ const PostProvider = ({ children }) => {
   };
 
   const handleAddToBookmark = async (postId) => {
+    postsDispatch({
+      type: POSTS_ACTIONS.DISABLE_POST_BUTTONS,
+      payload: postId,
+    });
     try {
       const {
         data: { bookmarks },
       } = await addBookmark(postId);
       postsDispatch({ type: POSTS_ACTIONS.SET_BOOKMARKS, payload: bookmarks });
+      postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" });
     } catch (error) {
       errorHandler(error);
+      postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" });
     }
   };
 
   const handleRemoveFromBookmark = async (postId) => {
+    postsDispatch({
+      type: POSTS_ACTIONS.DISABLE_POST_BUTTONS,
+      payload: postId,
+    });
     try {
       const {
         data: { bookmarks },
       } = await removeBookmark(postId);
       postsDispatch({ type: POSTS_ACTIONS.SET_BOOKMARKS, payload: bookmarks });
+      postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" });
     } catch (error) {
       errorHandler(error);
+      postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" });
     }
   };
 
@@ -134,6 +160,11 @@ const PostProvider = ({ children }) => {
     } catch (error) {
       errorHandler(error);
     }
+  };
+
+  const checkMediaType = (mediaLink) => {
+    if (mediaLink.includes("/image/")) return { type: "image" };
+    if (mediaLink.includes("/video/")) return { type: "video" };
   };
 
   useEffect(() => {
@@ -168,7 +199,7 @@ const PostProvider = ({ children }) => {
           break;
         case "latest":
           sortedFeed = currentUserFeed.sort(
-            (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
           );
           break;
         default:
@@ -185,17 +216,18 @@ const PostProvider = ({ children }) => {
       value={{
         postsState,
         postsDispatch,
-        getPostsByUser,
         handlePostLike,
         handlePostDislike,
         handleDeletePost,
         handleAddToBookmark,
         handleRemoveFromBookmark,
-        // handleGetBookmarks,
         toggleDialog,
         setToggleDialog,
         handleAddPost,
         handleEditPost,
+        fileDetails,
+        setFilesDetails,
+        checkMediaType
       }}
     >
       {children}

@@ -23,7 +23,7 @@ const Explore = () => {
           delayResult(() => {
             postsDispatch({ type: POSTS_ACTIONS.SET_LOADING, payload: false });
             setAllPosts((prevState) => [...prevState, ...posts]);
-          });
+          },3000);
         }
       },
       { threshold: 1 }

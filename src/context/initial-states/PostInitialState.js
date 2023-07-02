@@ -4,5 +4,5 @@ export const postInitialState = {
   bookmarks: [],
   current_sortby: "latest",
   showLoader: false,
-  disableCurrentButton: false,
+  disableCurrentButton: '',
 };
