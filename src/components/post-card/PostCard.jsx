@@ -17,7 +17,6 @@ const PostCard = ({ post }) => {
     comments,
     _id,
     media,
-    mediaAlt,
   } = post;
   const { getUserByUsername } = useContext(UserContext);
   const {

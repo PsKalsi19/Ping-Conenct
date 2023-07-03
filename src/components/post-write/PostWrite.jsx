@@ -1,4 +1,7 @@
 import { PhotoIcon } from "@heroicons/react/24/outline";
+import { FaceSmileIcon } from "@heroicons/react/24/outline";
+
+import EmojiPicker, { SkinTones, Theme } from "emoji-picker-react";
 /* eslint-disable no-undef */
 import { useContext, useEffect, useState } from "react";
 import { PostContext } from "../../context/PostProvider";
@@ -7,10 +10,11 @@ import PostMedia from "./PostMedia";
 import { useRef } from "react";
 import { postImage, postVideo } from "../../services/post-service";
 import { errorHandler } from "../../services/common-util";
-import EmojiMenu from "./EmojiMenu";
+import PostMenus from "../post-menu/PostMenus";
+
 const PostWrite = ({ post }) => {
   const mediaRefForPreview = useRef(null);
-  const postTextAreaRef=useRef(null)
+  const textAreaRef = useRef(null);
   const [postText, setPostText] = useState("");
   const {
     handleAddPost,
@@ -54,15 +58,6 @@ const PostWrite = ({ post }) => {
     };
     reader.readAsDataURL(currentlySelectedFile);
   };
-
-  // all post submit scenarios
-  /*
-   * 1. I am just posting a new content without media.
-   * 2. I am posting a new content with media.
-   * 3. I am editing my content which has media.
-   * 4. I am editing my content and media.
-   * 5.
-   */
 
   const handlePostSubmit = () => {
     handleFileUploadToCloud()
@@ -135,6 +130,17 @@ const PostWrite = ({ post }) => {
     e.target.style.height = `${e.target.scrollHeight}px`;
   };
 
+  const onEmojiSelect = (emojiData) => {
+    const textArea = textAreaRef.current;
+    const startPos = textArea.selectionStart;
+    const endPos = textArea.selectionEnd;
+    setPostText((prevVal) => {
+      return (
+        prevVal.slice(0, startPos) + emojiData.emoji + prevVal.slice(endPos)
+      );
+    });
+  };
+
   return (
     <div className="w-full">
       <h3 className="text-lg font-bold tracking-tight text-gray-600 md:text-2xl">
@@ -143,7 +149,7 @@ const PostWrite = ({ post }) => {
       <textarea
         id="post-text-area"
         value={postText}
-        ref={postTextAreaRef}
+        ref={textAreaRef}
         onChange={handleTextArea}
         className="h-20 p-2 overflow-hidden text-gray-600 bg-transparent border-0 outline-none resize-none "
         placeholder="What's on your mind?"
@@ -174,7 +180,26 @@ const PostWrite = ({ post }) => {
             />
           </label>
           <div className="hidden sm:block">
-            <EmojiMenu textAreaRef={postTextAreaRef} setPostText={setPostText} />
+            <PostMenus
+              menuIcon={
+                <FaceSmileIcon className="w-6 h-6 text-gray-500 hover:text-orange-400" />
+              }
+              elementRender={
+                <EmojiPicker
+                  onEmojiClick={onEmojiSelect}
+                  autoFocusSearch={false}
+                  theme={Theme.AUTO}
+                  searchDisabled
+                  height={350}
+                  emojiVersion="0.5"
+                  previewConfig={{
+                    showPreview: false,
+                  }}
+                  skinTonesDisabled
+                  defaultSkinTone={SkinTones.MEDIUM}
+                />
+              }
+            />
           </div>
         </div>
         <button
