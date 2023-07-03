@@ -104,7 +104,7 @@ const EditProfileForm = () => {
               Choose Avatar
             </Popover.Button>
 
-            <Popover.Panel className="absolute right-0 z-10 p-4 my-2 border-2 border-orange-200 rounded-md bg-orange-200/40 top-16">
+            <Popover.Panel className="absolute right-0 z-10 p-4 my-2 border-2 border-orange-200 rounded-md bg-orange-200/90 top-16">
               <div className="grid grid-cols-4 gap-4">
                 {avatarLinks.map((avatar, index) => (
                   <Popover.Button

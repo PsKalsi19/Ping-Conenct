@@ -20,6 +20,9 @@ const postReducer = (state, { type, payload }) => {
     case POSTS_ACTIONS.DISABLE_POST_BUTTONS:
       return {...state,disableCurrentButton:payload}
 
+    case POSTS_ACTIONS.SHOW_LOADER_FOR_POST:
+      return {...state,postLoader:payload}
+
     default:
       return state;
   }

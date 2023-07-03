@@ -5,4 +5,5 @@ export const postInitialState = {
   current_sortby: "latest",
   showLoader: false,
   disableCurrentButton: '',
+  postLoader:false
 };

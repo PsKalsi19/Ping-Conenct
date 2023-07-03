@@ -18,7 +18,7 @@ function Navbar() {
         <div className="flex items-center justify-between h-24">
           <div className="flex items-center">
             <NavLink
-              href="/"
+              href="/home"
               className="flex items-center px-2 py-2 text-sm font-medium text-gray-900 rounded-md group"
             >
               <img
