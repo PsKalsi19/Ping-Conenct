@@ -3,14 +3,19 @@ import { PostContext } from "../../context/PostProvider";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import PostWrite from "../post-write/PostWrite";
-import { getUserFromLocalStorage } from "../../services/localstorage-service";
+import { AuthContext } from "../../context/AuthProvider";
 
 const CustomDialog = () => {
   const {
     toggleDialog: { showDialog, selectedPost },
     setToggleDialog,
   } = useContext(PostContext);
-  const profilePic = getUserFromLocalStorage().profilePic;
+  const {
+    authState: { user },
+  } = useContext(AuthContext);
+
+  const profilePic = user.profilePic;
+  
   return (
     <>
       <Transition appear show={showDialog} as={Fragment}>

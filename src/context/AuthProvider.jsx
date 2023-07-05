@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
         data: { encodedToken, foundUser },
       } = await getLoginUser(payload);
       handleLoggedInUser(encodedToken, foundUser);
-      navigate("/");
+      navigate("/home");
       toast.success(`Hello ${foundUser?.firstName ?? "User"}`);
     } catch (error) {
       errorHandler(error);

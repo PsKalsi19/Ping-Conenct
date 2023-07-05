@@ -7,9 +7,11 @@ import PostCard from "../../components/post-card/PostCard";
 import { useState } from "react";
 import Tabs from "../../components/tabs/Tabs";
 import { UserContext } from "../../context/UserProvider";
+import { LinkIcon } from "@heroicons/react/24/outline";
 import { useLocation } from "react-router-dom";
 import RecommandedUsers from "../../components/recommanded-users/RecommandedUsers";
 import NoDataAvailable from "../../components/no-data-available/NoDataAvailable";
+import { USERS_ACTION } from "../../constants/users-actions";
 const Profile = () => {
   const {
     authState: { user },
@@ -19,12 +21,11 @@ const Profile = () => {
   const {
     handleUnfollowRequest,
     handleFollowRequest,
+    usersDispatch,
     getUsersFollowingList,
     setToggleEditProfile,
     getUserByUsername,
-    usersState:{
-      disableButton
-    }
+    usersState: { disableButton },
   } = useContext(UserContext);
   useEffect(() => {
     document.title = "PROFILE | PING CONNECT";
@@ -33,7 +34,13 @@ const Profile = () => {
     } else {
       setSelectedUser(user);
     }
+    
   }, [getUserByUsername, location?.state, user]);
+  
+  useEffect(()=>{
+    usersDispatch({ type: USERS_ACTION.UPDATE_PAGE, payload: "profile" });
+
+  },[usersDispatch])
   const {
     postsState: { posts },
   } = useContext(PostContext);
@@ -77,9 +84,9 @@ const Profile = () => {
   };
 
   return (
-    <div className="relative ">
+    <div className="relative mb-16 lg:mb-0">
       <img
-        className="w-full max-w-full rounded-md h-60"
+        className="w-full h-40 max-w-full rounded-md lg:h-60"
         src={
           selectedUser?.banner === ""
             ? "https://source.unsplash.com/random/1080x720/?minimalistic"
@@ -88,9 +95,9 @@ const Profile = () => {
         alt="image description"
       />
 
-      <div className="absolute flex items-center justify-between w-full p-6 top-40">
+      <div className="absolute flex items-center justify-between w-full p-6 top-24 lg:top-40">
         <img
-          className="bg-orange-100 border-4 border-orange-100 rounded-full h-28 w-28"
+          className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full lg:h-28 lg:w-28"
           src={
             selectedUser?.profilePic === ""
               ? "https://source.unsplash.com/random/900x700/?profile"
@@ -98,16 +105,18 @@ const Profile = () => {
           }
           alt="avatar"
         />
-        <button 
-        disabled={disableButton}
+        <button
+          disabled={disableButton}
           onClick={() => handleProfileMainCTA().cta(selectedUser._id)}
-          className={`px-4 py-2 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow hover:text-gray-100 hover:bg-orange-400/95 ${disableButton?' cursor-not-allowed':'cursor-pointer'}`}
+          className={`px-4 py-2 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow hover:text-gray-100 hover:bg-orange-400/95 ${
+            disableButton ? " cursor-not-allowed" : "cursor-pointer"
+          }`}
         >
           {handleProfileMainCTA().title}
         </button>
       </div>
 
-      <div className="flex flex-col px-6 mt-16">
+      <div className="flex flex-col px-2 mt-16 lg:px-6">
         <p className="text-xl font-bold tracking-tight text-gray-700 uppercase">
           {selectedUser?.firstName} {selectedUser?.lastName}{" "}
         </p>
@@ -122,27 +131,14 @@ const Profile = () => {
               rel="noreferrer"
               className="flex flex-row items-center font-semibold text-gray-500 hover:underline"
             >
-              <span className="mr-2 uppercase"> My website</span>
-              <svg
-                fill="none"
-                className="w-4 h-4"
-                stroke="currentColor"
-                strokeWidth={4}
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                />
-              </svg>
+              <LinkIcon className="w-5 h-5 text-gray-500" />
+
+              <span className="ml-1 capitalize"> My website</span>
             </a>
           )}
         </div>
 
-        <p className="my-4 font-semibold text-gray-500">{selectedUser?.bio}</p>
+        <p className="mt-2 mb-4 font-semibold text-gray-500">{selectedUser?.bio}</p>
         <Tabs tabTypes={tabTypes} handleTabChange={handleTabChange} />
       </div>
       {/* posts */}
@@ -177,7 +173,7 @@ const Profile = () => {
             selectedUser?.followers.map((follower, index) => (
               <div
                 key={follower._id}
-                className={`grid grid-cols-4 py-2 gap-x-2 ${
+                className={`flex justify-between py-2 gap-x-2 ${
                   index === selectedUser?.followers.length - 1
                     ? ""
                     : "border-gray-300 border-b"
@@ -216,7 +212,7 @@ const Profile = () => {
             selectedUser?.following.map((followingUser, index) => (
               <div
                 key={followingUser._id}
-                className={`grid grid-cols-4 py-2   gap-x-2 ${
+                className={`flex justify-between py-2   gap-x-2 ${
                   index === selectedUser?.following.length - 1
                     ? ""
                     : "border-gray-300 border-b"

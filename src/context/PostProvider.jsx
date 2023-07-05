@@ -146,8 +146,11 @@ const PostProvider = ({ children }) => {
         data: { posts },
       } = await createPost(postData);
       postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+      postsDispatch({ type: POSTS_ACTIONS.SHOW_LOADER_FOR_POST, payload: false });
+      
     } catch (error) {
       errorHandler(error);
+      postsDispatch({ type: POSTS_ACTIONS.SHOW_LOADER_FOR_POST, payload: false });
     }
   };
 
@@ -157,7 +160,10 @@ const PostProvider = ({ children }) => {
         data: { posts },
       } = await editPost(postData);
       postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+      postsDispatch({ type: POSTS_ACTIONS.SHOW_LOADER_FOR_POST, payload: false });
+      
     } catch (error) {
+      postsDispatch({ type: POSTS_ACTIONS.SHOW_LOADER_FOR_POST, payload: false });
       errorHandler(error);
     }
   };
