@@ -6,6 +6,8 @@ import POSTS_ACTIONS from "../../constants/posts-actions";
 import { delayResult } from "../../services/common-util";
 import PostCardSkeleton from "../../components/post-card-skeleton/PostCardSkeleton";
 import NoDataAvailable from "../../components/no-data-available/NoDataAvailable";
+import { UserContext } from "../../context/UserProvider";
+import { USERS_ACTION } from "../../constants/users-actions";
 
 const Explore = () => {
   const {
@@ -13,6 +15,9 @@ const Explore = () => {
     postsDispatch,
   } = useContext(PostContext);
 
+  const {
+    usersState: { selectedTheme },usersDispatch
+  } = useContext(UserContext);
   const [allPosts, setAllPosts] = useState([]);
   const observerTarget = useRef(null);
   useEffect(() => {
@@ -43,10 +48,11 @@ const Explore = () => {
 
   useEffect(() => {
     document.title = "EXPLORE | PING CONNECT";
-  }, []);
+    usersDispatch({ type: USERS_ACTION.UPDATE_PAGE, payload: "explore" });
+  }, [usersDispatch]);
 
   return (
-    <div className="flex flex-col items-center space-y-8">
+    <div className="flex flex-col items-center mt-2 space-y-4">
       {allPosts &&
         allPosts.length > 0 &&
         allPosts.map((post, index) => (

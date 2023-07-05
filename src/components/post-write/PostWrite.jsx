@@ -155,7 +155,7 @@ const PostWrite = ({ post }) => {
         value={postText}
         ref={textAreaRef}
         onChange={handleTextArea}
-        className="h-20 p-2 overflow-hidden text-gray-600 bg-transparent border-0 outline-none resize-none "
+        className="w-full h-10 p-2 overflow-hidden text-gray-600 bg-transparent border-0 outline-none resize-none "
         placeholder="What's on your mind?"
         name="post"
         maxLength={280}

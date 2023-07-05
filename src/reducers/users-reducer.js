@@ -8,6 +8,15 @@ const usersReducer = (state, { type, payload }) => {
     case USERS_ACTION.UPDATE_USER:
       return { ...state, users: updateUsersData(payload, state.users) };
 
+    case USERS_ACTION.UPDATE_PAGE:
+      return { ...state, currentPage: payload };
+
+    case USERS_ACTION.TOGGLE_THEME:
+      return { ...state, selectedTheme: payload };
+
+    case USERS_ACTION.TOGGLE_MOBILE_SIDEBAR:
+      return { ...state, mobileSidebar: payload };
+
     case USERS_ACTION.DISABLE_FOLLOW_BUTTON:
       return { ...state, disableButton: payload };
     default:

@@ -6,7 +6,7 @@ function classNames(...classes) {
 
 const Tabs = ({handleTabChange,tabTypes}) => {
   return (
-    <div className="w-full px-2 pb-4 bg-orange-100 sm:px-0">
+    <div className="w-full pb-4 bg-orange-100 sm:px-0">
       <Tab.Group defaultIndex={0} onChange={handleTabChange}>
         <Tab.List className="flex p-1 space-x-1 rounded-xl bg-orange-400/20">
          {tabTypes.map((tab,index)=>  <Tab key={index}

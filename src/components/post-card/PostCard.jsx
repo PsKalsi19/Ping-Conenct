@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { BookmarkIcon } from "@heroicons/react/24/outline";
-import { ChatBubbleBottomCenterIcon } from "@heroicons/react/24/outline";
+// import { ChatBubbleBottomCenterIcon } from "@heroicons/react/24/outline";
 import { getUserFromLocalStorage } from "../../services/localstorage-service";
 import PostCardMenu from "../post-card-menu/PostCardMenu";
 import { PostContext } from "../../context/PostProvider";
@@ -14,7 +14,7 @@ const PostCard = ({ post }) => {
     username,
     content,
     likes: { likeCount, likedBy },
-    comments,
+    // comments,
     _id,
     media,
   } = post;
@@ -34,7 +34,7 @@ const PostCard = ({ post }) => {
   const { firstName, lastName, profilePic } = getUserByUsername(username);
   const isBookmarked = bookmarks.includes(_id);
   return (
-    <div className="block w-full max-w-lg px-6 pt-6 pb-4 bg-orange-200 border border-gray-300 rounded-lg shadow ">
+    <div className="block w-full max-w-lg px-6 pt-6 pb-4 bg-orange-200 border border-gray-300 rounded-lg sm:shadow ">
       <div className="flex justify-between mb-4">
         <div className="flex flex-row">
           <Link to="/profile" state={post}>
@@ -95,12 +95,12 @@ const PostCard = ({ post }) => {
             {likeCount}
           </p>
         </div>
-        <div className="flex items-center group">
+        {/* <div className="flex items-center group">
           <ChatBubbleBottomCenterIcon className="p-2 ml-8 text-gray-600 rounded-full cursor-pointer w-9 h-9 hover:bg-orange-300/60 hover:fill-orange-500 hover:text-orange-600 " />
           <p className="ml-1 text-gray-600 group-hover:text-orange-600 text-normal">
             {comments.length}
           </p>
-        </div>
+        </div> */}
 
         <button
           onClick={

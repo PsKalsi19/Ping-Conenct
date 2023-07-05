@@ -44,7 +44,8 @@ const navigate=useNavigate()
             </svg>
           </div>
           <Combobox.Input
-            className="block w-full p-3 pl-10 text-sm text-gray-700 placeholder-gray-600 border border-gray-300 rounded-lg bg-orange-50 focus:ring-orange-200 focus:border-orange-200"
+          placeholder="Search by Name"
+            className="block w-full p-3 pl-10 text-sm text-gray-700 placeholder-gray-600 border border-gray-300 rounded-lg focus-visible:outline-none placeholder:text-gray-400 bg-orange-50 focus:border-orange-200"
             displayValue={(person) => person.name}
             onChange={(event) => setSearchTerm(event.target.value.trim())}
           />
