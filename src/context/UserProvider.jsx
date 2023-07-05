@@ -10,6 +10,7 @@ import { editUser } from './../services/auth-services';
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const UserContext = createContext()
+
 const UserProvider = ({ children }) => {
     const location=useLocation()
     const navigate=useNavigate()
@@ -97,6 +98,7 @@ const UserProvider = ({ children }) => {
     return (
         <UserContext.Provider value={{
             usersState,
+            usersDispatch,
             getUserByUsername,
             handleFollowRequest,
             handleUnfollowRequest,

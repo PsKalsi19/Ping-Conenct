@@ -9,14 +9,11 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
 const PostCardMenu = ({ post }) => {
   const { username, _id } = post;
   const { handleDeletePost, setToggleDialog } = useContext(PostContext);
-  const { getUsersFollowersList, getUsersFollowingList } =
+  const { getUsersFollowersList, getUsersFollowingList,handleFollowRequest, handleUnfollowRequest, getUserIdByUsername } =
     useContext(UserContext);
   const followers = getUsersFollowersList(getUserFromLocalStorage());
   const following = getUsersFollowingList(getUserFromLocalStorage());
   const currentUser = getUserFromLocalStorage().username;
-
-  const { handleFollowRequest, handleUnfollowRequest, getUserIdByUsername } =
-    useContext(UserContext);
 
   const handleFollow = () => {
     handleFollowRequest(getUserIdByUsername(username));
@@ -47,12 +44,12 @@ const PostCardMenu = ({ post }) => {
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <Popover.Panel className="absolute right-0 w-32  text-gray-600 border border-gray-300 rounded-md shadow-sm bg-orange-100">
+        <Popover.Panel className="absolute right-0 w-32 text-gray-600 bg-orange-100 border border-gray-300 rounded-md shadow-sm">
           <div className="text-sm font-semibold">
             {username !== currentUser && !following.includes(username) && (
               <Popover.Button
                 onClick={() => handleFollow(_id)}
-                className="w-full flex px-8 hover:bg-orange-200 text-gray-700 py-3 text-left border-gray-100 hover:text-gray-800"
+                className="flex w-full px-8 py-3 text-left text-gray-700 border-gray-100 hover:bg-orange-200 hover:text-gray-800"
               >
                 {followers.includes(username) ? "Follow Back" : "Follow"}
               </Popover.Button>
@@ -61,7 +58,7 @@ const PostCardMenu = ({ post }) => {
             {following.includes(username) && (
               <Popover.Button
                 onClick={handleUnfollow}
-                className="w-full flex px-8 hover:bg-orange-200 text-gray-700 py-3 text-left border-gray-100 hover:text-gray-800"
+                className="flex w-full px-8 py-3 text-left text-gray-700 border-gray-100 hover:bg-orange-200 hover:text-gray-800"
               >
                 Unfollow
               </Popover.Button>
@@ -70,17 +67,17 @@ const PostCardMenu = ({ post }) => {
               <>
                 <Popover.Button
                   onClick={handleEditPost}
-                  className="w-full flex px-8 items-center hover:bg-orange-200 text-gray-700 py-3  hover:text-gray-800"
+                  className="flex items-center w-full px-8 py-3 text-gray-700 hover:bg-orange-200 hover:text-gray-800"
                 >
-                  <PencilSquareIcon className="h-5 w-5 mr-1 text-gray-500" />
+                  <PencilSquareIcon className="w-5 h-5 mr-1 text-gray-500" />
                   Edit
                 </Popover.Button>
 
                 <Popover.Button
                   onClick={() => handleDeletePost(_id)}
-                  className="w-full flex px-8 items-center hover:bg-orange-200 text-red-500 py-3  hover:text-gray-800"
+                  className="flex items-center w-full px-8 py-3 text-red-500 hover:bg-orange-200 hover:text-red-600"
                 >
-                  <TrashIcon className="h-5 w-5 mr-1 text-red-500" />
+                  <TrashIcon className="w-5 h-5 mr-1 text-red-500" />
                   Delete
                 </Popover.Button>
               </>

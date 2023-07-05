@@ -77,13 +77,13 @@ const EditProfileForm = () => {
        </div>}
         <div className="relative">
           <img
-            className="w-full max-w-full rounded-md h-60"
+            className="w-full h-40 max-w-full rounded-md lg:h-60"
             src={formState?.banner}
             alt="image description"
           />
           <label
             htmlFor="dropzone-file-banner"
-            className="absolute top-0 flex flex-col items-center justify-center w-full max-w-full rounded-md cursor-pointer h-60 hover:bg-bray-800 bg-gray-600/40 hover:border-gray-500 hover:bg-gray-700/30"
+            className="absolute top-0 flex flex-col items-center justify-center w-full h-40 max-w-full rounded-md cursor-pointer lg:h-60 hover:bg-bray-800 bg-gray-600/40 hover:border-gray-500 hover:bg-gray-700/30"
           >
             <div className="flex flex-col items-center justify-center pt-5 pb-6">
               <CameraIcon className="w-10 h-10 text-gray-600" />
@@ -100,7 +100,7 @@ const EditProfileForm = () => {
           </label>
 
           <Popover className="relative">
-            <Popover.Button className="absolute right-0 px-4 py-2 my-4 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow hover:text-gray-100 hover:bg-orange-400/95">
+            <Popover.Button className="absolute px-4 py-2 my-4 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow right-6 -bottom-8 lg:right-0 hover:text-gray-100 hover:bg-orange-400/95">
               Choose Avatar
             </Popover.Button>
 
@@ -127,19 +127,19 @@ const EditProfileForm = () => {
             </Popover.Panel>
           </Popover>
         </div>
-        <div className="absolute p-6 top-52">
+        <div className="absolute p-6 top-36 lg:top-52">
           <img
-            className="bg-orange-100 border-4 border-orange-100 rounded-full h-28 w-28"
+            className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full lg:h-28 lg:w-28"
             src={formState?.profilePic}
             alt="avatar"
           />
 
           <label
             htmlFor="dropzone-file-avatar"
-            className="absolute flex flex-col items-center justify-center border-4 border-orange-100 rounded-full cursor-pointer top-6 h-28 w-28 hover:bg-bray-800 bg-gray-600/40 hover:bg-gray-700/30"
+            className="absolute flex flex-col items-center justify-center w-20 h-20 border-4 border-orange-100 rounded-full cursor-pointer top-6 lg:h-28 lg:w-28 hover:bg-bray-800 bg-gray-600/40 hover:bg-gray-700/30"
           >
             <div className="relative">
-              <CameraIcon className="absolute w-8 h-8 text-gray-600 top-4 left-4" />
+              <CameraIcon className="absolute w-5 h-5 text-gray-600 lg:w-8 lg:h-8 top-4 left-4" />
             </div>
             <input
               id="dropzone-file-avatar"
@@ -156,7 +156,7 @@ const EditProfileForm = () => {
         <div>
           <label
             htmlFor="bio"
-            className="block mt-20 mb-2 text-sm font-medium text-gray-700"
+            className="block mt-12 mb-2 text-sm font-medium text-gray-700 lg:mt-20"
           >
             Bio
           </label>
@@ -167,8 +167,8 @@ const EditProfileForm = () => {
             maxLength={250}
             name="bio"
             id="bio"
-            cols="30"
-            className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200 resize-none"
+            cols="20"
+            className="border h-20 lg:h-40 sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200 resize-none"
             rows="5"
           ></textarea>
         </div>
