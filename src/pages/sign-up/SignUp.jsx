@@ -185,7 +185,7 @@ const {handleUserSignUp}=useContext(AuthContext)
 
               <button
                 type="submit"
-                className="w-full px-5 py-3 text-sm font-medium text-center text-gray-700 bg-orange-300 border-gray-700 rounded-lg dark:text-gray-50 dark:bg-stone-900 border-1 focus:ring-4 focus:outline-none hover:bg-orange-300 focus:ring-orange-200"
+                className="w-full px-5 py-3 text-sm font-medium text-center text-gray-700 bg-orange-300 border-2 border-orange-200 rounded-lg dark:text-gray-50 dark:bg-stone-900 dark:border-stone-700 focus:ring-4 focus:outline-none hover:bg-orange-400 hover:text-gray-100 focus:ring-orange-200"
               >
                 Create Account
               </button>
