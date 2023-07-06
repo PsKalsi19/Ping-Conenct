@@ -66,14 +66,14 @@ const EditProfileForm = () => {
         className="space-y-4 md:space-y-6"
         onSubmit={handleSubmit}
       >
-       {location.pathname!=='/user-details' && <h3 className="text-xl font-bold tracking-tight text-center text-gray-700">
+       {location.pathname!=='/user-details' && <h3 className="text-xl font-bold tracking-tight text-center text-gray-700 dark:text-gray-50">
           Profile Details
         </h3>}
        {location.pathname==='/user-details' && <div className="relative flex justify-center">
-           <h3 className="text-xl font-bold tracking-tight text-center text-gray-700">
+           <h3 className="text-xl font-bold tracking-tight text-center text-gray-700 dark:text-gray-50">
               Set Profile Details
             </h3>
-            <Link className="absolute right-0 inline-flex items-center justify-center w-24 col-span-2 px-2 py-2 text-sm font-medium text-center text-gray-700 uppercase rounded-md shadow hover:bg-orange-400 bg-orange-50 hover:text-gray-100 " to="/home">Skip</Link>
+            <Link className="absolute right-0 inline-flex items-center justify-center w-24 col-span-2 px-2 py-2 text-sm font-medium text-center text-gray-700 uppercase rounded-md shadow dark:text-gray-50 hover:bg-orange-400 bg-orange-50 hover:text-gray-100 " to="/home">Skip</Link>
        </div>}
         <div className="relative">
           <img
@@ -86,7 +86,7 @@ const EditProfileForm = () => {
             className="absolute top-0 flex flex-col items-center justify-center w-full h-40 max-w-full rounded-md cursor-pointer lg:h-60 hover:bg-bray-800 bg-gray-600/40 hover:border-gray-500 hover:bg-gray-700/30"
           >
             <div className="flex flex-col items-center justify-center pt-5 pb-6">
-              <CameraIcon className="w-10 h-10 text-gray-600" />
+              <CameraIcon className="w-10 h-10 text-gray-600 dark:text-gray-100" />
             </div>
             <input
               onChange={changeFileHandler}
@@ -100,11 +100,11 @@ const EditProfileForm = () => {
           </label>
 
           <Popover className="relative">
-            <Popover.Button className="absolute px-4 py-2 my-4 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow right-6 -bottom-8 lg:right-0 hover:text-gray-100 hover:bg-orange-400/95">
+            <Popover.Button className="absolute px-4 py-2 my-4 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow right-6 -bottom-8 lg:right-4 dark:bg-stone-700 dark:hover:bg-stone-600 hover:text-gray-100 hover:bg-orange-400/95">
               Choose Avatar
             </Popover.Button>
 
-            <Popover.Panel className="absolute right-0 z-10 p-4 my-2 border-2 border-orange-200 rounded-md bg-orange-200/90 top-16">
+            <Popover.Panel className="absolute right-0 z-10 p-4 my-2 bg-orange-200 border-2 border-orange-200 rounded-md dark:bg-stone-700 dark:border-stone-500 top-4">
               <div className="grid grid-cols-4 gap-4">
                 {avatarLinks.map((avatar, index) => (
                   <Popover.Button
@@ -117,7 +117,7 @@ const EditProfileForm = () => {
                     }
                   >
                     <img
-                      className="w-16 h-16 rounded-full"
+                      className="w-12 h-12 rounded-full lg:w-16 lg:h-16"
                       src={avatar}
                       alt="avatar"
                     />
@@ -129,17 +129,17 @@ const EditProfileForm = () => {
         </div>
         <div className="absolute p-6 top-36 lg:top-52">
           <img
-            className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full lg:h-28 lg:w-28"
+            className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
             src={formState?.profilePic}
             alt="avatar"
           />
 
           <label
             htmlFor="dropzone-file-avatar"
-            className="absolute flex flex-col items-center justify-center w-20 h-20 border-4 border-orange-100 rounded-full cursor-pointer top-6 lg:h-28 lg:w-28 hover:bg-bray-800 bg-gray-600/40 hover:bg-gray-700/30"
+            className="absolute flex flex-col items-center justify-center w-20 h-20 border-4 border-orange-100 rounded-full cursor-pointer dark:border-stone-800 top-6 lg:h-28 lg:w-28 bg-gray-600/40 hover:bg-gray-700/30"
           >
             <div className="relative">
-              <CameraIcon className="absolute w-5 h-5 text-gray-600 lg:w-8 lg:h-8 top-4 left-4" />
+              <CameraIcon className="absolute w-5 h-5 text-gray-600 dark:text-gray-100 lg:w-8 lg:h-8 top-4 left-4" />
             </div>
             <input
               id="dropzone-file-avatar"
@@ -156,7 +156,7 @@ const EditProfileForm = () => {
         <div>
           <label
             htmlFor="bio"
-            className="block mt-12 mb-2 text-sm font-medium text-gray-700 lg:mt-20"
+            className="block mt-12 mb-2 text-sm font-medium text-gray-700 dark:text-gray-50 lg:mt-20"
           >
             Bio
           </label>
@@ -168,14 +168,14 @@ const EditProfileForm = () => {
             name="bio"
             id="bio"
             cols="20"
-            className="border h-20 lg:h-40 sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200 resize-none"
+            className="border h-20 lg:h-40 sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:border-stone-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200 resize-none"
             rows="5"
           ></textarea>
         </div>
         <div className="relative">
           <label
             htmlFor="link"
-            className="block mb-2 text-sm font-medium text-gray-700"
+            className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-50"
           >
             Website
           </label>
@@ -186,12 +186,12 @@ const EditProfileForm = () => {
               name="link"
               id="link"
               placeholder="http://www.example.com"
-              className="border sm:text-sm font-medium rounded-lg block w-full  p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200"
+              className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200 dark:border-stone-700"
             />
         </div>
         <button
           type="submit"
-          className="w-full px-5 py-2.5 text-sm lg:text-base font-medium text-center text-gray-700 rounded-lg border-1 border-gray-600 bg-orange-300 focus:ring-4 focus:outline-none hover:bg-orange-300 focus:ring-orange-200"
+          className="w-full px-5 py-2.5 text-sm lg:text-base font-medium text-center text-gray-700 dark:text-gray-50 rounded-lg border-1 border-gray-600 bg-orange-300 focus:ring-4  dark:bg-stone-600 dark:hover:bg-stone-700 focus:outline-none hover:bg-orange-300 focus:ring-orange-200"
         >
           Save Changes
         </button>

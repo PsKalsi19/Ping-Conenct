@@ -18,9 +18,8 @@ const TrendingSidebar = () => {
           <div className="flex flex-col flex-1 pb-4 mt-1 overflow-y-auto">
             <nav className="flex-1 mt-4 space-y-1">
               {/* Follow Suggestions */}
-              <div>
-                <div className="block max-w-sm p-4 border border-gray-300 rounded-lg shadow-md w-92 ">
-                  <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-700 ">
+                <div className="block max-w-sm p-4 border border-gray-300 rounded-lg shadow-md">
+                  <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-700 dark:text-gray-50 ">
                     Who to Follow
                   </h5>
                   {whoToFollow &&
@@ -28,7 +27,7 @@ const TrendingSidebar = () => {
                     whoToFollow.map((followUser, index) => (
                       <div
                         key={followUser._id}
-                        className={`flex flex-row justify-between p-2 hover:bg-orange-200/40 gap-x-2 ${
+                        className={`flex flex-row justify-between p-2 hover:bg-orange-200 dark:hover:bg-stone-700 hover:rounded-md gap-x-2 ${
                           index === whoToFollow.length - 1
                             ? ""
                             : "border-gray-300 border-b"
@@ -42,9 +41,9 @@ const TrendingSidebar = () => {
                               alt="avatar"
                             />
                           </Link>
-                          <div className="flex flex-col ml-4">
-                            <p className="font-semibold text-gray-700">{`${followUser.firstName} ${followUser.lastName}`}</p>
-                            <small className="text-xs font-semibold text-gray-500 ">
+                          <div className="flex flex-col ml-2">
+                            <p className="font-semibold text-gray-700 dark:text-gray-50">{`${followUser.firstName} ${followUser.lastName}`}</p>
+                            <small className="text-xs font-semibold text-gray-500 dark:text-gray-300">
                               {followUser.username}
                             </small>
                           </div>
@@ -52,7 +51,9 @@ const TrendingSidebar = () => {
                         <button
                           disabled={disableButton}
                           onClick={() => handleFollowRequest(followUser._id)}
-                          className={`inline-flex items-center justify-center w-24 col-span-2 px-2 text-sm font-medium text-center text-gray-700 rounded-md shadow hover:text-gray-100 bg-orange-50 hover:bg-orange-400/80 ${
+                          className={`inline-flex items-center justify-center w-24 col-span-2 px-2 text-sm font-medium text-center text-gray-700 rounded-md shadow 
+                          dark:bg-stone-100 dark:hover:bg-stone-700 dark:hover:text-gray-50 dark:text-gray-700
+                          hover:text-gray-100 bg-orange-50 hover:bg-orange-400/80 ${
                             disableButton
                               ? " cursor-not-allowed"
                               : "cursor-pointer"
@@ -63,12 +64,11 @@ const TrendingSidebar = () => {
                       </div>
                     ))}
                   {whoToFollow && whoToFollow.length === 0 && (
-                    <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-600 ">
+                    <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-600 dark:text-gray-100 ">
                       Nothing to show! 😪
                     </h5>
                   )}
                 </div>
-              </div>
             </nav>
           </div>
       </div>

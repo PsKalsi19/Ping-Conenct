@@ -12,7 +12,7 @@ import UserDetails from "./pages/user-details/UserDetails";
 
 export default function App() {
   return (
-    <>
+    <div className="min-h-screen bg-orange-100  dark:bg-stone-900">
       <Routes>
         <Route
           path="/"
@@ -34,6 +34,6 @@ export default function App() {
         <Route path="login" element={<Login />} />
         <Route path="sign-up" element={<SignUp />} />
       </Routes>
-    </>
+    </div>
   );
 }

@@ -7,13 +7,14 @@ import FloatingActionButton from "../../components/floating-action-button/Floati
 import { useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
 import MobileSidebar from "../../components/mobile-sidebar/MobileSidebar";
+import ThemeToggler from "../../components/theme-toggler/ThemeToggler";
 
 const PrimaryLayout = () => {
   const {
-    usersState: { selectedTheme, currentPage },
+    usersState: { currentPage },
   } = useContext(UserContext);
   return (
-    <div className="min-h-screen">
+    <div>
       <div className="mx-auto md:max-w-2xl lg:max-w-7xl">
         <Navbar />
         <main className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -27,9 +28,14 @@ const PrimaryLayout = () => {
               </aside>
             </div>
             <div className="col-span-8 sm:col-span-4 sm:col-start-3">
-                <h2 className="sticky top-0 z-10 hidden px-4 pt-4 pb-8 text-3xl font-extrabold text-gray-700 capitalize bg-orange-100 lg:block">{currentPage}</h2>
+              <div className="sticky top-0 z-10 flex-row items-center justify-between hidden px-4 pt-4 pb-8 bg-orange-100 dark:bg-stone-900 sm:flex">
+                <h2 className="text-3xl font-extrabold text-gray-700 capitalize dark:text-gray-50 ">
+                  {currentPage}
+                </h2>
+                <ThemeToggler/>
+              </div>
               <div className="pb-4 mb-20 lg:px-4 lg:mb-0 sm:mt-12 lg:-mt-2">
-                <MobileSidebar/>
+                <MobileSidebar />
                 <Outlet />
               </div>
             </div>
@@ -44,8 +50,8 @@ const PrimaryLayout = () => {
           </div>
         </main>
         <footer className="sm:hidden">
-          <MobileNavigation/>
-          <FloatingActionButton/>
+          <MobileNavigation />
+          <FloatingActionButton />
         </footer>
       </div>
     </div>
