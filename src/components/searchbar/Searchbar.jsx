@@ -24,7 +24,7 @@ const navigate=useNavigate()
 
   return (
     <Combobox onChange={handleItemSelect}>
-      <div className="relative w-3/4 sm:w-full">
+      <div className="relative w-3/4 md:w-10/12 lg:w-full">
         <div className="relative w-full overflow-hidden text-left rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 sm:text-sm">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg

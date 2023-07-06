@@ -7,9 +7,9 @@ const ThemeToggler = () => {
   return (
     <button onClick={toggleTheme}>
       {theme === "dark" ? (
-        <SunIcon title="Light Theme" className="w-6 h-6 text-orange-400" />
+        <SunIcon title="Light Theme" className="w-6 h-6 text-orange-400 sm:w-8 sm:h-8 lg:w-6 lg:h-6" />
       ) : (
-        <MoonIcon title="Dark Theme" className="w-6 h-6 text-sky-950" />
+        <MoonIcon title="Dark Theme" className="w-6 h-6 text-sky-950 sm:w-8 sm:h-8 lg:w-6 lg:h-6" />
       )}
     </button>
   );
