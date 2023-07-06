@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const MobileSidebar = () => {
   const {
-    usersState: { selectedTheme, mobileSidebar },
+    usersState: { mobileSidebar },
     usersDispatch,
   } = useContext(UserContext);
   const {
@@ -64,10 +64,10 @@ const MobileSidebar = () => {
                 leaveTo="translate-x-full"
               >
                 <Dialog.Panel className="w-screen max-w-md pointer-events-auto">
-                  <div className="flex flex-col h-full overflow-y-scroll bg-orange-100 shadow-xl">
+                  <div className="flex flex-col h-full overflow-y-scroll bg-orange-100 shadow-xl dark:bg-stone-900">
                     <div className="flex-1 px-4 py-6 overflow-y-auto sm:px-6">
                       <div className="flex items-start justify-between">
-                        <Dialog.Title className="text-lg font-medium text-gray-700">
+                        <Dialog.Title className="text-lg font-medium text-gray-700 dark:text-gray-50">
                           <p className="font-bold tracking-tight uppercase text-normal">
                             {user.firstName} {user.lastName}{" "}
                           </p>
@@ -102,7 +102,7 @@ const MobileSidebar = () => {
 
                           <div className="absolute right-0 flex items-center justify-between w-full p-6 top-40 lg:top-40">
                             <img
-                              className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full lg:h-28 lg:w-28"
+                              className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
                               src={
                                 user?.profilePic === ""
                                   ? "https://source.unsplash.com/random/900x700/?profile"
@@ -112,7 +112,7 @@ const MobileSidebar = () => {
                             />
                             <button
                               onClick={handleProfileRedirect}
-                              className="px-4 py-2 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow cursor-pointer hover:text-gray-100 hover:bg-orange-400/95"
+                              className="px-4 py-2 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow cursor-pointer dark:bg-stone-700 dark:hover:bg-stone-600 hover:text-gray-100 hover:bg-orange-400/95"
                             >
                               Profile
                             </button>
@@ -125,7 +125,7 @@ const MobileSidebar = () => {
                       <div className="mt-6 space-y-4">
                         <button
                           onClick={handleUserLogout}
-                          className="inline-flex items-center justify-center w-full px-6 py-3 font-medium text-center text-gray-700 rounded-md shadow col-span-2text-sm hover:text-gray-100 bg-orange-50 hover:bg-orange-400/80"
+                          className="inline-flex items-center justify-center w-full col-span-2 px-6 py-3 text-sm font-medium text-center text-gray-700 rounded-md shadow dark:text-gray-700 dark:hover:bg-stone-700 dark:hover:text-gray-100 hover:text-gray-100 bg-orange-50 hover:bg-orange-400/80"
                         >
                           Log Out
                           <ArrowRightOnRectangleIcon className="w-6 h-6 ml-2 text-gray-500" />

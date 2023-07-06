@@ -24,7 +24,7 @@ const PostMedia = ({
               disableButton ? "cursor-not-allowed" : "cursor-pointer"
             }`}
           >
-            <XCircleIcon className="w-6 h-6 bg-orange-100 rounded-full text-red-400 hover:text-red-500 " />
+            <XCircleIcon className="w-6 h-6 bg-orange-100 dark:bg-stone-900 rounded-full text-red-400 hover:text-red-500 " />
           </button>
         )}
       </div>
@@ -48,14 +48,14 @@ const PostMedia = ({
           >
             <XCircleIcon
              
-              className="w-6 absolute -right-2 -top-2 h-6 bg-orange-100 rounded-full text-red-400 hover:text-red-500  "
+              className="w-6 absolute -right-2 -top-2 h-6 bg-orange-100 dark:bg-stone-900 rounded-full text-red-400 hover:text-red-500  "
             />
           </button>
         )}
       </div>
     );
   }
-  return <p className="text-gray-600"> File type not supported.</p>;
+  return <p className="text-gray-600 dark:text-gray-100"> File type not supported.</p>;
 };
 
 export default PostMedia;

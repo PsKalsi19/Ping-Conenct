@@ -147,7 +147,7 @@ const PostWrite = ({ post }) => {
 
   return (
     <div className="w-full">
-      <h3 className="text-lg font-bold tracking-tight text-gray-600 md:text-2xl">
+      <h3 className="text-lg font-bold tracking-tight text-gray-600 dark:text-gray-100 md:text-2xl">
         {post && Object.keys(post).length > 0 ? "Edit Post" : "Create Post"}
       </h3>
       <textarea
@@ -155,7 +155,7 @@ const PostWrite = ({ post }) => {
         value={postText}
         ref={textAreaRef}
         onChange={handleTextArea}
-        className="w-full h-10 p-2 overflow-hidden text-gray-600 bg-transparent border-0 outline-none resize-none "
+        className="w-full h-10 overflow-hidden text-gray-600 bg-transparent border-0 outline-none resize-none dark:text-gray-100 "
         placeholder="What's on your mind?"
         name="post"
         maxLength={280}
@@ -178,9 +178,9 @@ const PostWrite = ({ post }) => {
             } group`}
           >
             <PhotoIcon
-              className={`w-6 h-6 text-gray-500 ${
+              className={`w-6 h-6 text-gray-500 dark:text-gray-300${
                 postsState.postLoader ? "cursor-not-allowed" : ""
-              } group-hover:text-orange-400`}
+              } group-hover:text-orange-400 dark:group-hover:text-stone-100`}
             />
             <input
               onClick={(event) => {
@@ -198,9 +198,9 @@ const PostWrite = ({ post }) => {
               disableButton={postsState.postLoader}
               menuIcon={
                 <FaceSmileIcon
-                  className={`w-6 h-6 text-gray-500 ${
+                  className={`w-6 h-6 text-gray-500 dark:text-gray-300${
                     postsState.postLoader ? " pointer-events-none" : ""
-                  } hover:text-orange-400`}
+                  } hover:text-orange-400 dark:hover:text-stone-100`}
                 />
               }
               elementRender={
@@ -228,7 +228,7 @@ const PostWrite = ({ post }) => {
             postsState.postLoader
           }
           onClick={handlePostSubmit}
-          className="px-6 py-2 text-gray-100 bg-orange-400 rounded-md hover:bg-orange-500/80 disabled:cursor-not-allowed disabled:opacity-60"
+          className="px-6 py-2 text-gray-100 bg-orange-400 rounded-md dark:bg-stone-700 dark:hover:bg-stone-600 hover:bg-orange-500/80 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {postsState.postLoader && (
             <svg

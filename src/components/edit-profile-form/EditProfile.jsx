@@ -37,7 +37,7 @@ const EditProfile = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-xl p-6 overflow-hidden text-left align-middle transition-all transform bg-orange-100 shadow-xl rounded-2xl">
+                <Dialog.Panel className="w-full max-w-xl p-6 overflow-hidden text-left align-middle transition-all transform bg-orange-100 dark:bg-stone-900 shadow-xl rounded-2xl">
                   <div className="rounded-xl">
                     <EditProfileForm />
                   </div>

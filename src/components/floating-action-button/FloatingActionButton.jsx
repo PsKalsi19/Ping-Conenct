@@ -11,7 +11,7 @@ const FloatingActionButton = () => {
       <button
       onClick={handleWrite}
         type="button"
-        className="flex items-center justify-center text-white bg-orange-400 rounded-full w-14 h-14 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 focus:outline-none "
+        className="flex items-center justify-center text-white bg-orange-400 rounded-full dark:bg-stone-700 dark:hover:bg-stone-600 w-14 h-14 hover:bg-orange-700 focus:ring-4 dark:focus:ring-stone-500 focus:ring-orange-300 focus:outline-none "
       >
         <svg
           className="w-4 h-4 transition-transform group-hover:rotate-45"
