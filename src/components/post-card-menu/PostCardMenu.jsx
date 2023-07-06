@@ -33,7 +33,7 @@ const PostCardMenu = ({ post }) => {
       <Popover.Button className="focus:outline-0">
         <EllipsisVerticalIcon
           title="Options"
-          className="p-2 text-gray-600 rounded-full cursor-pointer w-9 h-9 hover:text-gray-800 hover:bg-orange-300/60 bg-orange-300/40"
+          className="p-2 text-gray-600 rounded-full cursor-pointer dark:text-gray-100 w-9 h-9 hover:text-gray-800 dark:bg-stone-600 dark:hover:bg-stone-500 hover:bg-orange-300/60 bg-orange-300/40"
         />
       </Popover.Button>
       <Transition
@@ -44,12 +44,12 @@ const PostCardMenu = ({ post }) => {
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <Popover.Panel className="absolute right-0 w-32 text-gray-600 bg-orange-100 border border-gray-300 rounded-md shadow-sm">
+        <Popover.Panel className="absolute right-0 w-32 text-gray-600 bg-orange-100 border border-gray-300 rounded-md shadow-sm dark:border-stone-500 dark:text-gray-100 dark:bg-stone-900">
           <div className="text-sm font-semibold">
             {username !== currentUser && !following.includes(username) && (
               <Popover.Button
                 onClick={() => handleFollow(_id)}
-                className="flex w-full px-8 py-3 text-left text-gray-700 border-gray-100 hover:bg-orange-200 hover:text-gray-800"
+                className="flex w-full px-8 py-3 text-left text-gray-700 border-gray-100 rounded dark:text-gray-50 hover:bg-orange-200 dark:hover:bg-stone-700 dark:border-stone-700 hover:text-gray-800"
               >
                 {followers.includes(username) ? "Follow Back" : "Follow"}
               </Popover.Button>
@@ -58,7 +58,7 @@ const PostCardMenu = ({ post }) => {
             {following.includes(username) && (
               <Popover.Button
                 onClick={handleUnfollow}
-                className="flex w-full px-8 py-3 text-left text-gray-700 border-gray-100 hover:bg-orange-200 hover:text-gray-800"
+                className="flex w-full px-8 py-3 text-left text-gray-700 border-gray-100 rounded dark:text-gray-50 hover:bg-orange-200 dark:hover:bg-stone-700 dark:border-stone-700 hover:text-gray-800"
               >
                 Unfollow
               </Popover.Button>
@@ -67,7 +67,7 @@ const PostCardMenu = ({ post }) => {
               <>
                 <Popover.Button
                   onClick={handleEditPost}
-                  className="flex items-center w-full px-8 py-3 text-gray-700 hover:bg-orange-200 hover:text-gray-800"
+                  className="flex items-center w-full px-8 py-3 text-gray-700 rounded dark:text-gray-50 hover:bg-orange-200 dark:hover:bg-stone-700 dark:border-stone-700 hover:text-gray-800"
                 >
                   <PencilSquareIcon className="w-5 h-5 mr-1 text-gray-500" />
                   Edit
@@ -75,7 +75,7 @@ const PostCardMenu = ({ post }) => {
 
                 <Popover.Button
                   onClick={() => handleDeletePost(_id)}
-                  className="flex items-center w-full px-8 py-3 text-red-500 hover:bg-orange-200 hover:text-red-600"
+                  className="flex items-center w-full px-8 py-3 text-red-500 rounded hover:bg-orange-200 dark:hover:bg-stone-700 dark:border-stone-700 hover:text-red-600"
                 >
                   <TrashIcon className="w-5 h-5 mr-1 text-red-500" />
                   Delete

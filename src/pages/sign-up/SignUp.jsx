@@ -37,16 +37,15 @@ const {handleUserSignUp}=useContext(AuthContext)
   };
 
   return (
-    <section>
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto mt-32 sm:mt-0 md:h-screen lg:py-0">
-        <div className="w-full bg-orange-200 border border-gray-300 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+      <div className="flex flex-col items-center justify-center px-6 py-8 pt-8 mx-auto sm:pt-0 md:h-screen lg:py-0">
+        <div className="w-full bg-orange-200 border border-gray-300 rounded-lg shadow dark:border-stone-700 dark:bg-stone-700/40 md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <div className="flex flex-col items-center justify-center">
             <img className='w-32 h-10'
                                   src="https://res.cloudinary.com/dkay6uocg/image/upload/v1688300937/Ping%20Connect/logo-no-background_mzrqxn.png"
                                   alt="ping-connect"
                               />
-              <h1 className="mt-4 text-xl font-bold leading-tight tracking-tight text-center text-gray-700 md:text-2xl">
+              <h1 className="mt-4 text-xl font-bold leading-tight tracking-tight text-center text-gray-700 dark:text-gray-50 md:text-2xl">
             
                 Create an Account
               </h1>
@@ -56,7 +55,7 @@ const {handleUserSignUp}=useContext(AuthContext)
                 <div>
                   <label
                     htmlFor="firstName"
-                    className="block mb-2 text-sm font-medium text-gray-700"
+                    className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-50"
                   >
                     First Name
                   </label>
@@ -66,7 +65,10 @@ const {handleUserSignUp}=useContext(AuthContext)
                     type="text"
                     name="firstName"
                     id="firstName"
-                    className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200"
+                    className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
+                    dark:focus:ring-stone-500 dark:focus:border-stone-500 
+                dark:border-stone-500
+                    "
                     placeholder="Jon"
                     required={true}
                   />
@@ -74,7 +76,7 @@ const {handleUserSignUp}=useContext(AuthContext)
                 <div className="mt-2 sm:mt-0">
                   <label
                     htmlFor="lastName"
-                    className="block mb-2 text-sm font-medium text-gray-700"
+                    className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-50"
                   >
                     Last Name
                   </label>
@@ -84,7 +86,10 @@ const {handleUserSignUp}=useContext(AuthContext)
                     type="text"
                     name="lastName"
                     id="lastName"
-                    className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200"
+                    className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
+                    dark:focus:ring-stone-500 dark:focus:border-stone-500 
+                dark:border-stone-500
+                    "
                     placeholder="watts"
                     required={true}
                   />
@@ -93,7 +98,7 @@ const {handleUserSignUp}=useContext(AuthContext)
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-700"
+                  className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-50"
                 >
                   Your email
                 </label>
@@ -103,7 +108,10 @@ const {handleUserSignUp}=useContext(AuthContext)
                   type="email"
                   name="email"
                   id="email"
-                  className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200"
+                  className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
+                  dark:focus:ring-stone-500 dark:focus:border-stone-500 
+                dark:border-stone-500
+                  "
                   placeholder="abc@email.com"
                   required={true}
                 />
@@ -111,19 +119,19 @@ const {handleUserSignUp}=useContext(AuthContext)
               <div className="relative">
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-700"
+                  className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-50"
                 >
                   Password
                 </label>
                 {showPassword.password ? (
                   <EyeIcon
                     onClick={() => setShowPassword({...showPassword,password:false})}
-                    className="absolute w-6 h-6 text-gray-500 cursor-pointer right-2 bottom-2"
+                    className="absolute w-6 h-6 text-gray-500 dark:text-gray-300cursor-pointer right-2 bottom-2"
                   />
                 ) : (
                   <EyeSlashIcon
                   onClick={() => setShowPassword({...showPassword,password:true})}
-                  className="absolute w-6 h-6 text-gray-500 cursor-pointer right-2 bottom-2"
+                  className="absolute w-6 h-6 text-gray-500 dark:text-gray-300cursor-pointer right-2 bottom-2"
                   />
                 )}
                 <input
@@ -134,26 +142,29 @@ const {handleUserSignUp}=useContext(AuthContext)
                   minLength="6"
                   id="password"
                   placeholder="••••••••"
-                  className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200"
+                  className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
+                  dark:focus:ring-stone-500 dark:focus:border-stone-500 
+                dark:border-stone-500
+                  "
                   required={true}
                 />
               </div>
               <div className="relative">
                 <label
                   htmlFor="confirmPassword"
-                  className="block mb-2 text-sm font-medium text-gray-700"
+                  className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-50"
                 >
                   Confirm password
                 </label>
                 {showPassword.confirmPassword ? (
                   <EyeIcon
                     onClick={() => setShowPassword({...showPassword,confirmPassword:false})}
-                    className="absolute w-6 h-6 text-gray-500 cursor-pointer right-2 bottom-2"
+                    className="absolute w-6 h-6 text-gray-500 dark:text-gray-300cursor-pointer right-2 bottom-2"
                   />
                 ) : (
                   <EyeSlashIcon
                   onClick={() => setShowPassword({...showPassword,confirmPassword:true})}
-                  className="absolute w-6 h-6 text-gray-500 cursor-pointer right-2 bottom-2"
+                  className="absolute w-6 h-6 text-gray-500 dark:text-gray-300cursor-pointer right-2 bottom-2"
                   />
                 )}
                 <input
@@ -164,22 +175,25 @@ const {handleUserSignUp}=useContext(AuthContext)
                   minLength="6"
                   id="confirmPassword"
                   placeholder="••••••••"
-                  className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 border-orange-200 placeholder-gray-500 text-gray-700 focus:ring-orange-200 focus:border-orange-200"
+                  className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
+                  dark:focus:ring-stone-500 dark:focus:border-stone-500 
+                dark:border-stone-500
+                  "
                   required={true}
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-5 py-2.5 text-xs lg:text-sm font-medium text-center text-gray-700 rounded-lg border-1 border-gray-700 bg-orange-300 focus:ring-4 focus:outline-none hover:bg-orange-300 focus:ring-orange-200"
+                className="w-full px-5 py-3 text-sm font-medium text-center text-gray-700 bg-orange-300 border-gray-700 rounded-lg dark:text-gray-50 dark:bg-stone-900 border-1 focus:ring-4 focus:outline-none hover:bg-orange-300 focus:ring-orange-200"
               >
                 Create Account
               </button>
-              <p className="text-sm font-medium text-gray-700">
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-50">
                 Already have an account?
                 <Link
                   to="/login"
-                  className="ml-2 font-medium text-gray-900 hover:underline"
+                  className="ml-2 font-medium text-gray-900 dark:text-white hover:underline"
                 >
                   Login
                 </Link>
@@ -188,7 +202,6 @@ const {handleUserSignUp}=useContext(AuthContext)
           </div>
         </div>
       </div>
-    </section>
   );
 };
 

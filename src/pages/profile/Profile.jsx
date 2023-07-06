@@ -34,13 +34,11 @@ const Profile = () => {
     } else {
       setSelectedUser(user);
     }
-    
   }, [getUserByUsername, location?.state, user]);
-  
-  useEffect(()=>{
-    usersDispatch({ type: USERS_ACTION.UPDATE_PAGE, payload: "profile" });
 
-  },[usersDispatch])
+  useEffect(() => {
+    usersDispatch({ type: USERS_ACTION.UPDATE_PAGE, payload: "profile" });
+  }, [usersDispatch]);
   const {
     postsState: { posts },
   } = useContext(PostContext);
@@ -97,7 +95,7 @@ const Profile = () => {
 
       <div className="absolute flex items-center justify-between w-full p-6 top-24 lg:top-40">
         <img
-          className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full lg:h-28 lg:w-28"
+          className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
           src={
             selectedUser?.profilePic === ""
               ? "https://source.unsplash.com/random/900x700/?profile"
@@ -108,7 +106,7 @@ const Profile = () => {
         <button
           disabled={disableButton}
           onClick={() => handleProfileMainCTA().cta(selectedUser._id)}
-          className={`px-4 py-2 text-sm font-medium text-center text-gray-100 bg-orange-400 rounded-md shadow hover:text-gray-100 hover:bg-orange-400/95 ${
+          className={`px-4 py-2 text-sm font-medium text-center text-gray-100   dark:hover:bg-stone-600 dark:bg-stone-700 bg-orange-400 rounded-md shadow hover:text-gray-100 hover:bg-orange-400/95 ${
             disableButton ? " cursor-not-allowed" : "cursor-pointer"
           }`}
         >
@@ -117,11 +115,11 @@ const Profile = () => {
       </div>
 
       <div className="flex flex-col px-2 mt-16 lg:px-6">
-        <p className="text-xl font-bold tracking-tight text-gray-700 uppercase">
+        <p className="text-xl font-bold tracking-tight text-gray-700 uppercase dark:text-gray-50">
           {selectedUser?.firstName} {selectedUser?.lastName}{" "}
         </p>
         <div className="flex justify-between">
-          <p className="font-semibold text-gray-500">
+          <p className="font-semibold text-gray-500 dark:text-gray-300">
             {selectedUser?.username}
           </p>
           {selectedUser.link !== "" && (
@@ -129,16 +127,18 @@ const Profile = () => {
               href={selectedUser?.link}
               target="_blank"
               rel="noreferrer"
-              className="flex flex-row items-center font-semibold text-gray-500 hover:underline"
+              className="flex flex-row items-center font-semibold text-gray-500 dark:text-gray-300 hover:underline"
             >
-              <LinkIcon className="w-5 h-5 text-gray-500" />
+              <LinkIcon className="w-5 h-5 text-gray-500 dark:text-gray-300" />
 
               <span className="ml-1 capitalize"> My website</span>
             </a>
           )}
         </div>
 
-        <p className="mt-2 mb-4 font-semibold text-gray-500">{selectedUser?.bio}</p>
+        <p className="mt-2 mb-4 font-semibold text-gray-500 dark:text-gray-300">
+          {selectedUser?.bio}
+        </p>
         <Tabs tabTypes={tabTypes} handleTabChange={handleTabChange} />
       </div>
       {/* posts */}
@@ -164,8 +164,8 @@ const Profile = () => {
       )}
       {/* Followers */}
       {currentTab === "followers" && (
-        <div className="block max-w-lg p-6 m-auto border border-gray-300 rounded-lg shadow-md hover:bg-orange-100 ">
-          <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-700 ">
+        <div className="block max-w-lg p-6 m-auto border border-gray-300 rounded-lg shadow-md hover:bg-orange-100 dark:bg-stone-900 ">
+          <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-700 dark:text-gray-50 ">
             Followers
           </h5>
           {selectedUser?.followers &&
@@ -195,7 +195,7 @@ const Profile = () => {
               </div>
             ))}
           {selectedUser?.followers && selectedUser?.followers?.length === 0 && (
-            <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-600 ">
+            <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-600 dark:text-gray-100 ">
               Nothing to show! 😪
             </h5>
           )}
@@ -203,8 +203,8 @@ const Profile = () => {
       )}
       {/* following */}
       {currentTab === "following" && (
-        <div className="block max-w-lg p-6 m-auto border border-gray-300 rounded-lg shadow-md hover:bg-orange-100 ">
-          <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-700 ">
+        <div className="block max-w-lg p-6 m-auto border border-gray-300 rounded-lg shadow-md hover:bg-orange-100 dark:bg-stone-900 ">
+          <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-700 dark:text-gray-50 ">
             Followings
           </h5>
           {selectedUser?.following &&
@@ -230,7 +230,7 @@ const Profile = () => {
               </div>
             ))}
           {selectedUser?.following && selectedUser?.following.length === 0 && (
-            <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-600 ">
+            <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-600 dark:text-gray-100 ">
               Nothing to show! 😪
             </h5>
           )}

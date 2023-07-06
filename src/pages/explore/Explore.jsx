@@ -16,7 +16,7 @@ const Explore = () => {
   } = useContext(PostContext);
 
   const {
-    usersState: { selectedTheme },usersDispatch
+    usersDispatch
   } = useContext(UserContext);
   const [allPosts, setAllPosts] = useState([]);
   const observerTarget = useRef(null);

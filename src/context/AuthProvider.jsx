@@ -1,15 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import { authInitialState } from "./initial-states/AuthInitialState";
-import {
-  getLoginUser,
-  getSignUpUser,
-} from "../services/auth-services";
+import { getLoginUser, getSignUpUser } from "../services/auth-services";
 import {
   setUserToLocalStorage,
   setAuthToLocalStorage,
   handleLogout,
   getAuthFromLocalStorage,
   getUserFromLocalStorage,
+  getPreferedTheme,
+  setThemeInLocalStorage,
 } from "../services/localstorage-service";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
@@ -19,6 +18,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState(authInitialState);
+  const [theme, setTheme] = useState("");
   const navigate = useNavigate();
 
   const handleLoggedInUser = (token, user) => {
@@ -68,12 +68,16 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-
-
   const handleUserLogout = () => {
     handleLogout();
     setAuthState(authInitialState);
     navigate("/login");
+  };
+
+  const themeClassRender = () => {
+    theme === "dark"
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
   };
 
   useEffect(() => {
@@ -88,6 +92,27 @@ const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (!getPreferedTheme()) {
+      setTheme(
+        window.matchMedia("(prefers-color-scheme: dark)") ? "dark" : "light"
+      );
+      setThemeInLocalStorage(theme);
+    }
+    setTheme(getPreferedTheme());
+    const themeClassRender = () => {
+      theme === "dark"
+        ? document.documentElement.classList.add("dark")
+        : document.documentElement.classList.remove("dark");
+    };
+    themeClassRender();
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setThemeInLocalStorage(theme === "dark" ? "light" : "dark");
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -96,6 +121,8 @@ const AuthProvider = ({ children }) => {
         handleUserLogin,
         handleUserSignUp,
         handleUserLogout,
+        theme,
+        toggleTheme,
       }}
     >
       {children}

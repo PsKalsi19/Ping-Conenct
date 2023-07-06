@@ -20,9 +20,7 @@ const Home = () => {
     authState: { user },
   } = useContext(AuthContext);
 
-  const {
-    usersState: { selectedTheme },usersDispatch
-  } = useContext(UserContext);
+  const { usersDispatch } = useContext(UserContext);
 
   const profilePic = user.profilePic;
   const handleTabChange = (e) => {
@@ -38,11 +36,10 @@ const Home = () => {
     }, 3000);
     document.title = "HOME | PING CONNECT";
     usersDispatch({ type: USERS_ACTION.UPDATE_PAGE, payload: "home" });
-
   }, [postsDispatch, usersDispatch]);
   return (
     <div className="relative">
-      <div className="sticky z-10 bg-orange-100 top-16 lg:top-20">
+      <div className="sticky z-10 bg-orange-100 dark:bg-stone-900 top-16 lg:top-20">
         <div className="hidden p-4 mb-4 border border-gray-300 sm:flex backdrop-blur-md rounded-xl">
           <img
             className="mr-2 rounded-full w-14 h-14"
@@ -54,13 +51,12 @@ const Home = () => {
         <Tabs handleTabChange={handleTabChange} tabTypes={tabTypes} />
       </div>
       <div className="flex flex-col items-center mt-2 space-y-4">
-     
-          {!showLoader &&
-            currentUserFeed &&
-            currentUserFeed.length > 0 &&
-            currentUserFeed.map((post) => (
-              <PostCard post={post} key={post._id} />
-            ))}
+        {!showLoader &&
+          currentUserFeed &&
+          currentUserFeed.length > 0 &&
+          currentUserFeed.map((post) => (
+            <PostCard post={post} key={post._id} />
+          ))}
         {showLoader && [1, 2, 3].map((ele) => <PostCardSkeleton key={ele} />)}
       </div>
 

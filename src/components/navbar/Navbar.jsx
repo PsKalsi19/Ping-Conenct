@@ -1,22 +1,20 @@
-import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
-import { Popover, Transition } from "@headlessui/react";
+import {} from "@heroicons/react/24/outline";
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import SearchBar from "./../searchbar/Searchbar";
 import { UserContext } from "../../context/UserProvider";
 import { USERS_ACTION } from "../../constants/users-actions";
+import ThemeToggler from "../theme-toggler/ThemeToggler";
+
 function Navbar() {
   const [top, setTop] = useState(true);
+  const location=useLocation()
   const {
-    handleUserLogout,
     authState: { user },
   } = useContext(AuthContext);
   const profilePic = user.profilePic;
-  const {
-    usersState: { selectedTheme },
-    usersDispatch,
-  } = useContext(UserContext);
+  const { usersDispatch } = useContext(UserContext);
   useEffect(() => {
     const scrollHandler = () => {
       window.scrollY > 10 ? setTop(false) : setTop(true);
@@ -27,13 +25,20 @@ function Navbar() {
   return (
     <nav
       className={`lg:hidden block sticky left-0 top-0 right-0 ${
-        top ? "bg-orange-100" : "bg-orange-100/80  backdrop-blur-xl"
+        top ? "bg-orange-100 dark:bg-stone-900" : "bg-orange-100 dark:bg-stone-900/80  backdrop-blur-xl"
       } z-10`}
     >
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div></div>
-          <NavLink
+         <ThemeToggler/>
+         { location.pathname==='/explore' &&
+         
+         <SearchBar/>
+          
+          }
+         { location.pathname!=='/explore' &&
+         
+         <NavLink
             href="/home"
             className="flex items-center px-2 py-2 text-sm font-medium text-gray-900 rounded-md group"
           >
@@ -42,7 +47,7 @@ function Navbar() {
               src="https://res.cloudinary.com/dkay6uocg/image/upload/v1688300937/Ping%20Connect/logo-no-background_mzrqxn.png"
               alt="ping-connect"
             />
-          </NavLink>
+          </NavLink>}
 
           <button
             type="button"

@@ -10,7 +10,7 @@ const Bookmark = () => {
     postsState: { bookmarks, posts },
   } = useContext(PostContext);
   const {
-    usersState: { selectedTheme },usersDispatch
+    usersDispatch
   } = useContext(UserContext);
   const bookmarkedPosts = posts.filter(({ _id }) => bookmarks.includes(_id));
   useEffect(() => {
