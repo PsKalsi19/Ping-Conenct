@@ -8,6 +8,7 @@ import { USERS_ACTION } from "../constants/users-actions";
 import { setUserToLocalStorage } from './../services/localstorage-service';
 import { editUser } from './../services/auth-services';
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 export const UserContext = createContext()
 
@@ -33,6 +34,7 @@ const UserProvider = ({ children }) => {
           const {
             data: { user },
           } = await editUser({ userData: payload });
+          toast.success("Profile Updated");
           setAuthState((prevVal) => ({ ...prevVal, user: user }));
           usersDispatch({type:USERS_ACTION.UPDATE_USER,payload:[user]})
           if(location.pathname==="/user-details"){
@@ -51,6 +53,7 @@ const UserProvider = ({ children }) => {
         try {
             const {data:{user,followUser}} = await setFollowUser(id)
             setUserToLocalStorage(user)
+            toast.success("User Followed")
             setAuthState((prevState)=>({...prevState,user:user}))
             usersDispatch({type:USERS_ACTION.UPDATE_USER,payload:[user,followUser]})
             usersDispatch({type:USERS_ACTION.DISABLE_FOLLOW_BUTTON,payload:false})
@@ -66,6 +69,7 @@ const UserProvider = ({ children }) => {
         try {
             const {data:{user,followUser}} = await setUnfollowUser(id)
             setUserToLocalStorage(user)
+            toast.success("User Unfollowed")
             setAuthState((prevState)=>({...prevState,user:user}))
             usersDispatch({type:USERS_ACTION.UPDATE_USER,payload:[user,followUser]})
             usersDispatch({type:USERS_ACTION.DISABLE_FOLLOW_BUTTON,payload:false})
