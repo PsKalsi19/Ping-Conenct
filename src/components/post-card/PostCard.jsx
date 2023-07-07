@@ -34,7 +34,7 @@ const PostCard = ({ post }) => {
   const { firstName, lastName, profilePic } = getUserByUsername(username);
   const isBookmarked = bookmarks.includes(_id);
   return (
-    <div className="block w-full max-w-lg px-6 pt-6 pb-4 bg-orange-200 border border-gray-300 rounded-lg dark:border-stone-700 dark:bg-stone-800/40 sm:shadow ">
+    <div className="block w-full max-w-lg px-6 pt-6 pb-4 bg-gradient-to-br bg-orange-100/20 bg-blend-darken border border-gray-300 rounded-lg dark:border-stone-700 dark:bg-stone-800/40 shadow">
       <div className="flex justify-between mb-4">
         <div className="flex flex-row">
           <Link to="/profile" state={post}>
@@ -53,7 +53,9 @@ const PostCard = ({ post }) => {
         </div>
         <PostCardMenu post={post} />
       </div>
-      <p className="pb-2 font-semibold text-gray-600 dark:text-gray-100 ">{content}</p>
+      <p className="pb-2 font-semibold text-gray-600 dark:text-gray-100 ">
+        {content}
+      </p>
       {media !== "" && (
         <PostMedia
           mediaFile={media}
@@ -78,11 +80,13 @@ const PostCard = ({ post }) => {
             type="button"
           >
             <HeartIcon
-              className={`p-2 text-gray-600 dark:text-gray-100 rounded-full  w-9 h-9  hover:bg-pink-300/60 hover:fill-pink-500 group-hover:text-pink-600  
+              className={`p-2 text-gray-600 dark:text-gray-100 rounded-full  w-9 h-9  hover:bg-red-300/60 hover:fill-red-500 group-hover:text-red-600  
               
-              dark:hover:bg-rose-300/60 dark:hover:fill-rose-500 dark:group-hover:text-rose-600
+              dark:hover:bg-red-300/60 dark:hover:fill-red-500 dark:group-hover:text-red-600
               ${
-                likedByCurrentUser ? "fill-pink-500 text-pink-600  dark:text-rose-500 dark:fill-rose-500" : ""
+                likedByCurrentUser
+                  ? "fill-red-500 text-red-600  dark:text-red-500 dark:fill-red-500"
+                  : ""
               }  ${
                 disableCurrentButton === _id
                   ? " cursor-not-allowed"
@@ -91,8 +95,8 @@ const PostCard = ({ post }) => {
             />
           </button>
           <p
-            className={`ml-1 text-gray-600 dark:text-rose-100 dark:group-hover:text-rose-500  group-hover:text-pink-600 text-normal ${
-              likedByCurrentUser ? "text-pink-600 dark:text-rose-500" : ""
+            className={`ml-1 text-gray-600 dark:text-red-100 dark:group-hover:text-red-500  group-hover:text-red-600 text-normal ${
+              likedByCurrentUser ? "text-red-600 dark:text-red-500" : ""
             }`}
           >
             {likeCount}
@@ -118,7 +122,9 @@ const PostCard = ({ post }) => {
         >
           <BookmarkIcon
             className={`p-2 ml-8 text-gray-600 dark:text-gray-100 rounded-full w-9 h-9 dark:hover:bg-stone-500/60 hover:bg-orange-300/60 hover:fill-orange-500 hover:text-orange-600 dark:hover:fill-orange-700 dark:hover:text-orange-800  ${
-              isBookmarked ? "fill-orange-500 text-orange-600 dark:fill-orange-700 dark:text-orange-800" : ""
+              isBookmarked
+                ? "fill-orange-500 text-orange-600 dark:fill-orange-700 dark:text-orange-800"
+                : ""
             }  
             ${
               disableCurrentButton === _id

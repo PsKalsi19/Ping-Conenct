@@ -129,7 +129,7 @@ const loggingOut=()=>{
                       <div className="mt-6 space-y-4">
                         <button
                           onClick={loggingOut}
-                          className="inline-flex items-center justify-center w-full col-span-2 px-6 py-3 text-sm font-medium text-center text-gray-700 rounded-md shadow dark:text-gray-700 dark:hover:bg-stone-700 dark:hover:text-gray-100 hover:text-gray-100 bg-orange-50 hover:bg-orange-400/80"
+                          className="inline-flex items-center justify-center w-full col-span-2 px-6 py-3 text-sm font-medium text-center text-gray-700 rounded-md border shadow dark:text-gray-700 dark:hover:bg-stone-700 dark:hover:text-gray-100 hover:text-gray-100 bg-gray-50 hover:bg-orange-400/80"
                         >
                           Log Out
                           <ArrowRightOnRectangleIcon className="w-6 h-6 ml-2 text-gray-500" />

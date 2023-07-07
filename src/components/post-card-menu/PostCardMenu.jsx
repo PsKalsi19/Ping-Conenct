@@ -33,7 +33,7 @@ const PostCardMenu = ({ post }) => {
       <Popover.Button className="focus:outline-0">
         <EllipsisVerticalIcon
           title="Options"
-          className="p-2 text-gray-600 rounded-full cursor-pointer dark:text-gray-100 w-9 h-9 hover:text-gray-800 dark:bg-stone-600 dark:hover:bg-stone-500 hover:bg-orange-300/60 bg-orange-300/40"
+          className="p-2 text-gray-600 rounded-full cursor-pointer dark:text-gray-100 w-9 h-9 hover:text-gray-800 dark:bg-stone-600 dark:hover:bg-stone-500 hover:bg-orange-200 bg-orange-100"
         />
       </Popover.Button>
       <Transition
