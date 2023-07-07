@@ -18,7 +18,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState(authInitialState);
-  const [theme, setTheme] = useState("");
+  const [theme, setTheme] = useState("dark");
   const navigate = useNavigate();
 
   const handleLoggedInUser = (token, user) => {
@@ -74,12 +74,6 @@ const AuthProvider = ({ children }) => {
     navigate("/login");
   };
 
-  const themeClassRender = () => {
-    theme === "dark"
-      ? document.documentElement.classList.add("dark")
-      : document.documentElement.classList.remove("dark");
-  };
-
   useEffect(() => {
     if (
       getAuthFromLocalStorage() !== null &&
@@ -94,10 +88,12 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (!getPreferedTheme()) {
-      setTheme(
-        window.matchMedia("(prefers-color-scheme: dark)") ? "dark" : "light"
-      );
-      setThemeInLocalStorage(theme);
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      setTheme(systemTheme);
+      setThemeInLocalStorage(systemTheme);
     }
     setTheme(getPreferedTheme());
     const themeClassRender = () => {
