@@ -19,6 +19,10 @@ const MobileSidebar = () => {
     handleUserLogout,
     authState: { user },
   } = useContext(AuthContext);
+const loggingOut=()=>{
+  usersDispatch({type:USERS_ACTION.TOGGLE_MOBILE_SIDEBAR,payload:false});
+  handleUserLogout()
+}
   const navigate = useNavigate();
   const handleProfileRedirect = () => {
     usersDispatch({
@@ -124,7 +128,7 @@ const MobileSidebar = () => {
                     <div className="px-4 py-6 mb-20 sm:px-6">
                       <div className="mt-6 space-y-4">
                         <button
-                          onClick={handleUserLogout}
+                          onClick={loggingOut}
                           className="inline-flex items-center justify-center w-full col-span-2 px-6 py-3 text-sm font-medium text-center text-gray-700 rounded-md shadow dark:text-gray-700 dark:hover:bg-stone-700 dark:hover:text-gray-100 hover:text-gray-100 bg-orange-50 hover:bg-orange-400/80"
                         >
                           Log Out
