@@ -31,7 +31,7 @@ const PostWrite = ({ post }) => {
 
   useEffect(() => {
     if (post && Object.keys(post).length > 0) {
-      setPostText(post.content);
+      handleTextArea(post.content);
       mediaRefForPreview.current = post.media;
       setFilesDetails(checkMediaType(post.media));
     }
@@ -80,7 +80,7 @@ const PostWrite = ({ post }) => {
 
         setPostText("");
         handleRemoveFile();
-        document.querySelector("#post-text-area").style.height = "auto";
+        textAreaRef.current.style.height = "auto";
         setToggleDialog({
           showDialog: false,
           selectedPost: {},
@@ -129,9 +129,10 @@ const PostWrite = ({ post }) => {
     setFilesDetails(null);
   };
 
-  const handleTextArea = (e) => {
-    setPostText(e.target.value);
-    e.target.style.height = `${e.target.scrollHeight}px`;
+  const handleTextArea = (value) => {
+    setPostText(value);
+    textAreaRef.current.style.height = `auto`;
+    textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
   };
 
   const onEmojiSelect = (emojiData) => {
@@ -154,22 +155,24 @@ const PostWrite = ({ post }) => {
         id="post-text-area"
         value={postText}
         ref={textAreaRef}
-        onChange={handleTextArea}
+        onChange={(e) => handleTextArea(e.target.value)}
         className="w-full h-10 overflow-hidden text-gray-600 bg-transparent border-0 outline-none resize-none dark:text-gray-100 "
         placeholder="What's on your mind?"
         name="post"
         maxLength={280}
       ></textarea>
-      {fileDetails && (
-        <PostMedia
-          disableButton={postsState.postLoader}
-          height={"h-40"}
-          width={"w-60"}
-          mediaFile={mediaRefForPreview.current}
-          mediaType={fileDetails.type}
-          handleRemoveFile={handleRemoveFile}
-        />
-      )}
+      <div className="my-4">
+        {fileDetails && (
+          <PostMedia
+            disableButton={postsState.postLoader}
+            height={"h-40"}
+            width={"w-60"}
+            mediaFile={mediaRefForPreview.current}
+            mediaType={fileDetails.type}
+            handleRemoveFile={handleRemoveFile}
+          />
+        )}
+      </div>
       <div className="flex items-center justify-between">
         <div className="flex flex-row space-x-4">
           <label
