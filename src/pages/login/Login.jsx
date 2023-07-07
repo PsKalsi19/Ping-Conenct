@@ -67,7 +67,7 @@ const Login = () => {
                 id="username"
                 value={loginState.username}
                 onChange={changeHandlerFn}
-                className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200 
+                className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-50 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200 
                dark:focus:ring-stone-500 dark:focus:border-stone-500 
                 dark:border-stone-500"
                 placeholder="abc@email.com"
@@ -101,7 +101,7 @@ const Login = () => {
                 value={loginState.password}
                 onChange={changeHandlerFn}
                 placeholder="••••••••"
-                className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200 
+                className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-50 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200 
                 dark:focus:ring-stone-500 dark:focus:border-stone-500 
                  dark:border-stone-500"
                 required={true}

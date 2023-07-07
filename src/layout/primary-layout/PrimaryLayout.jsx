@@ -19,22 +19,22 @@ const PrimaryLayout = () => {
         <Navbar />
         <main className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid grid-cols-8 grid-rows-1 lg:gap-8">
-            <div className="relative hidden lg:block sm:col-span-2">
+            <div className="relative hidden sm:block sm:col-span-1 lg:col-span-2">
               <aside
                 aria-label="Sidebar"
-                className="fixed lg:w-64 sm:translate-x-0"
+                className="fixed sm:w-16 lg:w-64 sm:translate-x-0"
               >
                 <Sidebar />
               </aside>
             </div>
-            <div className="col-span-8 sm:col-span-4 sm:col-start-3">
-              <div className="sticky top-0 z-10 flex-row items-center justify-between hidden px-4 pt-4 pb-8 bg-orange-100 dark:bg-stone-900 sm:flex">
+            <div className="col-span-8 sm:col-span-7 lg:col-span-4 sm:col-start-2 lg:col-start-3">
+              <div className="sticky top-0 z-10 flex-row items-center justify-between hidden px-4 pt-4 pb-8 bg-orange-50 dark:bg-stone-900 lg:flex">
                 <h2 className="text-3xl font-extrabold text-gray-700 capitalize dark:text-gray-50 ">
                   {currentPage}
                 </h2>
                 <ThemeToggler/>
               </div>
-              <div className="pb-4 mb-20 lg:px-4 lg:mb-0 sm:mt-12 lg:-mt-2">
+              <div className="pb-4 mb-20 lg:px-4 lg:mb-0 sm:mt-12 md:mt-0 lg:-mt-2">
                 <MobileSidebar />
                 <Outlet />
               </div>

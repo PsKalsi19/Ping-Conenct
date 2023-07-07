@@ -24,7 +24,7 @@ const navigate=useNavigate()
 
   return (
     <Combobox onChange={handleItemSelect}>
-      <div className="relative w-3/4 sm:w-full">
+      <div className="relative w-3/4 md:w-10/12 lg:w-full">
         <div className="relative w-full overflow-hidden text-left rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 sm:text-sm">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
@@ -57,7 +57,7 @@ const navigate=useNavigate()
           leaveTo="opacity-0"
           afterLeave={() => setSearchTerm("")}
         >
-          <Combobox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-orange-100 rounded-md shadow-lg dark:bg-stone-900 max-h-60 ring-1 ring-orange-100 dark:ring-stone-700 ring-opacity-5 focus:outline-none sm:text-sm">
+          <Combobox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-orange-50 rounded-md shadow-lg dark:bg-stone-900 max-h-60 ring-1 ring-orange-100 dark:ring-stone-700 ring-opacity-5 focus:outline-none sm:text-sm">
             {searchUserHandler().length === 0 && searchTerm !== "" ? (
               <div className="relative px-4 py-2 text-gray-700 cursor-default select-none dark:text-gray-50">
                 Nothing found.
@@ -67,7 +67,7 @@ const navigate=useNavigate()
                 <Combobox.Option
                   key={user.id}
                   className={({ active }) =>
-                    `relative flex h-20 items-center  text-gray-700 dark:text-gray-50 cursor-default select-none py-2 pl-4 sm:pl-10 pr-4 ${active ? "bg-orange-200 dark:bg-stone-700" : "bg-orange-100 dark:bg-stone-900"
+                    `relative flex h-20 items-center  text-gray-700 dark:text-gray-50 cursor-default select-none py-2 pl-4 sm:pl-10 pr-4 ${active ? "bg-orange-200 dark:bg-stone-700" : "bg-orange-50 dark:bg-stone-900"
                     }`
                   }
                   value={user}

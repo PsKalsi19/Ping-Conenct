@@ -44,7 +44,7 @@ const PostCardMenu = ({ post }) => {
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <Popover.Panel className="absolute right-0 w-32 text-gray-600 bg-orange-100 border border-gray-300 rounded-md shadow-sm dark:border-stone-500 dark:text-gray-100 dark:bg-stone-900">
+        <Popover.Panel className="absolute right-0 w-32 text-gray-600 bg-orange-50 border border-gray-300 rounded-md shadow-sm dark:border-stone-500 dark:text-gray-100 dark:bg-stone-900">
           <div className="text-sm font-semibold">
             {username !== currentUser && !following.includes(username) && (
               <Popover.Button

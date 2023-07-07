@@ -64,7 +64,7 @@ const MobileSidebar = () => {
                 leaveTo="translate-x-full"
               >
                 <Dialog.Panel className="w-screen max-w-md pointer-events-auto">
-                  <div className="flex flex-col h-full overflow-y-scroll bg-orange-100 shadow-xl dark:bg-stone-900">
+                  <div className="flex flex-col h-full overflow-y-scroll bg-orange-50 shadow-xl dark:bg-stone-900">
                     <div className="flex-1 px-4 py-6 overflow-y-auto sm:px-6">
                       <div className="flex items-start justify-between">
                         <Dialog.Title className="text-lg font-medium text-gray-700 dark:text-gray-50">
@@ -102,7 +102,7 @@ const MobileSidebar = () => {
 
                           <div className="absolute right-0 flex items-center justify-between w-full p-6 top-40 lg:top-40">
                             <img
-                              className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
+                              className="w-20 h-20 bg-orange-50 border-4 border-orange-100 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
                               src={
                                 user?.profilePic === ""
                                   ? "https://source.unsplash.com/random/900x700/?profile"

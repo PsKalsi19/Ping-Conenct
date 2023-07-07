@@ -1,5 +1,5 @@
 import { MdOutlineExplore } from "react-icons/md";
-import { UserCircleIcon,BookmarkIcon,HomeIcon,ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
+import { UserCircleIcon,BookmarkIcon,HomeIcon,ArrowRightOnRectangleIcon,PlusIcon } from "@heroicons/react/24/outline";
 
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
@@ -21,7 +21,7 @@ const Sidebar = () => {
         <div className="flex-1 space-y-1">
           <NavLink
             href="/home"
-            className="flex items-center px-2 pt-4 text-sm font-medium text-gray-900 rounded-md group"
+            className="items-center hidden px-2 m-0 text-sm font-medium text-gray-900 rounded-md lg:pt-4 lg:flex group"
           >
             <img
               className="w-32 h-10"
@@ -30,11 +30,11 @@ const Sidebar = () => {
             />
           </NavLink>
           {/* Nav Links */}
-          <div className="pt-4">
+          <div className="m-0 lg:pt-4">
             <NavLink
               to="/home"
               className={({ isActive }) =>
-                `flex px-2 py-4 ${
+                `flex justify-center lg:justify-normal px-2 py-4 ${
                   isActive
                     ? "bg-orange-200/40 dark:bg-stone-600 dark:text-gray-100 font-medium"
                     : "font-medium  dark:text-gray-50"
@@ -42,12 +42,12 @@ const Sidebar = () => {
               }
             >
               <HomeIcon className="w-8 h-8 text-gray-700 dark:text-gray-50" />
-              <p>Home</p>
+              <p className="hidden lg:block">Home</p>
             </NavLink>
             <NavLink
               to="/explore"
               className={({ isActive }) =>
-                `flex px-2 py-4 ${
+                `flex justify-center lg:justify-normal px-2 py-4 ${
                   isActive
                     ? "bg-orange-200/40 dark:bg-stone-600 dark:text-gray-100 font-medium"
                     : "font-medium  dark:text-gray-50"
@@ -55,12 +55,12 @@ const Sidebar = () => {
               }
             >
               <MdOutlineExplore className="w-8 h-8 text-gray-700 dark:text-gray-50" />
-              <p>Explore</p>
+              <p className="hidden lg:block">Explore</p>
             </NavLink>
             <NavLink
               to="/bookmark"
               className={({ isActive }) =>
-                `flex px-2 py-4 ${
+                `flex justify-center lg:justify-normal px-2 py-4 ${
                   isActive
                     ? " bg-orange-200/40 dark:bg-stone-600 dark:text-gray-100 font-medium"
                     : "font-medium  dark:text-gray-50"
@@ -68,12 +68,12 @@ const Sidebar = () => {
               }
             >
               <BookmarkIcon className="w-8 h-8 text-gray-700 dark:text-gray-50" />
-              <p>Bookmarks</p>
+              <p className="hidden lg:block">Bookmarks</p>
             </NavLink>
             <NavLink
               to="/profile"
               className={({ isActive }) =>
-                `flex items-center px-2 py-4 ${
+                `flex justify-center lg:justify-normal items-center px-2 py-4 ${
                   isActive
                     ? " bg-orange-200/40 dark:bg-stone-600 dark:text-gray-100 font-medium"
                     : "font-medium  dark:text-gray-50"
@@ -82,20 +82,21 @@ const Sidebar = () => {
             >
               <UserCircleIcon className="w-8 h-8 text-gray-700 dark:text-gray-50" />
 
-              <p>Profile</p>
+              <p className="hidden lg:block">Profile</p>
             </NavLink>
 
             <button
               onClick={handleWrite}
               type="button"
-              className="inline-flex items-center justify-center w-full py-4 mt-4 mb-2 mr-2 space-x-4 text-2xl font-medium tracking-wide text-center capitalize rounded-md text-gray-50 dark:text-gray-50 bg-gradient-to-br dark:from-stone-500 dark:to-stone-700 from-orange-300 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-orange-200 dark:focus:ring-stone-500 group"
+              className="inline-flex items-center justify-center p-4 mt-4 mb-2 mr-2 text-2xl font-medium tracking-wide text-center capitalize rounded-full lg:px-0 lg:py-4 lg:space-x-4 lg:w-full lg:rounded-md text-gray-50 dark:text-gray-50 bg-gradient-to-br dark:from-stone-500 dark:to-stone-700 from-orange-300 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-orange-200 dark:focus:ring-stone-500 group"
             >
-              Write
+              <span className="hidden lg:block">Write</span>
+              <PlusIcon className="hidden w-6 h-6 m-0 transition-transform sm:block lg:hidden group-hover:rotate-45" />
             </button>
           </div>
         </div>
 
-        <div className="px-4 pt-8 pb-4 border-t border-orange-200 dark:border-stone-600">
+        <div className="hidden px-4 pt-8 pb-4 border-t border-orange-200 lg:block dark:border-stone-600">
           <div className="flex items-center justify-between w-full ">
             <div className="flex items-center justify-center space-x-2">
               <img
