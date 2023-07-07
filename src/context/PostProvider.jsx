@@ -203,30 +203,6 @@ const PostProvider = ({ children }) => {
     }
   }, [getUserAndFollowingsUsername, posts, user]);
 
-  useEffect(() => {
-    const sortFeed = () => {
-      let sortedFeed = [];
-      if (currentUserFeed.length === 0) return;
-      switch (current_sortby) {
-        case "trending":
-          sortedFeed = currentUserFeed.sort(
-            (a, b) => b.likes.likeCount - a.likes.likeCount
-          );
-          break;
-        case "latest":
-          sortedFeed = currentUserFeed.sort(
-            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-          );
-          break;
-        default:
-          sortedFeed = currentUserFeed;
-          break;
-      }
-      postsDispatch({ type: POSTS_ACTIONS.SET_USER_FEED, payload: sortedFeed });
-    };
-    sortFeed();
-  }, [currentUserFeed, current_sortby]);
-
   return (
     <PostContext.Provider
       value={{

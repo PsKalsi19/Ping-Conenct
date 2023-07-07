@@ -13,7 +13,7 @@ import { USERS_ACTION } from "../../constants/users-actions";
 
 const Home = () => {
   const {
-    postsState: { currentUserFeed, showLoader },
+    postsState: { currentUserFeed, showLoader, current_sortby },
     postsDispatch,
   } = useContext(PostContext);
   const {
@@ -21,6 +21,29 @@ const Home = () => {
   } = useContext(AuthContext);
 
   const { usersDispatch } = useContext(UserContext);
+
+  const sortFeed = () => {
+    let sortedFeed = [];
+    if (currentUserFeed.length === 0) return;
+    switch (current_sortby) {
+      case "trending":
+        sortedFeed = currentUserFeed.sort(
+          (a, b) => b.likes.likeCount - a.likes.likeCount
+        );
+        break;
+      case "latest":
+        sortedFeed = currentUserFeed.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        break;
+      default:
+        sortedFeed = currentUserFeed;
+        break;
+    }
+
+    return sortedFeed
+    // postsDispatch({ type: POSTS_ACTIONS.SET_USER_FEED, payload: sortedFeed });
+  };
 
   const profilePic = user.profilePic;
   const handleTabChange = (e) => {
@@ -54,9 +77,7 @@ const Home = () => {
         {!showLoader &&
           currentUserFeed &&
           currentUserFeed.length > 0 &&
-          currentUserFeed.map((post) => (
-            <PostCard post={post} key={post._id} />
-          ))}
+          sortFeed().map((post) => <PostCard post={post} key={post._id} />)}
         {showLoader && [1, 2, 3].map((ele) => <PostCardSkeleton key={ele} />)}
       </div>
 
