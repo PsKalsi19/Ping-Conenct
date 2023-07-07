@@ -21,6 +21,7 @@ import postReducer from "../reducers/posts-reducer";
 import { delayResult, errorHandler } from "../services/common-util";
 import POSTS_ACTIONS from "../constants/posts-actions";
 import { UserContext } from "./UserProvider";
+import { toast } from "react-hot-toast";
 
 export const PostContext = createContext();
 
@@ -31,7 +32,7 @@ const PostProvider = ({ children }) => {
     selectedPost: {},
   });
   const [fileDetails, setFilesDetails] = useState();
-  const { posts, current_sortby, currentUserFeed } = postsState;
+  const { posts } = postsState;
   // Auth Provider
   const {
     authState: { token, user },
@@ -61,6 +62,7 @@ const PostProvider = ({ children }) => {
         data: { posts },
       } = await likePost(postId, token);
       postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+      toast.success("Post Liked");
       delayResult(() => {
         postsDispatch({
           type: POSTS_ACTIONS.DISABLE_POST_BUTTONS,
@@ -87,6 +89,7 @@ const PostProvider = ({ children }) => {
       const {
         data: { posts },
       } = await dislikePost(postId, token);
+      toast.success("Post Disliked");
       postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
       postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" });
     } catch (error) {
@@ -100,6 +103,7 @@ const PostProvider = ({ children }) => {
       const {
         data: { posts },
       } = await deletePost(postId);
+      toast.success("Post Deleted");
       postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
     } catch (error) {
       errorHandler(error);
@@ -115,6 +119,7 @@ const PostProvider = ({ children }) => {
       const {
         data: { bookmarks },
       } = await addBookmark(postId);
+      toast.success("Post Bookmarked");
       postsDispatch({ type: POSTS_ACTIONS.SET_BOOKMARKS, payload: bookmarks });
       postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" });
     } catch (error) {
@@ -132,6 +137,7 @@ const PostProvider = ({ children }) => {
       const {
         data: { bookmarks },
       } = await removeBookmark(postId);
+      toast.success("Removed Bookmark");
       postsDispatch({ type: POSTS_ACTIONS.SET_BOOKMARKS, payload: bookmarks });
       postsDispatch({ type: POSTS_ACTIONS.DISABLE_POST_BUTTONS, payload: "" });
     } catch (error) {
@@ -145,6 +151,7 @@ const PostProvider = ({ children }) => {
       const {
         data: { posts },
       } = await createPost(postData);
+      toast.success("Post Added");
       postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
       postsDispatch({
         type: POSTS_ACTIONS.SHOW_LOADER_FOR_POST,
@@ -164,6 +171,7 @@ const PostProvider = ({ children }) => {
       const {
         data: { posts },
       } = await editPost(postData);
+      toast.success("Post Edited");
       postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
       postsDispatch({
         type: POSTS_ACTIONS.SHOW_LOADER_FOR_POST,
