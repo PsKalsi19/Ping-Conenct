@@ -6,7 +6,7 @@ import {
 
 const PostCardSkeleton = () => {
   return (
-    <div className="block w-full max-w-lg px-6 pt-6 pb-4 bg-orange-200 border border-gray-300 rounded-lg dark:border-stone-700 dark:bg-stone-800/40 sm:shadow ">
+    <div className="block w-full max-w-lg px-6 pt-6 pb-4 bg-orange-50 border border-gray-300 rounded-lg dark:border-stone-700 dark:bg-stone-800/40 sm:shadow ">
       <div className="flex justify-between mb-4">
         <div className="flex flex-row justify-center w-full">
           <div className="h-12 bg-gray-400 rounded-full dark:bg-stone-700 w-14 animate-pulse"></div>
