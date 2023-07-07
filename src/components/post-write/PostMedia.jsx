@@ -11,7 +11,7 @@ const PostMedia = ({
   if (mediaFile === null) return;
   if (mediaType.includes("video")) {
     return (
-      <div className={`relative  ${height} ${width}`}>
+      <div className={`relative ${height} ${width}`}>
         <video className={`${height} ${width}`} controls>
           <source src={mediaFile} type={"video/mp4"} />
         </video>
