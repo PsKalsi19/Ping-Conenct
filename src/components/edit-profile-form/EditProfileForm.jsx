@@ -129,7 +129,7 @@ const EditProfileForm = () => {
         </div>
         <div className="absolute p-6 top-36 lg:top-52">
           <img
-            className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
+            className="w-20 h-20 bg-orange-50 border-4 border-orange-100 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
             src={formState?.profilePic}
             alt="avatar"
           />
@@ -168,7 +168,7 @@ const EditProfileForm = () => {
             name="bio"
             id="bio"
             cols="20"
-            className="border h-20 lg:h-40 sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:border-stone-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200 resize-none"
+            className="border h-20 lg:h-40 sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-50 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:border-stone-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200 resize-none"
             rows="5"
           ></textarea>
         </div>
@@ -186,12 +186,12 @@ const EditProfileForm = () => {
               name="link"
               id="link"
               placeholder="http://www.example.com"
-              className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200 dark:border-stone-700"
+              className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-50 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200 dark:border-stone-700"
             />
         </div>
         <button
           type="submit"
-          className="w-full px-5 py-2.5 text-sm lg:text-base font-medium text-center text-gray-700 dark:text-gray-50 rounded-lg border-1 border-gray-600 bg-orange-300 focus:ring-4  dark:bg-stone-600 dark:hover:bg-stone-700 focus:outline-none hover:bg-orange-300 focus:ring-orange-200"
+          className="w-full px-5 py-2.5 text-sm lg:text-base font-medium text-center text-gray-700 dark:text-gray-50 rounded-lg border-1 border-gray-600 bg-orange-300 focus:ring-4  dark:bg-stone-600 dark:hover:bg-stone-700 focus:outline-none hover:text-gray-50 hover:bg-orange-400 focus:ring-orange-200"
         >
           Save Changes
         </button>

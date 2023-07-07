@@ -49,7 +49,7 @@ const CustomDialog = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-xl p-6 overflow-hidden text-left align-middle transition-all transform bg-orange-100 dark:bg-stone-900 shadow-xl rounded-2xl">
+                <Dialog.Panel className="w-full max-w-xl p-6 overflow-hidden text-left align-middle transition-all transform bg-orange-50 dark:bg-stone-900 shadow-xl rounded-2xl">
                   <section className="flex rounded-xl">
                     <img
                       className="mr-2 rounded-full w-14 h-14"

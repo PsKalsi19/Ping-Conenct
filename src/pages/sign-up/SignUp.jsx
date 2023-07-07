@@ -65,7 +65,7 @@ const {handleUserSignUp}=useContext(AuthContext)
                     type="text"
                     name="firstName"
                     id="firstName"
-                    className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
+                    className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-50 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
                     dark:focus:ring-stone-500 dark:focus:border-stone-500 
                 dark:border-stone-500
                     "
@@ -86,7 +86,7 @@ const {handleUserSignUp}=useContext(AuthContext)
                     type="text"
                     name="lastName"
                     id="lastName"
-                    className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
+                    className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-50 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
                     dark:focus:ring-stone-500 dark:focus:border-stone-500 
                 dark:border-stone-500
                     "
@@ -108,7 +108,7 @@ const {handleUserSignUp}=useContext(AuthContext)
                   type="email"
                   name="email"
                   id="email"
-                  className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
+                  className="border sm:text-sm rounded-lg block font-medium w-full p-2.5 bg-orange-50 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
                   dark:focus:ring-stone-500 dark:focus:border-stone-500 
                 dark:border-stone-500
                   "
@@ -142,7 +142,7 @@ const {handleUserSignUp}=useContext(AuthContext)
                   minLength="6"
                   id="password"
                   placeholder="••••••••"
-                  className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
+                  className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-50 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
                   dark:focus:ring-stone-500 dark:focus:border-stone-500 
                 dark:border-stone-500
                   "
@@ -175,7 +175,7 @@ const {handleUserSignUp}=useContext(AuthContext)
                   minLength="6"
                   id="confirmPassword"
                   placeholder="••••••••"
-                  className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-100 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
+                  className="border sm:text-sm font-medium rounded-lg block w-full p-2.5 bg-orange-50 dark:bg-stone-900 border-orange-200 placeholder-gray-500 text-gray-700 dark:text-gray-50 focus:ring-orange-200 focus:border-orange-200
                   dark:focus:ring-stone-500 dark:focus:border-stone-500 
                 dark:border-stone-500
                   "

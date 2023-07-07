@@ -95,7 +95,7 @@ const Profile = () => {
 
       <div className="absolute flex items-center justify-between w-full p-6 top-24 lg:top-40">
         <img
-          className="w-20 h-20 bg-orange-100 border-4 border-orange-100 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
+          className="w-20 h-20 bg-orange-50 border-4 border-orange-100 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
           src={
             selectedUser?.profilePic === ""
               ? "https://source.unsplash.com/random/900x700/?profile"
@@ -164,7 +164,7 @@ const Profile = () => {
       )}
       {/* Followers */}
       {currentTab === "followers" && (
-        <div className="block max-w-lg p-6 m-auto border border-gray-300 rounded-lg shadow-md hover:bg-orange-100 dark:bg-stone-900 ">
+        <div className="block max-w-lg p-6 m-auto border border-gray-300 rounded-lg shadow-md hover:bg-orange-50 dark:bg-stone-900 ">
           <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-700 dark:text-gray-50 ">
             Followers
           </h5>
@@ -203,7 +203,7 @@ const Profile = () => {
       )}
       {/* following */}
       {currentTab === "following" && (
-        <div className="block max-w-lg p-6 m-auto border border-gray-300 rounded-lg shadow-md hover:bg-orange-100 dark:bg-stone-900 ">
+        <div className="block max-w-lg p-6 m-auto border border-gray-300 rounded-lg shadow-md hover:bg-orange-50 dark:bg-stone-900 ">
           <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-700 dark:text-gray-50 ">
             Followings
           </h5>

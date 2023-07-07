@@ -12,7 +12,7 @@ import UserDetails from "./pages/user-details/UserDetails";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-orange-100  dark:bg-stone-900">
+    <div className="min-h-screen bg-orange-50  dark:bg-stone-900">
       <Routes>
         <Route
           path="/"

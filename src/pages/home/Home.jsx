@@ -39,7 +39,7 @@ const Home = () => {
   }, [postsDispatch, usersDispatch]);
   return (
     <div className="relative">
-      <div className="sticky z-10 bg-orange-100 dark:bg-stone-900 top-16 md:top-20 lg:top-20">
+      <div className="sticky z-10 bg-orange-50 dark:bg-stone-900 top-16 md:top-20 lg:top-20">
         <div className="hidden p-4 mb-4 border border-gray-300 lg:flex backdrop-blur-md rounded-xl">
           <img
             className="mr-2 rounded-full w-14 h-14"

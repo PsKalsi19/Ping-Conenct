@@ -28,7 +28,7 @@ const PrimaryLayout = () => {
               </aside>
             </div>
             <div className="col-span-8 sm:col-span-7 lg:col-span-4 sm:col-start-2 lg:col-start-3">
-              <div className="sticky top-0 z-10 flex-row items-center justify-between hidden px-4 pt-4 pb-8 bg-orange-100 dark:bg-stone-900 lg:flex">
+              <div className="sticky top-0 z-10 flex-row items-center justify-between hidden px-4 pt-4 pb-8 bg-orange-50 dark:bg-stone-900 lg:flex">
                 <h2 className="text-3xl font-extrabold text-gray-700 capitalize dark:text-gray-50 ">
                   {currentPage}
                 </h2>

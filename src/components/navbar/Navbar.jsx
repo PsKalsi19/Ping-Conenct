@@ -27,8 +27,8 @@ function Navbar() {
     <nav
       className={`lg:hidden block sticky left-0 top-0 right-0 ${
         top
-          ? "bg-orange-100 dark:bg-stone-900"
-          : "bg-orange-100 dark:bg-stone-900/80  backdrop-blur-xl"
+          ? "bg-orange-50 dark:bg-stone-900"
+          : "bg-orange-50 dark:bg-stone-900/80  backdrop-blur-xl"
       } z-10`}
     >
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">

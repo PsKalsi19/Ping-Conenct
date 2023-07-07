@@ -51,8 +51,8 @@ const TrendingSidebar = () => {
                         <button
                           disabled={disableButton}
                           onClick={() => handleFollowRequest(followUser._id)}
-                          className={`inline-flex items-center justify-center w-24 col-span-2 px-2 text-sm font-medium text-center text-gray-700 rounded-md shadow 
-                          dark:bg-stone-100 dark:hover:bg-stone-700 dark:hover:text-gray-50 dark:text-gray-700
+                          className={`inline-flex items-center border border-orange-200 dark:border-stone-400 justify-center w-24 col-span-2 px-2 text-sm font-medium text-center text-gray-700 rounded-md shadow 
+                          dark:bg-stone-100 dark:hover:bg-stone-800 dark:hover:text-gray-50 dark:text-gray-700
                           hover:text-gray-100 bg-orange-50 hover:bg-orange-400/80 ${
                             disableButton
                               ? " cursor-not-allowed"
