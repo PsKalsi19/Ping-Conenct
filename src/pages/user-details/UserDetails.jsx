@@ -6,9 +6,9 @@ const UserDetails = () => {
         document.title = "USER DETAILS | PING CONNECT";
       }, []);
     return (
-        <>
+        <div className="mt-8">
             <EditProfileForm/>
-        </>
+        </div>
     );
 };
 
