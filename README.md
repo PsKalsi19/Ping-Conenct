@@ -10,10 +10,7 @@
 ----------------
 
 > ### Demo
->  https://www.loom.com/share/23691ca63968468cbd4c4c2939c8c76a
-
-> ### Mobile View
-> https://www.loom.com/share/68c2ff21c6e94b28a6481603d99bbefd
+>  
 
 
 ### How to use on Local Machine:
