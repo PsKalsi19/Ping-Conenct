@@ -96,7 +96,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <div className="hidden px-4 py-4 border-t border-orange-200 lg:block dark:border-stone-600">
+        <div className="hidden py-4 border-t border-orange-200 lg:block dark:border-stone-600">
           <div className="flex items-center justify-between w-full ">
             <div className="flex items-center justify-center space-x-2">
               <img
