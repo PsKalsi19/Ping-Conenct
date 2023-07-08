@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img style="text-align:center" src="https://res.cloudinary.com/dkay6uocg/image/upload/v1688300852/logo-no-background_phu1yy.png" alt="Ping Connect" height=150 width=250>
 
-## Available Scripts
+### "Express yourself and connect with the world on Ping Connect, where thoughts come alive!"
 
-In the project directory, you can run:
+</div>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+----------------
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> ### Demo
+>  https://www.loom.com/share/23691ca63968468cbd4c4c2939c8c76a
 
-### `npm test`
+> ### Mobile View
+> https://www.loom.com/share/68c2ff21c6e94b28a6481603d99bbefd
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### How to use on Local Machine:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> 1. $  git clone https://github.com/PsKalsi19/Ping-Connect.git
+> 2. $  cd Ping-Connect
+> 3. $  npm install
+> 4. $ npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> ### Features
+* Authentication
+  * Sign-up
+  * Login
+  * Logout
+* User Feed
+  * List Posts of users followed by logged in User.
+  * Sort by Date and Trending
+* Create new Post
+  * Add Emoji, Media( Images / Video)
+* Like / Dislike a Post
+* Edit and Delete logged in user's Post.
+* Add and Remove Post Bookmark.
+* User Profile
+  * Choose Profile Image from Avatars.
+  * Upload profile image.
+  * Set Banner images.
+  * Add Bio
+  * Add Portfolio URL.
+* Follow / Unfollow other Users.
+* Explore feed where all posts would be visible.
+* Search Users
+* Infinite scroll in explore section.
+* 404 Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> ### Built using
+* React
+* React Router
+* Tailwind
+* Mockbee
+* Headless UI
+* React Hot Toast
+* React Icons

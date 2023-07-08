@@ -99,7 +99,7 @@ const Profile = () => {
           src={
             selectedUser?.profilePic === ""
               ? "https://source.unsplash.com/random/900x700/?profile"
-              : selectedUser.profilePic
+              : selectedUser?.profilePic
           }
           alt="avatar"
         />
@@ -122,7 +122,7 @@ const Profile = () => {
           <p className="font-semibold text-gray-500 dark:text-gray-300">
             {selectedUser?.username}
           </p>
-          {selectedUser.link !== "" && (
+          {selectedUser?.link !== "" && (
             <a
               href={selectedUser?.link}
               target="_blank"

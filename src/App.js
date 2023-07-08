@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import PrimaryLayout from "./layout/primary-layout/PrimaryLayout";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/sign-up/SignUp";
@@ -33,6 +33,7 @@ export default function App() {
         <Route path="mockman" element={<MockAPI />} />
         <Route path="login" element={<Login />} />
         <Route path="sign-up" element={<SignUp />} />
+        <Route path="*" element={<Navigate to="home"/>}/>
       </Routes>
     </div>
   );

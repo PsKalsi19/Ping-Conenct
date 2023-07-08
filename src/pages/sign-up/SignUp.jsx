@@ -42,7 +42,7 @@ const {handleUserSignUp}=useContext(AuthContext)
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <div className="flex flex-col items-center justify-center">
             <img className='w-32 h-10'
-                                  src="https://res.cloudinary.com/dkay6uocg/image/upload/v1688300937/Ping%20Connect/logo-no-background_mzrqxn.png"
+                                  src="https://res.cloudinary.com/dkay6uocg/image/upload/v1688300852/logo-no-background_phu1yy.png"
                                   alt="ping-connect"
                               />
               <h1 className="mt-4 text-xl font-bold leading-tight tracking-tight text-center text-gray-700 dark:text-gray-50 md:text-2xl">

@@ -25,7 +25,7 @@ const Sidebar = () => {
           >
             <img
               className="w-32 h-10"
-              src="https://res.cloudinary.com/dkay6uocg/image/upload/v1688300937/Ping%20Connect/logo-no-background_mzrqxn.png"
+              src="https://res.cloudinary.com/dkay6uocg/image/upload/v1688300852/logo-no-background_phu1yy.png"
               alt="ping-connect"
             />
           </NavLink>
@@ -36,7 +36,7 @@ const Sidebar = () => {
               className={({ isActive }) =>
                 `flex justify-center lg:justify-normal px-2 py-4 ${
                   isActive
-                    ? "bg-orange-200/40 dark:bg-stone-600 dark:text-gray-100 font-medium"
+                    ? "bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
                     : "font-medium  dark:text-gray-50"
                 } space-x-4 text-xl rounded-md text-gray-700 dark:hover:bg-stone-500 hover:bg-orange-200/80 group`
               }
@@ -49,7 +49,7 @@ const Sidebar = () => {
               className={({ isActive }) =>
                 `flex justify-center lg:justify-normal px-2 py-4 ${
                   isActive
-                    ? "bg-orange-200/40 dark:bg-stone-600 dark:text-gray-100 font-medium"
+                    ? "bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
                     : "font-medium  dark:text-gray-50"
                 } space-x-4 text-xl rounded-md text-gray-700 dark:hover:bg-stone-500 hover:bg-orange-200/80 group`
               }
@@ -62,7 +62,7 @@ const Sidebar = () => {
               className={({ isActive }) =>
                 `flex justify-center lg:justify-normal px-2 py-4 ${
                   isActive
-                    ? " bg-orange-200/40 dark:bg-stone-600 dark:text-gray-100 font-medium"
+                    ? " bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
                     : "font-medium  dark:text-gray-50"
                 } space-x-4 text-xl rounded-md text-gray-700 dark:hover:bg-stone-500 hover:bg-orange-200/80 group`
               }
@@ -75,7 +75,7 @@ const Sidebar = () => {
               className={({ isActive }) =>
                 `flex justify-center lg:justify-normal items-center px-2 py-4 ${
                   isActive
-                    ? " bg-orange-200/40 dark:bg-stone-600 dark:text-gray-100 font-medium"
+                    ? " bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
                     : "font-medium  dark:text-gray-50"
                 } space-x-4 text-xl rounded-md text-gray-700 dark:hover:bg-stone-500 hover:bg-orange-200/80 group`
               }
@@ -96,7 +96,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <div className="hidden px-4 pt-8 pb-4 border-t border-orange-200 lg:block dark:border-stone-600">
+        <div className="hidden px-4 py-4 border-t border-orange-200 lg:block dark:border-stone-600">
           <div className="flex items-center justify-between w-full ">
             <div className="flex items-center justify-center space-x-2">
               <img
