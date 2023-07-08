@@ -26,24 +26,25 @@
   * Login
   * Logout
 * User Feed
-  * List Posts of users followed by logged in User.
+  * List Posts of users followed by logged-in User.
   * Sort by Date and Trending
-* Create new Post
+* Create a new Post
   * Add Emoji, Media( Images / Video)
 * Like / Dislike a Post
-* Edit and Delete logged in user's Post.
+* Edit and Delete the logged-in user's Post.
 * Add and Remove Post Bookmark.
 * User Profile
   * Choose Profile Image from Avatars.
-  * Upload profile image.
+  * Upload a profile image.
   * Set Banner images.
   * Add Bio
   * Add Portfolio URL.
 * Follow / Unfollow other Users.
-* Explore feed where all posts would be visible.
+* Explore the feed where all posts would be visible.
 * Search Users
 * Infinite scroll in explore section.
 * 404 Home Redirect
+* Fully Responsive
 
 > ### Built using
 * React
