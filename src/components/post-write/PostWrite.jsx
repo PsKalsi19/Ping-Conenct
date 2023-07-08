@@ -213,7 +213,7 @@ const PostWrite = ({ post }) => {
                   theme={Theme.AUTO}
                   searchDisabled
                   height={350}
-                  emojiVersion="0.5"
+                  emojiVersion="0.6"
                   previewConfig={{
                     showPreview: false,
                   }}
