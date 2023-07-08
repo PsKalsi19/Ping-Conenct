@@ -26,8 +26,8 @@ export const posts = [
     updatedAt: "2023-06-20T12:34:56Z",
     id: "1",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688795223/_a5f5a2e4-5453-4b00-9593-def9527c98ba_zzvvsf.jpg",
+    mediaAlt: "sunshine",
   },
   {
     _id: "d3b6ad7f-eb3b-4d89-89aa-c87ddc44f95f",
@@ -132,8 +132,8 @@ export const posts = [
     updatedAt: "2023-05-18T21:22:00.000Z",
     id: "2",
     media:
-      "https://res.cloudinary.com/dkay6uocg/video/upload/v1688291529/nz5as1zc7zsjagrxknvk.mp4",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688795452/_92d2f395-a9ca-4343-a7e3-9fe56a6dc80b_k3td7b.jpg",
+    mediaAlt: "concert",
   },
   {
     _id: "e8e618f3-36d9-44ea-a208-68a739feb156",
@@ -169,7 +169,7 @@ export const posts = [
     updatedAt: "2023-05-31T15:24:00.000Z",
     id: "3",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688795456/_14425564-63b4-46ec-8921-2ca1fef89d4b_ibuaiq.jpg",
     mediaAlt: "baloons",
   },
   {
@@ -333,9 +333,8 @@ export const posts = [
     createdAt: "2023-03-06T14:25:00.000Z",
     updatedAt: "2023-04-11T04:13:00.000Z",
     id: "4",
-    media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+    media: "",
+    mediaAlt: "",
   },
   {
     _id: "47f7db35-0b9c-488d-bd3d-01caefd5259d",
@@ -359,8 +358,8 @@ export const posts = [
     updatedAt: "2023-06-30T22:00:00.000Z",
     id: "5",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688795610/_83da603f-b2e3-4acc-9235-790c99429e16_evqqmt.jpg",
+    mediaAlt: "anime",
   },
   {
     _id: "c2d3aec5-ceb8-4ca8-a6dd-987d5d33e803",
@@ -442,8 +441,8 @@ export const posts = [
     updatedAt: "2023-04-06T15:14:00.000Z",
     id: "6",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688795766/_fe2a6548-7a3a-4bb2-a801-19773acc03d0_qaohqk.jpg",
+    mediaAlt: "motivation",
   },
   {
     _id: "7c57a310-d4f3-4500-babc-b3f98ae222cc",
@@ -485,13 +484,13 @@ export const posts = [
     updatedAt: "2023-04-11T05:53:00.000Z",
     id: "7",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688795908/_2b926459-d19a-488f-91ed-80aa6098829a_mgmmqc.jpg",
+    mediaAlt: "music",
   },
   {
     _id: "95ab3946-f0d8-40de-a40d-a945a7e252da",
     content:
-      "Virtual reality is taking entertainment to a whole new level. Just tried out an immersive VR game, and it was mind-blowing! ",
+      "Virtual reality is taking entertainment to a whole new level. Just tried out an immersive VR game, and it was mind-blowing!",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -574,8 +573,8 @@ export const posts = [
     updatedAt: "2023-04-16T23:42:00.000Z",
     id: "8",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688796007/_f1b24dba-7b30-412b-9371-54fc15924b3d_jpy5ac.jpg",
+    mediaAlt: "virtual-reality",
   },
   {
     _id: "f3d65bb7-ecec-42f7-b11a-1061868af494",
@@ -640,8 +639,8 @@ export const posts = [
     updatedAt: "2023-05-21T00:27:00.000Z",
     id: "9",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688796126/_8d4475aa-39e4-4754-93e4-050d8df045fa_vrob06.jpg",
+    mediaAlt: "hiking",
   },
   {
     _id: "0c2fd14b-3449-4759-b3e5-d4c2068f6542",
@@ -677,8 +676,8 @@ export const posts = [
     updatedAt: "2023-06-06T12:10:00.000Z",
     id: "10",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688796262/_2fd062e3-4096-400f-bf3d-355fa7e9e472_eyfdkw.jpg",
+    mediaAlt: "plants",
   },
   {
     _id: "bdefe41b-9038-4a95-b73c-8460a09424f7",
@@ -765,8 +764,8 @@ export const posts = [
     updatedAt: "2023-06-15T17:05:00.000Z",
     id: "11",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688796423/_ef5dcb1f-a66f-4183-8661-583ca2bea83c_f0byp8.jpg",
+    mediaAlt: "art",
   },
   {
     _id: "c509053a-a64e-4287-8161-e4e81801d40f",
@@ -838,8 +837,8 @@ export const posts = [
     updatedAt: "2023-05-10T18:36:00.000Z",
     id: "12",
     media:
-      "https://res.cloudinary.com/dkay6uocg/video/upload/v1688291529/nz5as1zc7zsjagrxknvk.mp4",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688796815/_977b7d5a-d22e-4752-9762-20295a1ecabf_a3xwoh.jpg",
+    mediaAlt: "books",
   },
   {
     _id: "cfbe7824-6255-4108-b550-bfd022d3123a",
@@ -944,8 +943,8 @@ export const posts = [
     updatedAt: "2023-06-19T04:39:00.000Z",
     id: "13",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688797098/_50d8e9ae-476e-4ff5-84e2-a8ab9da68712_zt2wfl.jpg",
+    mediaAlt: "painting",
   },
   {
     _id: "5c984e2a-af8d-4359-a93f-7e71dab78a1a",
@@ -1033,8 +1032,8 @@ export const posts = [
     createdAt: "2023-01-16T14:46:00.000Z",
     updatedAt: "2023-06-06T09:00:00.000Z",
     id: "14",
-    media: "",
-    mediaAlt: "baloons",
+    media: "https://res.cloudinary.com/dkay6uocg/image/upload/v1688797396/_7e0a704e-1e61-469c-85ae-ba8de9c18895_hlwpfu.jpg",
+    mediaAlt: "stargazing",
   },
   {
     _id: "7dad3e75-a001-4273-972d-83eb6c12cc28",
@@ -1122,8 +1121,8 @@ export const posts = [
     updatedAt: "2023-06-05T04:40:00.000Z",
     id: "15",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "",
+    mediaAlt: "",
   },
   {
     _id: "30496488-8a0d-416a-a44a-d3ed562937f4",
@@ -1159,13 +1158,13 @@ export const posts = [
     updatedAt: "2023-06-05T15:39:00.000Z",
     id: "16",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "",
+    mediaAlt: "",
   },
   {
     _id: "0c2431bb-e391-41ee-b46e-f82a53c637ab",
     content:
-      "Web development pro tip: The best debugging tool is a cup of coffee and a deep sense of despair. ",
+      "Web development pro tip: The best debugging tool is a cup of coffee and a deep sense of despair.",
     likes: {
       likeCount: 2,
       likedBy: [
@@ -1271,8 +1270,8 @@ export const posts = [
     updatedAt: "2023-03-01T10:02:00.000Z",
     id: "17",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "",
+    mediaAlt: "",
   },
   {
     _id: "d4e1fada-f546-4d05-8cf8-53f48c473d27",
@@ -1308,8 +1307,8 @@ export const posts = [
     updatedAt: "2023-05-21T13:42:00.000Z",
     id: "18",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "https://res.cloudinary.com/dkay6uocg/image/upload/v1688797575/_aee7c44d-ece3-44fe-9ec1-0500d587812a_dgonoc.jpg",
+    mediaAlt: "css",
   },
   {
     _id: "5300e5d2-c94f-4951-8db6-630cf0794070",
@@ -1345,8 +1344,8 @@ export const posts = [
     updatedAt: "2023-05-05T18:56:00.000Z",
     id: "19",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "",
+    mediaAlt: "",
   },
   {
     _id: "8aae6c57-e5e4-4d15-8a89-7bbe3c0cf82d",
@@ -1382,8 +1381,8 @@ export const posts = [
     updatedAt: "2023-03-01T01:05:00.000Z",
     id: "20",
     media:
-      "https://res.cloudinary.com/dkay6uocg/image/upload/v1687708502/samples/balloons.jpg",
-    mediaAlt: "baloons",
+      "",
+    mediaAlt: "",
   },
   {
     _id: "8b063781-6c7e-4724-abf6-84fc6e82f582",
@@ -1459,7 +1458,7 @@ export const posts = [
     createdAt: "2023-05-24T17:38:00.000Z",
     updatedAt: "2023-06-14T19:06:00.000Z",
     id: "22",
-    media: "",
-    mediaAlt: "",
+    media: "https://res.cloudinary.com/dkay6uocg/video/upload/v1688797962/production_id_4629779_240p_ynfch1.mp4",
+    mediaAlt: "css-stress",
   },
 ];

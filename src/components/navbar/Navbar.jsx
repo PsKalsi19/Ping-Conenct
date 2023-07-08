@@ -42,7 +42,7 @@ function Navbar() {
             >
               <img
                 className="w-32 h-10"
-                src="https://res.cloudinary.com/dkay6uocg/image/upload/v1688300937/Ping%20Connect/logo-no-background_mzrqxn.png"
+                src="https://res.cloudinary.com/dkay6uocg/image/upload/v1688300852/logo-no-background_phu1yy.png"
                 alt="ping-connect"
               />
             </NavLink>
