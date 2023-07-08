@@ -56,7 +56,7 @@ const Home = () => {
     postsDispatch({ type: POSTS_ACTIONS.SET_LOADING, payload: true });
     delayResult(() => {
       postsDispatch({ type: POSTS_ACTIONS.SET_LOADING, payload: false });
-    }, 3000);
+    }, 2000);
     document.title = "HOME | PING CONNECT";
     usersDispatch({ type: USERS_ACTION.UPDATE_PAGE, payload: "home" });
   }, [postsDispatch, usersDispatch]);
