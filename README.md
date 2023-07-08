@@ -46,7 +46,7 @@
 * Explore feed where all posts would be visible.
 * Search Users
 * Infinite scroll in explore section.
-* 404 Page
+* 404 Home Redirect
 
 > ### Built using
 * React
