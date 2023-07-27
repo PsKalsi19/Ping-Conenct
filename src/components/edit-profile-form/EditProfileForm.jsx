@@ -22,13 +22,13 @@ const avatarLinks = [
     "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_5255bb06-06fc-4af9-88d6-0a62e43a8e96.jpg?updatedAt=1686940612286",
   ];
 
-const EditProfileForm = () => {
+const EditProfileForm = ({setShowModal}) => {
     const location=useLocation()
   const {
     authState: { user },
   } = useContext(AuthContext);
     const [formState, setFormState] = useState(null);
-    const { setToggleEditProfile, handleEditUser } =
+    const { handleEditUser } =
     useContext(UserContext);
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const EditProfileForm = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       handleEditUser(formState);
-      setToggleEditProfile(false);
+      setShowModal(false);
     };
   
     const changeFileHandler = async (e) => {
@@ -73,7 +73,7 @@ const EditProfileForm = () => {
            <h3 className="text-xl font-bold tracking-tight text-center text-gray-700 dark:text-gray-50">
               Set Profile Details
             </h3>
-            <Link className="absolute right-0 inline-flex border border-gray-200 dark:border-stone-600 items-center justify-center w-24 col-span-2 px-2 py-2 text-sm font-medium text-center dark:bg-stone-600 dark:hover:bg-stone-700  text-gray-700 uppercase rounded-md shadow dark:text-gray-50 hover:bg-orange-400 bg-orange-50 hover:text-gray-100 " to="/home">Skip</Link>
+            <Link className="absolute right-0 inline-flex items-center justify-center w-24 col-span-2 px-2 py-2 text-sm font-medium text-center text-gray-700 uppercase border border-gray-200 rounded-md shadow dark:border-stone-600 dark:bg-stone-600 dark:hover:bg-stone-700 dark:text-gray-50 hover:bg-orange-400 bg-orange-50 hover:text-gray-100 " to="/home">Skip</Link>
        </div>}
         <div className="relative">
           <img
@@ -128,7 +128,7 @@ const EditProfileForm = () => {
           </Popover>
           <div className="absolute p-6 top-36 lg:top-40">
           <img
-            className="w-20 h-20 bg-orange-50 border-4 border-orange-100 dark:border-stone-800 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
+            className="w-20 h-20 border-4 border-orange-100 rounded-full bg-orange-50 dark:border-stone-800 dark:bg-stone-900 lg:h-28 lg:w-28"
             src={formState?.profilePic}
             alt="avatar"
           />

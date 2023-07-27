@@ -1,20 +1,24 @@
 import { MdOutlineExplore } from "react-icons/md";
-import { UserCircleIcon,BookmarkIcon,HomeIcon,ArrowRightOnRectangleIcon,PlusIcon } from "@heroicons/react/24/outline";
+import {
+  UserCircleIcon,
+  BookmarkIcon,
+  HomeIcon,
+  ArrowRightOnRectangleIcon,
+  PlusIcon
+} from "@heroicons/react/24/outline";
 
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
-import { PostContext } from "../../context/PostProvider";
+import CustomDialog from './../dialog/CustomDialog';
+import PostWrite from "../post-write/PostWrite";
 const Sidebar = () => {
   const {
     handleUserLogout,
     authState: { user },
   } = useContext(AuthContext);
-  const { setToggleDialog } = useContext(PostContext);
+  const [showModal, setShowModal] = useState(false)
   const { firstName, lastName, username, profilePic } = user;
-  const handleWrite = () => {
-    setToggleDialog((prevVal) => ({ ...prevVal, showDialog: true }));
-  };
   return (
     <div className="hidden h-screen md:block">
       <div className="flex flex-col h-full">
@@ -34,10 +38,9 @@ const Sidebar = () => {
             <NavLink
               to="/home"
               className={({ isActive }) =>
-                `flex justify-center lg:justify-normal px-2 py-4 ${
-                  isActive
-                    ? "bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
-                    : "font-medium  dark:text-gray-50"
+                `flex justify-center lg:justify-normal px-2 py-4 ${isActive
+                  ? "bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
+                  : "font-medium  dark:text-gray-50"
                 } space-x-4 text-xl rounded-md text-gray-700 dark:hover:bg-stone-500 hover:bg-orange-200/80 group`
               }
             >
@@ -47,10 +50,9 @@ const Sidebar = () => {
             <NavLink
               to="/explore"
               className={({ isActive }) =>
-                `flex justify-center lg:justify-normal px-2 py-4 ${
-                  isActive
-                    ? "bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
-                    : "font-medium  dark:text-gray-50"
+                `flex justify-center lg:justify-normal px-2 py-4 ${isActive
+                  ? "bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
+                  : "font-medium  dark:text-gray-50"
                 } space-x-4 text-xl rounded-md text-gray-700 dark:hover:bg-stone-500 hover:bg-orange-200/80 group`
               }
             >
@@ -60,10 +62,9 @@ const Sidebar = () => {
             <NavLink
               to="/bookmark"
               className={({ isActive }) =>
-                `flex justify-center lg:justify-normal px-2 py-4 ${
-                  isActive
-                    ? " bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
-                    : "font-medium  dark:text-gray-50"
+                `flex justify-center lg:justify-normal px-2 py-4 ${isActive
+                  ? " bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
+                  : "font-medium  dark:text-gray-50"
                 } space-x-4 text-xl rounded-md text-gray-700 dark:hover:bg-stone-500 hover:bg-orange-200/80 group`
               }
             >
@@ -73,10 +74,9 @@ const Sidebar = () => {
             <NavLink
               to="/profile"
               className={({ isActive }) =>
-                `flex justify-center lg:justify-normal items-center px-2 py-4 ${
-                  isActive
-                    ? " bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
-                    : "font-medium  dark:text-gray-50"
+                `flex justify-center lg:justify-normal items-center px-2 py-4 ${isActive
+                  ? " bg-orange-200/40 dark:bg-stone-600/10 dark:text-gray-100 font-medium"
+                  : "font-medium  dark:text-gray-50"
                 } space-x-4 text-xl rounded-md text-gray-700 dark:hover:bg-stone-500 hover:bg-orange-200/80 group`
               }
             >
@@ -86,13 +86,23 @@ const Sidebar = () => {
             </NavLink>
 
             <button
-              onClick={handleWrite}
+              onClick={() => setShowModal(true)}
               type="button"
               className="inline-flex items-center justify-center p-4 mt-4 mb-2 mr-2 text-2xl font-medium tracking-wide text-center capitalize rounded-full lg:px-0 lg:py-4 lg:space-x-4 lg:w-full lg:rounded-md text-gray-50 dark:text-gray-50 bg-gradient-to-br dark:from-stone-500 dark:to-stone-700 from-orange-300 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-orange-200 dark:focus:ring-stone-500 group"
             >
               <span className="hidden lg:block">Write</span>
               <PlusIcon className="hidden w-6 h-6 m-0 transition-transform sm:block lg:hidden group-hover:rotate-45" />
             </button>
+            {/* creating a portal and opening a modal */}
+            {
+              showModal &&
+              <CustomDialog
+                showModal={showModal}
+                setShowModal={setShowModal} >
+                <section className="flex w-full rounded-xl">  
+                <PostWrite post={{}} /></section>
+              </CustomDialog>
+            }
           </div>
         </div>
 

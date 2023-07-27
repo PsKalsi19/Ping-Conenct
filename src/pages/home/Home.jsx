@@ -7,7 +7,6 @@ import POSTS_ACTIONS from "../../constants/posts-actions";
 import NoDataAvailable from "../../components/no-data-available/NoDataAvailable";
 import { delayResult } from "../../services/common-util";
 import PostCardSkeleton from "../../components/post-card-skeleton/PostCardSkeleton";
-import { AuthContext } from "../../context/AuthProvider";
 import { UserContext } from "../../context/UserProvider";
 import { USERS_ACTION } from "../../constants/users-actions";
 
@@ -16,9 +15,6 @@ const Home = () => {
     postsState: { currentUserFeed, showLoader, current_sortby },
     postsDispatch,
   } = useContext(PostContext);
-  const {
-    authState: { user },
-  } = useContext(AuthContext);
 
   const { usersDispatch } = useContext(UserContext);
 
@@ -45,7 +41,6 @@ const Home = () => {
     // postsDispatch({ type: POSTS_ACTIONS.SET_USER_FEED, payload: sortedFeed });
   };
 
-  const profilePic = user.profilePic;
   const handleTabChange = (e) => {
     e === 0
       ? postsDispatch({ type: POSTS_ACTIONS.SET_SORT, payload: "latest" })
@@ -63,13 +58,8 @@ const Home = () => {
   return (
     <div className="relative">
       <div className="sticky z-10 bg-orange-50 dark:bg-stone-900 top-16 md:top-20 lg:top-20">
-        <div className="hidden p-4 mb-4 border border-gray-300 lg:flex backdrop-blur-md rounded-xl">
-          <img
-            className="mr-2 rounded-full w-14 h-14"
-            src={profilePic}
-            alt="avatar"
-          />
-          <PostWrite />
+      <div className="hidden p-4 mb-4 border-2 border-gray-400 lg:flex dark:border-gray-200 rounded-xl">
+         <PostWrite/>
         </div>
         <Tabs handleTabChange={handleTabChange} tabTypes={tabTypes} />
       </div>

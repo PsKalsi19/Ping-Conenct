@@ -1,29 +1,16 @@
-import { useContext } from "react";
-import { PostContext } from "../../context/PostProvider";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import PostWrite from "../post-write/PostWrite";
-import { AuthContext } from "../../context/AuthProvider";
+import { createPortal } from "react-dom";
 
-const CustomDialog = () => {
-  const {
-    toggleDialog: { showDialog, selectedPost },
-    setToggleDialog,
-  } = useContext(PostContext);
-  const {
-    authState: { user },
-  } = useContext(AuthContext);
-
-  const profilePic = user.profilePic;
-  
-  return (
+const CustomDialog = ({showModal, setShowModal,children}) => {
+  return createPortal(
     <>
-      <Transition appear show={showDialog} as={Fragment}>
+      <Transition appear show={showModal} as={Fragment}>
         <Dialog
           as="div"
           className="relative z-10"
           onClose={() =>
-            setToggleDialog({ selectedPost: {}, showDialog: false })
+            setShowModal(false)
           }
         >
           <Transition.Child
@@ -49,18 +36,8 @@ const CustomDialog = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-xl p-6  text-left align-middle transition-all transform bg-orange-50 dark:bg-stone-900 shadow-xl rounded-2xl">
-                  <section className="flex rounded-xl">
-                    <img
-                      className="mr-2 rounded-full w-14 h-14"
-                      src={profilePic}
-                      alt="avatar"
-                    />
-                    <PostWrite
-                      key={selectedPost?.id ?? "Write"}
-                      post={selectedPost}
-                    />
-                  </section>
+                <Dialog.Panel className="w-full max-w-xl p-6 overflow-hidden text-left align-middle transition-all transform shadow-xl bg-orange-50 dark:bg-stone-900 rounded-2xl">
+                   {children}
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -68,7 +45,7 @@ const CustomDialog = () => {
         </Dialog>
       </Transition>
     </>
-  );
+  ,document.getElementById("modal"));
 };
 
 export default CustomDialog;

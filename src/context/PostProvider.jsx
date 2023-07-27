@@ -7,10 +7,8 @@ import {
 } from "react";
 import {
   addBookmark,
-  createPost,
   deletePost,
   dislikePost,
-  editPost,
   getAllPosts,
   likePost,
   removeBookmark,
@@ -27,10 +25,6 @@ export const PostContext = createContext();
 
 const PostProvider = ({ children }) => {
   const [postsState, postsDispatch] = useReducer(postReducer, postInitialState);
-  const [toggleDialog, setToggleDialog] = useState({
-    showDialog: false,
-    selectedPost: {},
-  });
   const [fileDetails, setFilesDetails] = useState();
   const { posts } = postsState;
   // Auth Provider
@@ -146,45 +140,7 @@ const PostProvider = ({ children }) => {
     }
   };
 
-  const handleAddPost = async (postData) => {
-    try {
-      const {
-        data: { posts },
-      } = await createPost(postData);
-      toast.success("Post Added");
-      postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
-      postsDispatch({
-        type: POSTS_ACTIONS.SHOW_LOADER_FOR_POST,
-        payload: false,
-      });
-    } catch (error) {
-      errorHandler(error);
-      postsDispatch({
-        type: POSTS_ACTIONS.SHOW_LOADER_FOR_POST,
-        payload: false,
-      });
-    }
-  };
-
-  const handleEditPost = async (postData) => {
-    try {
-      const {
-        data: { posts },
-      } = await editPost(postData);
-      toast.success("Post Edited");
-      postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
-      postsDispatch({
-        type: POSTS_ACTIONS.SHOW_LOADER_FOR_POST,
-        payload: false,
-      });
-    } catch (error) {
-      postsDispatch({
-        type: POSTS_ACTIONS.SHOW_LOADER_FOR_POST,
-        payload: false,
-      });
-      errorHandler(error);
-    }
-  };
+ 
 
   const checkMediaType = (mediaLink) => {
     if (mediaLink.includes("/image/")) return { type: "image" };
@@ -221,10 +177,6 @@ const PostProvider = ({ children }) => {
         handleDeletePost,
         handleAddToBookmark,
         handleRemoveFromBookmark,
-        toggleDialog,
-        setToggleDialog,
-        handleAddPost,
-        handleEditPost,
         fileDetails,
         setFilesDetails,
         checkMediaType,

@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer,useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import usersReducer from "../reducers/users-reducer";
 import { usersInitialState } from "./initial-states/UsersInitialState";
 import { AuthContext } from "./AuthProvider";
@@ -17,8 +17,6 @@ const UserProvider = ({ children }) => {
     const navigate=useNavigate()
     const [usersState, usersDispatch] = useReducer(usersReducer, usersInitialState)
     const { authState: { token,user },setAuthState } = useContext(AuthContext)
-    const [toggleEditProfile, setToggleEditProfile] = useState(false);
-
     const { users } = usersState
     const getAllUsers = async () => {
         try {
@@ -112,8 +110,6 @@ const UserProvider = ({ children }) => {
             getUserAndFollowingsUsername,
             getUsersNotOnFollowingList,
             handleEditUser,
-            toggleEditProfile, 
-            setToggleEditProfile
         }}>
             {children}
         </UserContext.Provider>
