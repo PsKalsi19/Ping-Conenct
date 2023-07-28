@@ -1,9 +1,16 @@
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider";
+import { setThemeInLocalStorage } from "../../services/localstorage-service";
+import { useDispatch, useSelector } from "react-redux";
+import { setTheme } from "../../store/authSlice";
+
 
 const ThemeToggler = () => {
-  const { theme, toggleTheme } = useContext(AuthContext);
+  const dispatch = useDispatch()
+  const theme = useSelector(store => store.auth.theme)
+  const toggleTheme = () => {
+    setThemeInLocalStorage(theme === "dark" ? "light" : "dark");
+    dispatch(setTheme((theme === "dark" ? "light" : "dark")));
+  };
   return (
     <button onClick={toggleTheme}>
       {theme === "dark" ? (

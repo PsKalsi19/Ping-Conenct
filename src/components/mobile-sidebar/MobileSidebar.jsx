@@ -7,22 +7,20 @@ import {
 } from "@heroicons/react/24/outline";
 import { UserContext } from "../../context/UserProvider";
 import { USERS_ACTION } from "../../constants/users-actions";
-import { AuthContext } from "../../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import useUserLogout from "../../hooks/useUserLogout";
 
 const MobileSidebar = () => {
   const {
     usersState: { mobileSidebar },
     usersDispatch,
   } = useContext(UserContext);
+  const handleUserLogout = useUserLogout()
+
   const {
-    handleUserLogout,
-    authState: { user },
-  } = useContext(AuthContext);
-const loggingOut=()=>{
-  usersDispatch({type:USERS_ACTION.TOGGLE_MOBILE_SIDEBAR,payload:false});
-  handleUserLogout()
-}
+    user
+  } = useSelector(store => store.auth);
   const navigate = useNavigate();
   const handleProfileRedirect = () => {
     usersDispatch({
@@ -68,7 +66,7 @@ const loggingOut=()=>{
                 leaveTo="translate-x-full"
               >
                 <Dialog.Panel className="w-screen max-w-md pointer-events-auto">
-                  <div className="flex flex-col h-full overflow-y-scroll bg-orange-50 shadow-xl dark:bg-stone-900">
+                  <div className="flex flex-col h-full overflow-y-scroll shadow-xl bg-orange-50 dark:bg-stone-900">
                     <div className="flex-1 px-4 py-6 overflow-y-auto sm:px-6">
                       <div className="flex items-start justify-between">
                         <Dialog.Title className="text-lg font-medium text-gray-700 dark:text-gray-50">
@@ -106,7 +104,7 @@ const loggingOut=()=>{
 
                           <div className="absolute right-0 flex items-center justify-between w-full p-6 top-40 lg:top-40">
                             <img
-                              className="w-20 h-20 bg-orange-50 border-4 border-orange-100 rounded-full dark:bg-stone-900 lg:h-28 lg:w-28"
+                              className="w-20 h-20 border-4 border-orange-100 rounded-full bg-orange-50 dark:bg-stone-900 lg:h-28 lg:w-28"
                               src={
                                 user?.profilePic === ""
                                   ? "https://source.unsplash.com/random/900x700/?profile"
@@ -128,8 +126,11 @@ const loggingOut=()=>{
                     <div className="px-4 py-6 mb-20 sm:px-6">
                       <div className="mt-6 space-y-4">
                         <button
-                          onClick={loggingOut}
-                          className="inline-flex items-center justify-center w-full col-span-2 px-6 py-3 text-sm font-medium text-center text-gray-700 rounded-md border shadow dark:text-gray-700 dark:hover:bg-stone-700 dark:hover:text-gray-100 hover:text-gray-100 bg-gray-50 hover:bg-orange-400/80"
+                          onClick={() => {
+                            usersDispatch({ type: USERS_ACTION.TOGGLE_MOBILE_SIDEBAR, payload: false });
+                            handleUserLogout()
+                          }}
+                          className="inline-flex items-center justify-center w-full col-span-2 px-6 py-3 text-sm font-medium text-center text-gray-700 border rounded-md shadow dark:text-gray-700 dark:hover:bg-stone-700 dark:hover:text-gray-100 hover:text-gray-100 bg-gray-50 hover:bg-orange-400/80"
                         >
                           Log Out
                           <ArrowRightOnRectangleIcon className="w-6 h-6 ml-2 text-gray-500" />

@@ -1,19 +1,20 @@
 import {ArrowRightOnRectangleIcon} from "@heroicons/react/24/outline";
 import { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { AuthContext } from "../../context/AuthProvider";
 import SearchBar from "./../searchbar/Searchbar";
 import { UserContext } from "../../context/UserProvider";
 import { USERS_ACTION } from "../../constants/users-actions";
 import ThemeToggler from "../theme-toggler/ThemeToggler";
+import useUserLogout from "../../hooks/useUserLogout";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [top, setTop] = useState(true);
+  const handleUserLogout=useUserLogout()
   const location = useLocation();
   const {
-    handleUserLogout,
-    authState: { user },
-  } = useContext(AuthContext);
+     user
+  } = useSelector(store => store.auth);
   const profilePic = user.profilePic;
   const { usersDispatch } = useContext(UserContext);
   useEffect(() => {
@@ -64,7 +65,7 @@ function Navbar() {
               alt="avatar"
             />
           </button>
-          <div className="hidden  sm:block lg:hidden">
+          <div className="hidden sm:block lg:hidden">
             <ArrowRightOnRectangleIcon
               onClick={handleUserLogout}
               className="w-8 h-8 text-gray-800 cursor-pointer dark:text-gray-100"

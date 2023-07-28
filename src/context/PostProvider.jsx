@@ -13,13 +13,13 @@ import {
   likePost,
   removeBookmark,
 } from "../services/post-service";
-import { AuthContext } from "./AuthProvider";
 import { postInitialState } from "./initial-states/PostInitialState";
 import postReducer from "../reducers/posts-reducer";
 import { delayResult, errorHandler } from "../services/common-util";
 import POSTS_ACTIONS from "../constants/posts-actions";
 import { UserContext } from "./UserProvider";
 import { toast } from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 export const PostContext = createContext();
 
@@ -27,10 +27,9 @@ const PostProvider = ({ children }) => {
   const [postsState, postsDispatch] = useReducer(postReducer, postInitialState);
   const [fileDetails, setFilesDetails] = useState();
   const { posts } = postsState;
-  // Auth Provider
   const {
-    authState: { token, user },
-  } = useContext(AuthContext);
+    token, user
+  } = useSelector(store => store.auth);
   // User Provider
   const { getUserAndFollowingsUsername } = useContext(UserContext);
 
@@ -140,7 +139,7 @@ const PostProvider = ({ children }) => {
     }
   };
 
- 
+
 
   const checkMediaType = (mediaLink) => {
     if (mediaLink.includes("/image/")) return { type: "image" };

@@ -1,1 +1,4 @@
-export const authInitialState={user:{},token:null}
+export const authInitialState = {
+  user: {},
+  token: null,
+};

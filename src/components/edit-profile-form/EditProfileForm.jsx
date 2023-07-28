@@ -2,10 +2,10 @@
 
 import { useContext, useState,useEffect } from "react";
 import { UserContext } from "../../context/UserProvider";
-import { AuthContext } from "../../context/AuthProvider";
 import { CameraIcon } from "@heroicons/react/24/outline";
 import {  Popover } from "@headlessui/react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const avatarLinks = [
     "https://ik.imagekit.io/pb97gg2as/Ping-Connnect/Avatars/_4191e98a-8aee-4200-b956-343faa6bef7c.jpg?updatedAt=1686940611518",
@@ -24,9 +24,8 @@ const avatarLinks = [
 
 const EditProfileForm = ({setShowModal}) => {
     const location=useLocation()
-  const {
-    authState: { user },
-  } = useContext(AuthContext);
+    const user=useSelector(store=>store.auth.user)
+
     const [formState, setFormState] = useState(null);
     const { handleEditUser } =
     useContext(UserContext);
@@ -37,7 +36,8 @@ const EditProfileForm = ({setShowModal}) => {
     const handleSubmit = (e) => {
       e.preventDefault();
       handleEditUser(formState);
-      setShowModal(false);
+
+      typeof setShowModal==='function' && setShowModal(false);
     };
   
     const changeFileHandler = async (e) => {

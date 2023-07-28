@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 
 import { useContext, useEffect } from "react";
-import { AuthContext } from "../../context/AuthProvider";
 import { PostContext } from "../../context/PostProvider";
 import PostCard from "../../components/post-card/PostCard";
 import { useState } from "react";
@@ -14,12 +13,11 @@ import NoDataAvailable from "../../components/no-data-available/NoDataAvailable"
 import { USERS_ACTION } from "../../constants/users-actions";
 import CustomDialog from "../../components/dialog/CustomDialog";
 import EditProfileForm from './../../components/edit-profile-form/EditProfileForm';
+import { useSelector } from "react-redux";
 const Profile = () => {
-  const {
-    authState: { user },
-  } = useContext(AuthContext);
   const [selectedUser, setSelectedUser] = useState({});
-  const [toggleEditProfile, setToggleEditProfile] = useState(false)
+  const [toggleEditProfile, setToggleEditProfile] = useState(false);
+  const user=useSelector(store=>store.auth.user)
   const location = useLocation();
   const {
     handleUnfollowRequest,
@@ -72,12 +70,9 @@ const Profile = () => {
     }
   };
 
-  const handleEditProfile = () => {
-    setToggleEditProfile(true);
-  };
   const handleProfileMainCTA = () => {
     if (selectedUser?.username === user?.username)
-      return { title: "Edit Profile", cta: handleEditProfile };
+      return { title: "Edit Profile", cta: () => setToggleEditProfile(true)};
     if (followingList.includes(selectedUser?.username))
       return { title: "Unfollow", cta: handleUnfollowRequest };
     return { title: "Follow", cta: handleFollowRequest };

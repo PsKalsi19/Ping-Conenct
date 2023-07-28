@@ -11,7 +11,7 @@ import { createPost, editPost, postImage, postVideo } from "../../services/post-
 import { errorHandler } from "../../services/common-util";
 import PostMenus from "../post-menu/PostMenus";
 import POSTS_ACTIONS from "../../constants/posts-actions";
-import { AuthContext } from "../../context/AuthProvider";
+import { useSelector } from "react-redux";
 
 const PostWrite = ({ post,closeModal }) => {
   const [mediaForPreview, setMediaForPreview] = useState(null);
@@ -24,10 +24,6 @@ const PostWrite = ({ post,closeModal }) => {
     checkMediaType,
     postsDispatch
   } = useContext(PostContext);
-
-  const {
-    authState: { user },
-  } = useContext(AuthContext);
 
   useEffect(() => {
     if (post && Object.keys(post).length > 0) {
@@ -81,7 +77,7 @@ const PostWrite = ({ post,closeModal }) => {
         setPostText("");
         handleRemoveFile();
         textAreaRef.current.style.height = "auto";
-        closeModal(false);
+       typeof closeModal==='function' && closeModal(false);
       })
       .catch((error) => errorHandler(error));
   };
@@ -170,6 +166,9 @@ const PostWrite = ({ post,closeModal }) => {
       );
     });
   };
+  const {
+    user
+ } = useSelector(store => store.auth);
 
   const profilePic = user.profilePic;
 
