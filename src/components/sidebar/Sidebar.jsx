@@ -8,15 +8,16 @@ import {
 } from "@heroicons/react/24/outline";
 
 import { NavLink } from "react-router-dom";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../context/AuthProvider";
+import {  useState } from "react";
 import CustomDialog from './../dialog/CustomDialog';
 import PostWrite from "../post-write/PostWrite";
+import { useSelector } from "react-redux";
+import useUserLogout from "../../hooks/useUserLogout";
 const Sidebar = () => {
   const {
-    handleUserLogout,
-    authState: { user },
-  } = useContext(AuthContext);
+    user
+ } = useSelector(store => store.auth);
+ const handleUserLogout=useUserLogout()
   const [showModal, setShowModal] = useState(false)
   const { firstName, lastName, username, profilePic } = user;
   return (
@@ -100,7 +101,7 @@ const Sidebar = () => {
                 showModal={showModal}
                 setShowModal={setShowModal} >
                 <section className="flex w-full rounded-xl">  
-                <PostWrite post={{}} /></section>
+                <PostWrite closeModal={setShowModal} post={{}} /></section>
               </CustomDialog>
             }
           </div>

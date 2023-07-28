@@ -3,13 +3,16 @@ import { authInitialState } from "../context/initial-states/AuthInitialState";
 
 const authSlice = createSlice({
   name: "auth",
-  initialState: authInitialState,
+  initialState: {...authInitialState,theme:'dark'},
   reducers: {
-    setAuthFromSlice: (state, action) => {
-      console.log(state, action);
+    setAuthAndUser: (state, { payload, type }) => {
+      return {...state,user:payload.user,token:payload.token}
     },
+    setTheme:(state,{payload,type})=>{
+      return {...state,theme:payload}
+    }
   },
 });
 
-export const { setAuthFromSlice } = authSlice.actions;
+export const { setAuthAndUser,setTheme } = authSlice.actions;
 export default authSlice.reducer;

@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthProvider';
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 
 const RecommandedUsers = ({ user, clickHandler, btnCTA }) => {
     const { profilePic, firstName, lastName, username,_id } = user
-    const { authState } = useContext(AuthContext)
-    const currentUser=authState?.user
+    const currentUser=useSelector(store=>store.auth.user)
     return (
         <>
             <div className="flex flex-row col-span-3 ">
