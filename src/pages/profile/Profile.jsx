@@ -1,32 +1,32 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 
-import { useContext, useEffect } from "react";
-import { PostContext } from "../../context/PostProvider";
+import {  useEffect } from "react";
 import PostCard from "../../components/post-card/PostCard";
 import { useState } from "react";
 import Tabs from "../../components/tabs/Tabs";
-import { UserContext } from "../../context/UserProvider";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { useLocation } from "react-router-dom";
 import RecommandedUsers from "../../components/recommanded-users/RecommandedUsers";
 import NoDataAvailable from "../../components/no-data-available/NoDataAvailable";
-import { USERS_ACTION } from "../../constants/users-actions";
 import CustomDialog from "../../components/dialog/CustomDialog";
 import EditProfileForm from './../../components/edit-profile-form/EditProfileForm';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import useFollowUnfollowUser from "../../hooks/useFollowUnfollowUser";
+import useUsersUtility from "../../hooks/useUsersUtility";
+import { setCurrentPage } from "../../store/usersSlice";
 const Profile = () => {
   const [selectedUser, setSelectedUser] = useState({});
   const [toggleEditProfile, setToggleEditProfile] = useState(false);
   const user=useSelector(store=>store.auth.user)
+    const posts=useSelector(store=>store.post.posts)
   const location = useLocation();
   const {
-    handleUnfollowRequest,
-    handleFollowRequest,
-    usersDispatch,
     getUsersFollowingList,
-    getUserByUsername,
-    usersState: { disableButton },
-  } = useContext(UserContext);
+  } = useUsersUtility();
+
+  const dispatch=useDispatch()
+  const {followUser,unfollowUser,disableButton}=useFollowUnfollowUser()
+  const {getUserByUsername}=useUsersUtility()
   useEffect(() => {
     document.title = "PROFILE | PING CONNECT";
     if (location?.state !== null) {
@@ -35,13 +35,10 @@ const Profile = () => {
       setSelectedUser(user);
     }
   }, [getUserByUsername, location?.state, user]);
-
   useEffect(() => {
-    usersDispatch({ type: USERS_ACTION.UPDATE_PAGE, payload: "profile" });
-  }, [usersDispatch]);
-  const {
-    postsState: { posts },
-  } = useContext(PostContext);
+    dispatch(setCurrentPage("profile" ));
+  }, [dispatch]);
+
   const followingList = getUsersFollowingList(user);
 
   const currentUsersPosts = posts.filter(
@@ -74,8 +71,8 @@ const Profile = () => {
     if (selectedUser?.username === user?.username)
       return { title: "Edit Profile", cta: () => setToggleEditProfile(true)};
     if (followingList.includes(selectedUser?.username))
-      return { title: "Unfollow", cta: handleUnfollowRequest };
-    return { title: "Follow", cta: handleFollowRequest };
+      return { title: "Unfollow", cta: unfollowUser };
+    return { title: "Follow", cta: followUser };
   };
 
   return (
@@ -179,8 +176,8 @@ const Profile = () => {
                     user={follower}
                     clickHandler={
                       followingList.includes(follower?.username)
-                        ? handleUnfollowRequest
-                        : handleFollowRequest
+                        ? unfollowUser
+                        : followUser
                     }
                     btnCTA={
                       followingList.includes(follower?.username)
@@ -215,7 +212,7 @@ const Profile = () => {
                 >
                   <RecommandedUsers
                     user={followingUser}
-                    clickHandler={handleUnfollowRequest}
+                    clickHandler={unfollowUser}
                     btnCTA={
                       followingList.includes(followingUser?.username)
                         ? "Unfollow"

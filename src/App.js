@@ -19,10 +19,56 @@ import {
 } from "./services/localstorage-service";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthAndUser, setTheme } from "./store/authSlice";
+import { getAllUsersList } from "./services/user-services";
+import { setAllUsers } from "./store/usersSlice";
+import { errorHandler } from "./services/common-util";
+import { getAllPosts } from "./services/post-service";
+import { setPosts, setUserFeed } from "./store/postSlice";
+import useUsersUtility from "./hooks/useUsersUtility";
 
 export default function App() {
   const dispatch = useDispatch();
-  const theme=useSelector(store=>store.auth.theme)
+  const { theme, token } = useSelector((store) => store.auth);
+  const posts=useSelector(store=>store.post.posts);
+  const {getUserAndFollowingsUsername}=useUsersUtility()
+  useEffect(() => {
+    if (token === null) return;
+    const getAllUsers = async () => {
+      try {
+        const {
+          data: { users },
+        } = await getAllUsersList();
+        dispatch(setAllUsers(users));
+      } catch (error) {
+        errorHandler(error);
+      }
+    };
+    const getPosts = async () => {
+      try {
+        const {
+          data: { posts },
+        } = await getAllPosts();
+        dispatch(setPosts(posts ));
+      } catch (error) {
+        errorHandler(error);
+      }
+    };
+    getAllUsers();
+    getPosts();
+  }, [token]);
+
+  useEffect(() => {
+    if (posts && posts.length > 0) {
+      const filterAllUserPostFeed = () => {
+        const filteredPosts = posts.filter((post) =>
+          getUserAndFollowingsUsername(getUserFromLocalStorage()).includes(post.username)
+        );
+        dispatch(setUserFeed(filteredPosts));
+      };
+      filterAllUserPostFeed();
+    }
+  }, [dispatch, getUserAndFollowingsUsername, posts]);
+
   useEffect(() => {
     if (
       getAuthFromLocalStorage() !== null &&
@@ -43,10 +89,10 @@ export default function App() {
         .matches
         ? "dark"
         : "light";
-      dispatch(setTheme(systemTheme))
+      dispatch(setTheme(systemTheme));
       setThemeInLocalStorage(systemTheme);
     }
-    dispatch(setTheme(getPreferedTheme()))
+    dispatch(setTheme(getPreferedTheme()));
     const themeClassNameRender = () => {
       theme === "dark"
         ? document.documentElement.classList.add("dark")
@@ -55,10 +101,8 @@ export default function App() {
     themeClassNameRender();
   }, [theme]);
 
-
-
   return (
-    <div className="min-h-screen bg-orange-50  dark:bg-stone-900">
+    <div className="min-h-screen bg-orange-50 dark:bg-stone-900">
       <Routes>
         <Route
           path="/"

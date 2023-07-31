@@ -1,34 +1,28 @@
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import PostCard from "../../components/post-card/PostCard";
-import { PostContext } from "../../context/PostProvider";
 import { useEffect } from "react";
-import POSTS_ACTIONS from "../../constants/posts-actions";
 import { delayResult } from "../../services/common-util";
 import PostCardSkeleton from "../../components/post-card-skeleton/PostCardSkeleton";
 import NoDataAvailable from "../../components/no-data-available/NoDataAvailable";
-import { UserContext } from "../../context/UserProvider";
-import { USERS_ACTION } from "../../constants/users-actions";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentPage } from "../../store/usersSlice";
 
 const Explore = () => {
-  const {
-    postsState: { posts, showLoader },
-    postsDispatch,
-  } = useContext(PostContext);
 
-  const {
-    usersDispatch
-  } = useContext(UserContext);
-  const [allPosts, setAllPosts] = useState([]);
+  const [showLoader, setShowLoader] = useState(false)
   const observerTarget = useRef(null);
+  const [allPosts, setAllPosts] = useState([]);
+  const dispatch = useDispatch()
+  const posts = useSelector(store => store.post.posts)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          postsDispatch({ type: POSTS_ACTIONS.SET_LOADING, payload: true });
+          setShowLoader(true);
           delayResult(() => {
-            postsDispatch({ type: POSTS_ACTIONS.SET_LOADING, payload: false });
+            setShowLoader(false);
             setAllPosts((prevState) => [...prevState, ...posts]);
-          },2000);
+          }, 2000);
         }
       },
       { threshold: 1 }
@@ -44,12 +38,11 @@ const Explore = () => {
         observer.unobserve(observerTarget.current);
       }
     };
-  }, [observerTarget, posts, postsDispatch]);
-
+  }, [posts, setShowLoader]);
   useEffect(() => {
     document.title = "EXPLORE | PING CONNECT";
-    usersDispatch({ type: USERS_ACTION.UPDATE_PAGE, payload: "explore" });
-  }, [usersDispatch]);
+    dispatch(setCurrentPage("explore"));
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col items-center mt-2 space-y-4">
@@ -59,7 +52,7 @@ const Explore = () => {
           <PostCard post={post} key={post._id + index} />
         ))}
       <div ref={observerTarget}></div>
-      {showLoader && <PostCardSkeleton />}
+      {showLoader && [1,2,3].map((ele,index)=><PostCardSkeleton key={index} />)}
       {!showLoader && posts && posts.length === 0 && (
         <NoDataAvailable
           message={`Remember, a simple follow or a post can lead to remarkable

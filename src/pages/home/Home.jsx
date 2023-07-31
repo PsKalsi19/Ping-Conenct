@@ -1,34 +1,32 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import PostCard from "../../components/post-card/PostCard";
 import Tabs from "./../../components/tabs/Tabs";
-import { PostContext } from "../../context/PostProvider";
 import PostWrite from "../../components/post-write/PostWrite";
-import POSTS_ACTIONS from "../../constants/posts-actions";
 import NoDataAvailable from "../../components/no-data-available/NoDataAvailable";
 import { delayResult } from "../../services/common-util";
 import PostCardSkeleton from "../../components/post-card-skeleton/PostCardSkeleton";
-import { UserContext } from "../../context/UserProvider";
-import { USERS_ACTION } from "../../constants/users-actions";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentPage } from "../../store/usersSlice";
+import { setSorts } from "../../store/postSlice";
+import { useState } from "react";
+
 
 const Home = () => {
-  const {
-    postsState: { currentUserFeed, showLoader, current_sortby },
-    postsDispatch,
-  } = useContext(PostContext);
-
-  const { usersDispatch } = useContext(UserContext);
+  const [showLoader, setShowLoader] = useState(false)
+  const dispatch = useDispatch()
+  const { currentUserFeed, current_sortby } = useSelector(store => store.post)
 
   const sortFeed = () => {
     let sortedFeed = [];
     if (currentUserFeed.length === 0) return;
     switch (current_sortby) {
       case "trending":
-        sortedFeed = currentUserFeed.sort(
+        sortedFeed = currentUserFeed.slice().sort(
           (a, b) => b.likes.likeCount - a.likes.likeCount
         );
         break;
       case "latest":
-        sortedFeed = currentUserFeed.sort(
+        sortedFeed = currentUserFeed.slice().sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
         break;
@@ -36,30 +34,29 @@ const Home = () => {
         sortedFeed = currentUserFeed;
         break;
     }
-
     return sortedFeed
-    // postsDispatch({ type: POSTS_ACTIONS.SET_USER_FEED, payload: sortedFeed });
   };
 
   const handleTabChange = (e) => {
     e === 0
-      ? postsDispatch({ type: POSTS_ACTIONS.SET_SORT, payload: "latest" })
-      : postsDispatch({ type: POSTS_ACTIONS.SET_SORT, payload: "trending" });
+      ? dispatch(setSorts("latest"))
+      : dispatch(setSorts("trending"));
   };
   const tabTypes = ["Latest", "Trending"];
   useEffect(() => {
-    postsDispatch({ type: POSTS_ACTIONS.SET_LOADING, payload: true });
+    setShowLoader(true);
     delayResult(() => {
-      postsDispatch({ type: POSTS_ACTIONS.SET_LOADING, payload: false });
+      setShowLoader(false);
     }, 2000);
     document.title = "HOME | PING CONNECT";
-    usersDispatch({ type: USERS_ACTION.UPDATE_PAGE, payload: "home" });
-  }, [postsDispatch, usersDispatch]);
+    dispatch(setCurrentPage("home"));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="relative">
       <div className="sticky z-10 bg-orange-50 dark:bg-stone-900 top-16 md:top-20 lg:top-20">
-      <div className="hidden p-4 mb-4 border-2 border-gray-400 lg:flex dark:border-gray-200 rounded-xl">
-         <PostWrite post={{}} closeModal={undefined} />
+        <div className="hidden p-4 mb-4 border-2 border-gray-400 lg:flex dark:border-gray-200 rounded-xl">
+          <PostWrite post={{}} closeModal={undefined} />
         </div>
         <Tabs handleTabChange={handleTabChange} tabTypes={tabTypes} />
       </div>

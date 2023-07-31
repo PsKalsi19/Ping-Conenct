@@ -1,32 +1,24 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
   XMarkIcon,
   ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/outline";
-import { UserContext } from "../../context/UserProvider";
-import { USERS_ACTION } from "../../constants/users-actions";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useUserLogout from "../../hooks/useUserLogout";
+import useToggleMobileSidebar from "../../hooks/useToggleMobileSidebar";
 
 const MobileSidebar = () => {
-  const {
-    usersState: { mobileSidebar },
-    usersDispatch,
-  } = useContext(UserContext);
   const handleUserLogout = useUserLogout()
-
+  const {mobileSidebar,setMobileSidebar}=useToggleMobileSidebar()
   const {
     user
   } = useSelector(store => store.auth);
   const navigate = useNavigate();
   const handleProfileRedirect = () => {
-    usersDispatch({
-      type: USERS_ACTION.TOGGLE_MOBILE_SIDEBAR,
-      payload: false,
-    });
+    setMobileSidebar(false)
     navigate("/profile");
   };
   return (
@@ -35,10 +27,7 @@ const MobileSidebar = () => {
         as="div"
         className="relative z-10"
         onClose={() =>
-          usersDispatch({
-            type: USERS_ACTION.TOGGLE_MOBILE_SIDEBAR,
-            payload: false,
-          })
+          setMobileSidebar(false)
         }
       >
         <Transition.Child
@@ -79,10 +68,7 @@ const MobileSidebar = () => {
                             type="button"
                             className="p-2 -m-2 text-gray-400 hover:text-gray-500"
                             onClick={() =>
-                              usersDispatch({
-                                type: USERS_ACTION.TOGGLE_MOBILE_SIDEBAR,
-                                payload: false,
-                              })
+                              setMobileSidebar(false)
                             }
                           >
                             <span className="sr-only">Close panel</span>
@@ -127,7 +113,7 @@ const MobileSidebar = () => {
                       <div className="mt-6 space-y-4">
                         <button
                           onClick={() => {
-                            usersDispatch({ type: USERS_ACTION.TOGGLE_MOBILE_SIDEBAR, payload: false });
+                            setMobileSidebar(false)
                             handleUserLogout()
                           }}
                           className="inline-flex items-center justify-center w-full col-span-2 px-6 py-3 text-sm font-medium text-center text-gray-700 border rounded-md shadow dark:text-gray-700 dark:hover:bg-stone-700 dark:hover:text-gray-100 hover:text-gray-100 bg-gray-50 hover:bg-orange-400/80"

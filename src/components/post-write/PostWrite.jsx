@@ -3,28 +3,22 @@ import { FaceSmileIcon } from "@heroicons/react/24/outline";
 
 import EmojiPicker, { SkinTones, Theme } from "emoji-picker-react";
 /* eslint-disable no-undef */
-import { useContext, useEffect, useState, useRef } from "react";
-import { PostContext } from "../../context/PostProvider";
+import {  useEffect, useState, useRef } from "react";
 import { toast } from "react-hot-toast";
 import PostMedia from "./PostMedia";
-import { createPost, editPost, postImage, postVideo } from "../../services/post-service";
+import { checkMediaType, createPost, editPost, postImage, postVideo } from "../../services/post-service";
 import { errorHandler } from "../../services/common-util";
 import PostMenus from "../post-menu/PostMenus";
-import POSTS_ACTIONS from "../../constants/posts-actions";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setPosts } from "../../store/postSlice";
 
-const PostWrite = ({ post,closeModal }) => {
+const PostWrite = ({ post, closeModal }) => {
   const [mediaForPreview, setMediaForPreview] = useState(null);
   const textAreaRef = useRef(null);
   const [postText, setPostText] = useState("");
   const [postLoader, setPostLoader] = useState(false)
-  const {
-    fileDetails,
-    setFilesDetails,
-    checkMediaType,
-    postsDispatch
-  } = useContext(PostContext);
-
+  const [fileDetails, setFilesDetails] = useState();
+  const dispatch=useDispatch()
   useEffect(() => {
     if (post && Object.keys(post).length > 0) {
       handleTextArea(post.content);
@@ -77,7 +71,7 @@ const PostWrite = ({ post,closeModal }) => {
         setPostText("");
         handleRemoveFile();
         textAreaRef.current.style.height = "auto";
-       typeof closeModal==='function' && closeModal(false);
+        typeof closeModal === 'function' && closeModal(false);
       })
       .catch((error) => errorHandler(error));
   };
@@ -88,7 +82,7 @@ const PostWrite = ({ post,closeModal }) => {
         data: { posts },
       } = await createPost(postData);
       toast.success("Post Added");
-      postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+      dispatch(setPosts(posts));
       setPostLoader(false)
     } catch (error) {
       errorHandler(error);
@@ -102,7 +96,7 @@ const PostWrite = ({ post,closeModal }) => {
         data: { posts },
       } = await editPost(postData);
       toast.success("Post Edited");
-      postsDispatch({ type: POSTS_ACTIONS.SET_POSTS, payload: posts });
+      dispatch(setPosts(posts));
       setPostLoader(false)
     } catch (error) {
       errorHandler(error);
@@ -168,7 +162,7 @@ const PostWrite = ({ post,closeModal }) => {
   };
   const {
     user
- } = useSelector(store => store.auth);
+  } = useSelector(store => store.auth);
 
   const profilePic = user.profilePic;
 

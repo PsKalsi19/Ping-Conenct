@@ -4,15 +4,12 @@ import Navbar from "./../../components/navbar/Navbar";
 import TrendingSidebar from "./../../components/trending-sidebar/TrendingSidebar";
 import MobileNavigation from "../../components/mobile-navigation/MobileNavigation";
 import FloatingActionButton from "../../components/floating-action-button/FloatingActionButton";
-import { useContext } from "react";
-import { UserContext } from "../../context/UserProvider";
 import MobileSidebar from "../../components/mobile-sidebar/MobileSidebar";
 import ThemeToggler from "../../components/theme-toggler/ThemeToggler";
+import { useSelector } from "react-redux";
 
 const PrimaryLayout = () => {
-  const {
-    usersState: { currentPage },
-  } = useContext(UserContext);
+  const currentPage=useSelector(store=>store.users.currentPage)
   return (
     <div>
       <div className="mx-auto md:max-w-2xl lg:max-w-7xl">

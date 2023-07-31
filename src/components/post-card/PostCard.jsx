@@ -1,32 +1,27 @@
-import { useContext } from "react";
-import { UserContext } from "../../context/UserProvider";
-import { HeartIcon } from "@heroicons/react/24/outline";
-import { BookmarkIcon } from "@heroicons/react/24/outline";
-// import { ChatBubbleBottomCenterIcon } from "@heroicons/react/24/outline";
+import { HeartIcon,BookmarkIcon } from "@heroicons/react/24/outline";
 import { getUserFromLocalStorage } from "../../services/localstorage-service";
 import PostCardMenu from "../post-card-menu/PostCardMenu";
-import { PostContext } from "../../context/PostProvider";
 import { Link } from "react-router-dom";
 import PostMedia from "../post-write/PostMedia";
+import useUsersUtility from "../../hooks/useUsersUtility";
+import usePostsOperations from './../../hooks/usePostsOperations';
+import { useSelector } from "react-redux";
+import { checkMediaType } from "../../services/post-service";
 
 const PostCard = ({ post }) => {
   const {
     username,
     content,
     likes: { likeCount, likedBy },
-    // comments,
     _id,
     media,
   } = post;
-  const { getUserByUsername } = useContext(UserContext);
-  const {
-    handlePostLike,
-    handlePostDislike,
-    handleAddToBookmark,
-    handleRemoveFromBookmark,
-    checkMediaType,
-    postsState: { bookmarks, disableCurrentButton },
-  } = useContext(PostContext);
+  const { getUserByUsername } = useUsersUtility();
+
+  const bookmarks=useSelector(store=>store.post.bookmarks)
+  const { handlePostDislike, handlePostLike, disableCurrentButton, handleAddToBookmark,
+    handleRemoveFromBookmark, } = usePostsOperations()
+
   const currentUser = getUserFromLocalStorage().username;
   const likedByCurrentUser = likedBy
     .map((ele) => ele.username)
@@ -34,7 +29,7 @@ const PostCard = ({ post }) => {
   const { firstName, lastName, profilePic } = getUserByUsername(username);
   const isBookmarked = bookmarks.includes(_id);
   return (
-    <div className="block w-full max-w-lg px-6 pt-6 pb-4 bg-gradient-to-br bg-orange-100/20 bg-blend-darken border border-gray-300 rounded-lg dark:border-stone-700 dark:bg-stone-800/40 shadow">
+    <div className="block w-full max-w-lg px-6 pt-6 pb-4 border border-gray-300 rounded-lg shadow bg-gradient-to-br bg-orange-100/20 bg-blend-darken dark:border-stone-700 dark:bg-stone-800/40">
       <div className="flex justify-between mb-4">
         <div className="flex flex-row">
           <Link to="/profile" state={post}>
@@ -83,21 +78,18 @@ const PostCard = ({ post }) => {
               className={`p-2 text-gray-600 dark:text-gray-100 rounded-full  w-9 h-9  hover:bg-red-300/60 hover:fill-red-500 group-hover:text-red-600  
               
               dark:hover:bg-red-300/60 dark:hover:fill-red-500 dark:group-hover:text-red-600
-              ${
-                likedByCurrentUser
+              ${likedByCurrentUser
                   ? "fill-red-500 text-red-600  dark:text-red-500 dark:fill-red-500"
                   : ""
-              }  ${
-                disableCurrentButton === _id
+                }  ${disableCurrentButton === _id
                   ? " cursor-not-allowed"
                   : "cursor-pointer"
-              } `}
+                } `}
             />
           </button>
           <p
-            className={`ml-1 text-gray-600 dark:text-red-100 dark:group-hover:text-red-500  group-hover:text-red-600 text-normal ${
-              likedByCurrentUser ? "text-red-600 dark:text-red-500" : ""
-            }`}
+            className={`ml-1 text-gray-600 dark:text-red-100 dark:group-hover:text-red-500  group-hover:text-red-600 text-normal ${likedByCurrentUser ? "text-red-600 dark:text-red-500" : ""
+              }`}
           >
             {likeCount}
           </p>
@@ -121,16 +113,14 @@ const PostCard = ({ post }) => {
           type="button"
         >
           <BookmarkIcon
-            className={`p-2 ml-8 text-gray-600 dark:text-gray-100 rounded-full w-9 h-9 dark:hover:bg-stone-500/60 hover:bg-orange-300/60 hover:fill-orange-500 hover:text-orange-600 dark:hover:fill-orange-700 dark:hover:text-orange-800  ${
-              isBookmarked
+            className={`p-2 ml-8 text-gray-600 dark:text-gray-100 rounded-full w-9 h-9 dark:hover:bg-stone-500/60 hover:bg-orange-300/60 hover:fill-orange-500 hover:text-orange-600 dark:hover:fill-orange-700 dark:hover:text-orange-800  ${isBookmarked
                 ? "fill-orange-500 text-orange-600 dark:fill-orange-700 dark:text-orange-800"
                 : ""
-            }  
-            ${
-              disableCurrentButton === _id
+              }  
+            ${disableCurrentButton === _id
                 ? " cursor-not-allowed"
                 : "cursor-pointer"
-            }
+              }
             `}
           />
         </button>
