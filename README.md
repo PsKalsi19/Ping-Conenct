@@ -49,6 +49,7 @@
 > ### Built using
 * React
 * React Router
+* Redux Toolkit
 * Tailwind
 * Mockbee
 * Headless UI
