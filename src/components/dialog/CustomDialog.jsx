@@ -36,7 +36,7 @@ const CustomDialog = ({showModal, setShowModal,children}) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-xl p-6 overflow-hidden text-left align-middle transition-all transform shadow-xl bg-orange-50 dark:bg-stone-900 rounded-2xl">
+                <Dialog.Panel className="w-full max-w-xl p-6 text-left align-middle transition-all transform shadow-xl bg-orange-50 dark:bg-stone-900 rounded-2xl">
                    {children}
                 </Dialog.Panel>
               </Transition.Child>
