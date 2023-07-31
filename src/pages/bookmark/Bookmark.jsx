@@ -1,22 +1,17 @@
-import { useContext, useEffect } from "react";
-import { PostContext } from "../../context/PostProvider";
+import { useEffect } from "react";
 import PostCard from "../../components/post-card/PostCard";
 import NoDataAvailable from "../../components/no-data-available/NoDataAvailable";
-import { UserContext } from "./../../context/UserProvider";
-import { USERS_ACTION } from "../../constants/users-actions";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentPage } from "../../store/usersSlice";
 
 const Bookmark = () => {
-  const {
-    postsState: { bookmarks, posts },
-  } = useContext(PostContext);
-  const {
-    usersDispatch
-  } = useContext(UserContext);
+  const {bookmarks,posts}=useSelector(store=>store.post)
+  const dispatch=useDispatch()
   const bookmarkedPosts = posts.filter(({ _id }) => bookmarks.includes(_id));
   useEffect(() => {
     document.title = "BOOKMARKS | PING CONNECT";
-    usersDispatch({ type: USERS_ACTION.UPDATE_PAGE, payload: "bookmark" });
-  }, [usersDispatch]);
+    dispatch(setCurrentPage("bookmark" ));
+  }, [dispatch]);
 
   if (bookmarks && bookmarks.length === 0) {
     return (

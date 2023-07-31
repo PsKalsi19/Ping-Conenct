@@ -51,3 +51,9 @@ export const postVideo = (payload) => {
     { method: "POST", body: payload }
   );
 };
+
+
+export const checkMediaType = (mediaLink) => {
+  if (mediaLink.includes("/image/")) return { type: "image" };
+  if (mediaLink.includes("/video/")) return { type: "video" };
+};

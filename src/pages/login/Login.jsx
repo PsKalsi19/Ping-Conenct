@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { getAuthFromLocalStorage, setAuthToLocalStorage, setUserToLocalStorage } from "../../services/localstorage-service";
-import { authInitialState } from "../../context/initial-states/AuthInitialState";
+import { authInitialState } from "../../store/initial-states/AuthInitialState";
 import { getLoginUser } from "../../services/auth-services";
 import { errorHandler } from "../../services/common-util";
 import { toast } from "react-hot-toast";

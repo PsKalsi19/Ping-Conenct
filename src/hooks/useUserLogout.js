@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { setAuthAndUser } from "../store/authSlice";
-import { authInitialState } from "../context/initial-states/AuthInitialState";
+import { authInitialState } from "../store/initial-states/AuthInitialState";
 import { useNavigate } from "react-router-dom";
 import { handleLogout } from "../services/localstorage-service";
 

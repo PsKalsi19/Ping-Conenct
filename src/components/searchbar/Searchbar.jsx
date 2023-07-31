@@ -1,13 +1,12 @@
 import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
-import { useContext } from "react";
-import { UserContext } from "../../context/UserProvider";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 
 const SearchBar = () => {
-  const { usersState: { users } } = useContext(UserContext)
+  const users=useSelector(store=>store.users.users)
   const [searchTerm, setSearchTerm] = useState('')
 const navigate=useNavigate()
   // Only to resolve errors
@@ -57,7 +56,7 @@ const navigate=useNavigate()
           leaveTo="opacity-0"
           afterLeave={() => setSearchTerm("")}
         >
-          <Combobox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-orange-50 rounded-md shadow-lg dark:bg-stone-900 max-h-60 ring-1 ring-orange-100 dark:ring-stone-700 ring-opacity-5 focus:outline-none sm:text-sm">
+          <Combobox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base rounded-md shadow-lg bg-orange-50 dark:bg-stone-900 max-h-60 ring-1 ring-orange-100 dark:ring-stone-700 ring-opacity-5 focus:outline-none sm:text-sm">
             {searchUserHandler().length === 0 && searchTerm !== "" ? (
               <div className="relative px-4 py-2 text-gray-700 cursor-default select-none dark:text-gray-50">
                 Nothing found.
