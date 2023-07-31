@@ -55,7 +55,7 @@ const Home = () => {
   return (
     <div className="relative">
       <div className="sticky z-10 bg-orange-50 dark:bg-stone-900 top-16 md:top-20 lg:top-20">
-        <div className="hidden p-4 mb-4 border-2 border-gray-400 lg:flex dark:border-gray-200 rounded-xl">
+        <div className="hidden p-4 mb-4 border-2 border-orange-200 lg:flex dark:border-gray-100 rounded-xl">
           <PostWrite post={{}} closeModal={undefined} />
         </div>
         <Tabs handleTabChange={handleTabChange} tabTypes={tabTypes} />
