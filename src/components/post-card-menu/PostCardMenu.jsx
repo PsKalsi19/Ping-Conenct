@@ -1,29 +1,30 @@
 import { Popover, Transition } from "@headlessui/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
-import { useContext, useState } from "react";
-import { PostContext } from "./../../context/PostProvider";
+import { useState } from "react";
 import { getUserFromLocalStorage } from "../../services/localstorage-service";
-import { UserContext } from "../../context/UserProvider";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
 import CustomDialog from "../dialog/CustomDialog";
 import PostWrite from "../post-write/PostWrite";
+import useFollowUnfollowUser from "../../hooks/useFollowUnfollowUser";
+import useUsersUtility from "../../hooks/useUsersUtility";
+import usePostsOperations from "../../hooks/usePostsOperations";
 
 const PostCardMenu = ({ post }) => {
   const { username, _id } = post;
-  const { handleDeletePost } = useContext(PostContext);
   const [showModal, setShowModal] = useState(false)
-  const { getUsersFollowersList, getUsersFollowingList, handleFollowRequest, handleUnfollowRequest, getUserIdByUsername } =
-    useContext(UserContext);
+  const { getUsersFollowersList, getUsersFollowingList,getUserByUsername } =
+    useUsersUtility();
+const {handleDeletePost}=usePostsOperations()
   const followers = getUsersFollowersList(getUserFromLocalStorage());
   const following = getUsersFollowingList(getUserFromLocalStorage());
   const currentUser = getUserFromLocalStorage().username;
-
+  const { followUser, unfollowUser } = useFollowUnfollowUser()
   const handleFollow = () => {
-    handleFollowRequest(getUserIdByUsername(username));
+    followUser(getUserByUsername(username)._id);
   };
 
   const handleUnfollow = () => {
-    handleUnfollowRequest(getUserIdByUsername(username));
+    unfollowUser(getUserByUsername(username)._id);
   };
   return (
     <>
@@ -90,7 +91,7 @@ const PostCardMenu = ({ post }) => {
         showModal && <CustomDialog
           showModal={showModal}
           setShowModal={setShowModal}>
-            <section className="flex w-full rounded-xl">  <PostWrite post={post}
+          <section className="flex w-full rounded-xl">  <PostWrite post={post}
             closeModal={setShowModal}
           /></section>
         </CustomDialog>

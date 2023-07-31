@@ -1,9 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
-import { AuthContext } from "../../context/AuthProvider";
-import { getAuthFromLocalStorage } from "../../services/localstorage-service";
-import { authInitialState } from "../../context/initial-states/AuthInitialState";
+import { getAuthFromLocalStorage, setAuthToLocalStorage, setUserToLocalStorage } from "../../services/localstorage-service";
+import { authInitialState } from "../../store/initial-states/AuthInitialState";
+import { getLoginUser } from "../../services/auth-services";
+import { errorHandler } from "../../services/common-util";
+import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { setAuthAndUser } from "../../store/authSlice";
 const testUser = {
   username: "alice@example.com",
   password: "alice123",
@@ -11,7 +15,8 @@ const testUser = {
 
 const Login = () => {
   const navigate = useNavigate();
-  const { handleUserLogin, setAuthState } = useContext(AuthContext);
+  const dispatch = useDispatch();
+
   const [showPassword, setShowPassword] = useState(false);
   const [loginState, setLoginState] = useState({
     username: "",
@@ -22,8 +27,8 @@ const Login = () => {
     document.title = "LOGIN | PING CONNECT";
     getAuthFromLocalStorage() !== null
       ? navigate("/home")
-      : setAuthState(authInitialState);
-  }, [navigate, setAuthState]);
+      : dispatch(setAuthAndUser(authInitialState));
+  }, [dispatch, navigate]);
 
   const submitHandlerFn = (e) => {
     e.preventDefault();
@@ -37,6 +42,40 @@ const Login = () => {
   const testUserHandler = (e) => {
     setLoginState(testUser);
     handleUserLogin(testUser);
+  };
+
+  const handleLoggedInUser = (token, user) => {
+    const updatedUser = {
+      ...user,
+      profilePic:
+        user.profilePic === ""
+          ? "https://source.unsplash.com/random/900x700/?profile"
+          : user.profilePic,
+
+      banner:
+        user.banner === ""
+          ? "https://source.unsplash.com/random/1080x720/?minimalistic"
+          : user.banner,
+    };
+    dispatch(setAuthAndUser({
+      user: updatedUser,
+      token,
+    }))
+    setUserToLocalStorage(updatedUser);
+    setAuthToLocalStorage(token);
+  };
+
+  const handleUserLogin = async (payload) => {
+    try {
+      const {
+        data: { encodedToken, foundUser },
+      } = await getLoginUser(payload);
+      handleLoggedInUser(encodedToken, foundUser);
+      navigate("/home");
+      toast.success(`Hello ${foundUser?.firstName ?? "User"}`);
+    } catch (error) {
+      errorHandler(error);
+    }
   };
 
   return (

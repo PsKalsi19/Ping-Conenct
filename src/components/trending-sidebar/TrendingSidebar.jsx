@@ -1,15 +1,17 @@
-import { useContext } from "react";
 import SearchBar from "../searchbar/Searchbar";
-import { UserContext } from "../../context/UserProvider";
 import { Link } from "react-router-dom";
+import useFollowUnfollowUser from "../../hooks/useFollowUnfollowUser";
+import useUsersUtility from "../../hooks/useUsersUtility";
+import { getUserFromLocalStorage } from "../../services/localstorage-service";
 
 const TrendingSidebar = () => {
   const {
     getUsersNotOnFollowingList,
-    handleFollowRequest,
-    usersState: { disableButton },
-  } = useContext(UserContext);
-  const whoToFollow = getUsersNotOnFollowingList();
+  } = useUsersUtility();
+  const whoToFollow = getUsersNotOnFollowingList(getUserFromLocalStorage());
+
+  const {followUser,disableButton}=useFollowUnfollowUser()
+
   return (
       <div className="flex flex-col">
           <div className="sticky inset-x-0 pt-4">
@@ -24,9 +26,9 @@ const TrendingSidebar = () => {
                   </h5>
                   {whoToFollow &&
                     whoToFollow.length > 0 &&
-                    whoToFollow.map((followUser, index) => (
+                    whoToFollow.map((usersToFollow, index) => (
                       <div
-                        key={followUser._id}
+                        key={usersToFollow._id}
                         className={`flex flex-row justify-between p-2 hover:bg-orange-200 dark:hover:bg-stone-700 hover:rounded-md gap-x-2 ${
                           index === whoToFollow.length - 1
                             ? ""
@@ -34,23 +36,23 @@ const TrendingSidebar = () => {
                         } `}
                       >
                         <div className="flex flex-row">
-                          <Link to="/profile" state={followUser}>
+                          <Link to="/profile" state={usersToFollow}>
                             <img
                               className="w-10 h-10 rounded-full"
-                              src={followUser.profilePic}
+                              src={usersToFollow.profilePic}
                               alt="avatar"
                             />
                           </Link>
                           <div className="flex flex-col ml-2">
-                            <p className="font-semibold text-gray-700 dark:text-gray-50">{`${followUser.firstName} ${followUser.lastName}`}</p>
+                            <p className="font-semibold text-gray-700 dark:text-gray-50">{`${usersToFollow.firstName} ${usersToFollow.lastName}`}</p>
                             <small className="text-xs font-semibold text-gray-500 dark:text-gray-300">
-                              {followUser.username}
+                              {usersToFollow.username}
                             </small>
                           </div>
                         </div>
                         <button
                           disabled={disableButton}
-                          onClick={() => handleFollowRequest(followUser._id)}
+                          onClick={() => followUser(usersToFollow._id)}
                           className={`inline-flex items-center border border-orange-200 dark:border-stone-400 justify-center w-24 col-span-2 px-2 text-sm font-medium text-center text-gray-700 rounded-md shadow 
                           dark:bg-stone-100 dark:hover:bg-stone-800 dark:hover:text-gray-50 dark:text-gray-700
                           hover:text-gray-100 bg-orange-50 hover:bg-orange-400/80 ${
